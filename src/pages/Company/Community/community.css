@@ -1,0 +1,48 @@
+/* Community.css */
+
+/* Style the community container */
+.community {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Style the h1 element */
+  .community h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the community list */
+  .community-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the icon links */
+  .icon-link {
+    text-decoration: none;
+    color: #333; /* Text color for the icons (adjust as needed) */
+    margin: 0 20px;
+  }
+  
+  /* Style the icons within the links */
+  .icon {
+    background-color: #406777; /* Background color for the icons */
+    color: white; /* Text color for the icons */
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 50%; /* Make the icons circular */
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Hover effect for the icon links */
+  .icon-link:hover .icon {
+    background-color: #072835; /* Change the background color on hover (adjust as needed) */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  

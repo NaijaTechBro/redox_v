@@ -1,0 +1,60 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import '../src/scss/App.scss';
+
+import  Blog from "./pages/Blog/Blog"
+import Login from "./pages/Auth/Login"
+import Register from "./pages/Auth/Register"
+import PostDetails from './pages/Post/Details/PostDetails'
+import CreatePost from './pages/Post/CreatePost'
+import EditPost from './pages/Post/EditPost'
+import Profile from './pages/User/Profile/Profile'
+import {  UserContextProvider } from './context/UserContext'
+import MyBlogs from './pages/Blog/MyBlogs'
+// import Imageupload from './pages/Post/Imageupload'
+
+
+// LayOut
+import Home from './pages/Home/Home';
+import NotFound from './components/Error/NotFound';
+
+// Company
+import AboutUs from './pages/Company/About/About';
+import Contact from './pages/Company/Contact/Contact';
+import Community from './pages/Company/Community/Community';
+import ForgotPassword from './pages/Auth/ForgotPassword';
+import Fresources from './pages/Fresources/Fresources';
+
+
+const App = () => {
+
+  return (
+    <>
+    <UserContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/*' element={<NotFound />} />
+            <Route path='/blog' element={<Blog />} />
+                    {/* Company */}
+            <Route path='/company/about-us' element={<AboutUs />} />
+            <Route path='/company-contact' element={<Contact />} />
+            <Route path='/community' element={<Community />} />
+            <Route exact path="/login" element={<Login/>}/>
+            <Route exact path="/register" element={<Register/>}/>
+            <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+            <Route exact path="/write" element={<CreatePost/>}/>
+            <Route exact path="/posts/post/:id" element={<PostDetails/>}/>
+            <Route exact path="/edit/:id" element={<EditPost/>}/>
+            <Route exact path="/myblogs/:id" element={<MyBlogs/>}/>
+            <Route exact path="/profile/:id" element={<Profile/>}/>
+            <Route exact path="/trading-tools" element={<Fresources />} />
+            {/* <Route path='/image-upload' element={<Imageupload />} /> */}
+          </Routes>
+        </BrowserRouter>
+    </UserContextProvider>
+    </>
+  )
+}
+
+export default App

@@ -1,0 +1,27 @@
+@import "./colors";
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  // color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255,1);
+  // background-color: #242424;
+  background-color: #000;
+}
+*{
+  margin:0;
+  padding:0;
+}
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}

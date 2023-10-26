@@ -1,0 +1,24 @@
+.comment {
+    padding: 0.5rem;
+    background-color: #e5e7eb;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+.comment-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-main  h3 {
+    font-size: 15px;
+    color: #ec9369;
+    font-weight: 300;
+}
+
+.comment-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

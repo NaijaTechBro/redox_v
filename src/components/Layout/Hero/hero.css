@@ -1,0 +1,97 @@
+.header-start {
+    display: flex;
+    margin: 0rem  0rem 0rem 5rem ;
+}
+
+.header-left h1 {
+    color: #000;
+    font-size: 48px;
+}
+
+.header-left h1 span {
+    color: #f39d6b;
+    font-size: 48px;
+}
+
+.header-left p {
+    font-size: 18px;
+}
+
+.header-left-button {
+    display: flex;
+    max-width: 303px;
+}
+
+.header-left-button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.header-left-button button:nth-child(1){
+    flex: 1;
+    background-color: #ff5f00;
+    border: none;
+    width: 353px;
+    height: 45px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    transition: ease 0.5s;
+}
+
+.header-left-button button:nth-child(2) {
+    background-color: #f39d6b;
+    border: none;
+    width: 60px;
+    height: 45px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    transition: ease 0.5s;
+}
+
+.header-right {
+    margin-left: 12rem;
+}
+
+.header-right img {
+    margin-right: 8rem;
+    width: 302.82px;
+    height: 607px;
+}
+
+
+
+/* Media query for small devices */
+@media (max-width: 768px) {
+    .header-start {
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem  0rem 0rem 1.5rem ;
+    }
+
+    .header-left h1 {
+        font-size: 30px;
+    }
+
+    .header-left h1 span {
+        font-size: 30px;
+    }
+
+    .header-left p {
+        font-size: 16px;
+    }
+
+    .header-left-button {
+        max-width: 280px;
+    }
+
+    .header-right img {
+        display: none;
+    }
+}

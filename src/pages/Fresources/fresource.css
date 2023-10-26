@@ -1,0 +1,348 @@
+.free-resources {
+    display: flex;
+    margin: 10px 280px 100px 280px;
+    justify-content: center;
+}
+
+.content h1 {
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 9.7rem;
+}
+.content h6 {
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.content p {
+    margin-top: .5rem;
+}
+
+.section p {
+    margin-top: .7rem;
+}
+
+.subsection ol li{
+    margin-top: .7rem;
+    margin-left: 1.9rem;
+
+}
+
+.subsection ol li span {
+    color: #010100;
+    font-weight: 500;
+
+}
+
+.about-me ul {
+    margin: .7rem;
+}
+
+.about-me p {
+    font-weight: lighter;
+    font-size: 15px;
+    color: #4b454594;
+}
+
+.list li {
+    font-weight: 100;
+    font-size: 15px;
+    color: #4b4545;
+    margin-top: 1.5rem;
+}
+
+.content h4 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.content h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+
+/* Responsiveness */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .free-resources {
+        display: flex;
+        margin: 15px 210px 180px 180px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 600;
+        font-size: 40px;
+        margin-left: 4.7rem;
+    }
+    .content h6 {
+        font-weight: 100;
+        font-size: 18px;
+    }
+    
+    .content p {
+        margin-top: .5rem;
+    }
+    
+    .section p {
+        margin-top: .7rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .7rem;
+        margin-left: 1.9rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 500;
+    
+    }
+    
+    .about-me ul {
+        margin: .7rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.5rem;
+    }
+    
+    .content h4 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    .content h2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .free-resources {
+        display: flex;
+        margin: 15px 210px 180px 180px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 600;
+        font-size: 40px;
+        margin-left: 4.7rem;
+    }
+    .content h6 {
+        font-weight: 100;
+        font-size: 18px;
+    }
+    
+    .content p {
+        margin-top: .5rem;
+    }
+    
+    .section p {
+        margin-top: .7rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .7rem;
+        margin-left: 1.9rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 500;
+    
+    }
+    
+    .about-me ul {
+        margin: .7rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.5rem;
+    }
+    
+    .content h4 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    .content h2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .free-resources {
+        display: flex;
+        margin: 1px 110px 40px 20px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 600;
+        font-size: 40px;
+        margin-left: 4.7rem;
+    }
+    .content h6 {
+        font-weight: 100;
+        font-size: 18px;
+    }
+    
+    .content p {
+        margin-top: .5rem;
+    }
+    
+    .section p {
+        margin-top: .7rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .7rem;
+        margin-left: 1.9rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 500;
+    
+    }
+    
+    .about-me ul {
+        margin: .7rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.5rem;
+    }
+    
+    .content h4 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    .content h2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .free-resources {
+        display: flex;
+        margin: 10px 280px 100px 280px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 600;
+        font-size: 40px;
+        margin-left: 9.7rem;
+    }
+    .content h6 {
+        font-weight: 100;
+        font-size: 18px;
+    }
+    
+    .content p {
+        margin-top: .5rem;
+    }
+    
+    .section p {
+        margin-top: .7rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .7rem;
+        margin-left: 1.9rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 500;
+    
+    }
+    
+    .about-me ul {
+        margin: .7rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.5rem;
+    }
+    
+    .content h4 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    .content h2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

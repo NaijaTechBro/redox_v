@@ -1,0 +1,344 @@
+.about {
+    display: flex;
+    margin: 10px 280px 100px 280px;
+    justify-content: center;
+}
+
+.content h1 {
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 9.7rem;
+}
+.content h6 {
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.content p {
+    margin-top: .5rem;
+}
+
+.asection p {
+    margin-top: .7rem;
+}
+
+.subsection ol li{
+    margin-top: .7rem;
+    margin-left: 1.9rem;
+
+}
+
+.subsection ol li span {
+    color: #010100;
+    font-weight: 500;
+
+}
+
+.about-me ul {
+    margin: .7rem;
+}
+
+.about-me p {
+    font-weight: lighter;
+    font-size: 15px;
+    color: #4b454594;
+}
+
+.list li {
+    font-weight: 100;
+    font-size: 15px;
+    color: #4b4545;
+    margin-top: 1.5rem;
+}
+
+.content h4 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.content h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+/* Responsiveness */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+        .about {
+        display: flex;
+        margin: 15px 160px 120px 180px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 900;
+        font-size: 60px;
+        margin: 1rem 2rem 1rem 2rem;
+    }
+    .content h6 {
+        font-weight: 50;
+        font-size: 15px;
+    }
+    
+    .content p {
+        margin-top: .3rem;
+    }
+    
+    .asection p {
+        margin-top: .4rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .5rem;
+        margin-left: 1.2rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 300;
+    
+    }
+    
+    .about-me ul {
+        margin: .4rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.2rem;
+    }
+    
+    .content h4 {
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 17px;
+    }
+    
+    .content h2 {
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 17px;
+    }
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .about {
+        display: flex;
+        margin: 5px 140px 50px 140px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 400;
+        font-size: 30px;
+        margin-left: 3.7rem;
+    }
+    .content h6 {
+        font-weight: 50;
+        font-size: 15px;
+    }
+    
+    .content p {
+        margin-top: .3rem;
+    }
+    
+    .asection p {
+        margin-top: .4rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .5rem;
+        margin-left: 1.2rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 300;
+    
+    }
+    
+    .about-me ul {
+        margin: .4rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.2rem;
+    }
+    
+    .content h4 {
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 17px;
+    }
+    
+    .content h2 {
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 17px;
+    }
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .about {
+        display: flex;
+        margin: 1px 1px 1px 1px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 400;
+        font-size: 30px;
+        margin-left: 3.7rem;
+    }
+    .content h6 {
+        font-weight: 50;
+        font-size: 15px;
+    }
+    
+    .content p {
+        margin-top: .3rem;
+    }
+    
+    .asection p {
+        margin-top: .4rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .5rem;
+        margin-left: 1.2rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 300;
+    
+    }
+    
+    .about-me ul {
+        margin: .4rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.2rem;
+    }
+    
+    .content h4 {
+        font-weight: 200;
+        font-size: 16px;
+        margin-top: 16px;
+    }
+    
+    .content h2 {
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 17px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .about {
+        display: flex;
+        margin: 10px 280px 100px 280px;
+        justify-content: center;
+    }
+    
+    .content h1 {
+        font-weight: 600;
+        font-size: 40px;
+        margin-left: 9.7rem;
+    }
+    .content h6 {
+        font-weight: 100;
+        font-size: 18px;
+    }
+    
+    .content p {
+        margin-top: .5rem;
+    }
+    
+    .asection p {
+        margin-top: .7rem;
+    }
+    
+    .subsection ol li{
+        margin-top: .7rem;
+        margin-left: 1.9rem;
+    
+    }
+    
+    .subsection ol li span {
+        color: #010100;
+        font-weight: 500;
+    
+    }
+    
+    .about-me ul {
+        margin: .7rem;
+    }
+    
+    .about-me p {
+        font-weight: lighter;
+        font-size: 15px;
+        color: #4b454594;
+    }
+    
+    .list li {
+        font-weight: 100;
+        font-size: 15px;
+        color: #4b4545;
+        margin-top: 1.5rem;
+    }
+    
+    .content h4 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    .content h2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
