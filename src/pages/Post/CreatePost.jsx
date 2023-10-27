@@ -147,7 +147,7 @@ export default CreatePost;
 // const CreatePost = () => {
 //   const [title, setTitle] = useState('');
 //   const [desc, setDesc] = useState('');
-//   const [file, setFile] = useState(null);
+//   const [image, setImage] = useState(null);
 //   const { user } = useContext(UserContext);
 //   const [cat, setCat] = useState('');
 //   const [cats, setCats] = useState([]);
@@ -167,30 +167,42 @@ export default CreatePost;
 //     setCats(updatedCats);
 //   };
 
-//   const handleCreate = async (e) => {
-//     e.preventDefault();
-//     const post = {
-//       title,
-//       desc: convert(desc), // Convert HTML content to plain text
-//       username: user.username,
-//       userId: user._id,
-//       categories: cats,
-//     };
-
-//     if (file) {
-//       const data = new FormData();
-//       const filename = Date.now() + file.name;
-//       data.append('img', filename);
-//       data.append('file', file);
-//       post.photo = filename;
-//       try {
-//         const imgUpload = await axios.post(URL + '/api/upload', data);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     }
-
+//   // handle image
+//   const handleImageUpload = async (e) => {
 //     try {
+//       const formData = new FormData();
+//       formData.append('image', e.target.files[0]);
+
+//       const res = await axios.post(URL + '/api/posts/upload', formData, {
+//         withCredentials: true,
+//         headers: {
+//           'Content-Type': 'multipart/form-data',
+//         },
+//       });
+
+//       if (res.data && res.data.imageUrl) {
+//         setImage(res.data.imageUrl);
+//       } else {
+//         console.error('Image upload failed.');
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   };
+
+//   // handle create post
+//   const handleCreate = async (e) => {
+//     try {
+//       e.preventDefault();
+//       const post = {
+//         title,
+//         desc: convert(desc), // Convert HTML content to plain text
+//         username: user.username,
+//         userId: user._id,
+//         categories: cats,
+//         image,
+//       };
+
 //       const res = await axios.post(URL + '/api/posts/create', post, {
 //         withCredentials: true,
 //       });
@@ -217,7 +229,8 @@ export default CreatePost;
 //           <div className="form-group">
 //             <label htmlFor="file">Add Image</label>
 //             <input
-//               onChange={(e) => setFile(e.target.files[0])}
+//               onChange={handleImageUpload}
+//               accept='image/*'
 //               type="file"
 //             />
 //           </div>
@@ -259,7 +272,6 @@ export default CreatePost;
 // };
 
 // export default CreatePost;
-
 
 // import React, { useState } from 'react';
 // import ReactQuill from 'react-quill';
