@@ -6,7 +6,7 @@ import {URL} from '../../../../url';
 import { UserContext } from '../../../../context/UserContext';
 import {  FaRegUserCircle } from 'react-icons/fa'
 import axios from 'axios';
-import './profileDropdown.css';
+import './profiledropdown.css';
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
