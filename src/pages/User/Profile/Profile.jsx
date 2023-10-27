@@ -11,6 +11,9 @@ import './profile.css'
 const Profile = () => {
   const param=useParams().id
   const [username,setUsername]=useState("")
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+  const [bio, setBio] = useState("")
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const {user,setUser}=useContext(UserContext)
@@ -23,6 +26,9 @@ const fetchProfile=async ()=>{
   try{
      const res=await axios.get(URL+"/api/users/"+user._id)
      setUsername(res.data.username)
+     setBio(res.data.bio)
+     setName(res.data.name)
+     setPhone(res.data.phone)
      setEmail(res.data.email)
      setPassword(res.data.password)
   }
@@ -96,8 +102,24 @@ useEffect(()=>{
         <h1>Profile</h1>
         <div className="profile-main">
         <input 
+          onChange={(e)=>setName(e.target.value)} 
+          value={name} 
+          className="profile-input" 
+          placeholder="Your username" 
+          type="text"/>
+        </div>
+        <div className="profile-main">
+        <input 
           onChange={(e)=>setUsername(e.target.value)} 
           value={username} 
+          className="profile-input" 
+          placeholder="Your username" 
+          type="text"/>
+        </div>
+        <div className="profile-main">
+        <input 
+          onChange={(e)=>setBio(e.target.value)} 
+          value={bio} 
           className="profile-input" 
           placeholder="Your username" 
           type="text"/>
@@ -109,6 +131,14 @@ useEffect(()=>{
           className="profile-input" 
           placeholder="Your email" 
           type="email"/>
+        </div>
+        <div className="profile-main">
+        <input 
+          onChange={(e)=>setPhone(e.target.value)} 
+          value={phone} 
+          className="profile-input" 
+          placeholder="Your username" 
+          type="text"/>
         </div>
           {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="outline-none px-4 py-2 text-gray-500" placeholder="Your password" type="password"/> */}
           <div className="profile-main">
