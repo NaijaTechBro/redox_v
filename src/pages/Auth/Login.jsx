@@ -33,6 +33,7 @@ const Login = () => {
     <>
     <Navbar/>
 <div className="login-page">
+  <img src={Logo} alt="logo" width={150} />
           <h1 className="text-xl font-bold text-left">Sign In</h1>
           <input onChange={(e)=>setEmail(e.target.value)} type="text" placeholder="Enter your email" />
           <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Enter your password" />
