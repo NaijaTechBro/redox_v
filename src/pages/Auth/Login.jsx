@@ -35,7 +35,7 @@ const Login = () => {
         <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Enter your email" />
         <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter your password" />
         <button onClick={handleLogin}>Log in</button>
-        {error && <h3 className="text-red-500 text-sm ">Something went wrong</h3>}
+        {error && <h3 style={{color: "#ff0000", fontWeight: "500"}}>Something went wrong</h3>}
         <p>
           Don't Have an Account?{" "}
           <Link className="register-page-Link" to="/register">
