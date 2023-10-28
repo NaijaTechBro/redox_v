@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import Logo from '../../assets/logor.png';
 import Footer from "../../components/Layout/Footer/Footer"
 import { useContext, useState } from "react"
 import axios from "axios"
