@@ -33,7 +33,7 @@ const PostProvider = (props) => {
         },
       })
       .then(async (res) => {
-        params.image = res.data.url
+        params.image = res.data.data.url
         await axios
           .post(`${URL}/api/posts/create`, params, {
             withCredentials: true,
@@ -67,7 +67,7 @@ const PostProvider = (props) => {
         },
       })
       .then(async (res) => {
-        params.image = res.data.url
+        params.image = res.data.data.url
         await axios
           .post(`${URL}/api/posts/${postId}`, params, {
             withCredentials: true,
