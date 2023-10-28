@@ -19,8 +19,6 @@ const CreatePost = () => {
   const [cat, setCat] = useState("")
   const [cats, setCats] = useState([])
 
-  console.log(user)
-
   const deleteCategory = (i) => {
     let updatedCats = [...cats]
     updatedCats.splice(i)
