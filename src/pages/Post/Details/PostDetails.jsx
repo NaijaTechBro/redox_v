@@ -84,7 +84,7 @@ const PostDetails = () => {
         <div className="post-details-container">
           <div className="post-details-header">
             <h1 className="post-title">{post.title}</h1>
-            {user?.user?._id === post?.userId && (
+            {user?._id === post?.userId && (
               <div className="edit-delete-buttons">
                 <p className="edit-button" onClick={() => navigate("/edit/" + postId)}>
                   <BiEdit />
