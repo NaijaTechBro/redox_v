@@ -9,7 +9,10 @@
   }
   
   .post-details-container {
+    align-items: center;
     padding: 18px;
+    /* margin-left: 108px;
+    margin-right: 108px; */
     margin-top: 8px;
   }
   
@@ -20,8 +23,8 @@
   }
   
   .post-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 900;
     color: #000;
   }
   

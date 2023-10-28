@@ -1,7 +1,7 @@
 import axios from "axios"
 import Footer from "../../components/Layout/Footer/Footer"
 import Navbar from "../../components/Layout/Navbar/Navbar"
-import { IF, URL } from "../../url"
+import { URL } from "../../url"
 import { useContext, useEffect, useState } from "react"
 import {BsSearch} from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from "react-router-dom"
