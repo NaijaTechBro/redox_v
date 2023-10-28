@@ -21,7 +21,7 @@ const ProfileDropdown = () => {
       const config = {
         headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}` },
       }
-      const res = await axios.get(URL + "/api/auth/logout", config, { withCredentials: true })
+      const res = await axios.post(URL + "/api/auth/logout", config, { withCredentials: true })
       localStorage.setItem(`t`, ``)
       setUser(null)
       navigate("/login")
