@@ -54,6 +54,12 @@ const EditPost = () => {
     setCats(updatedCats)
   }
 
+  const handleEnterKey = (e) => {
+    if (e.key === `Enter`) {
+      addCategory()
+    }
+  }
+
   const addCategory = () => {
     let updatedCats = [...cats]
     updatedCats.push(cat)
@@ -77,7 +83,7 @@ const EditPost = () => {
           </div>
           <div className="form-group">
             <div>
-              <input value={cat} onChange={(e) => setCat(e.target.value)} placeholder="Enter post category" type="text" />
+              <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter post category" type="text" />
               <div onClick={addCategory} className="add-category">
                 Add
               </div>
