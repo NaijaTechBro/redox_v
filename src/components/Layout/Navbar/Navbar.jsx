@@ -89,7 +89,7 @@ const Navbar = () => {
     <>
     <div className="container">
       <div className="navbar">
-        {!user &&
+        {(!user || (user === 'user not loggedIn')) &&
         <>
           <div className="navbar__logo">
           <a href="/"><img src={logo} alt="logo" /></a>
@@ -117,7 +117,7 @@ const Navbar = () => {
           </>
           }
 
-{user &&
+        {(user && (user !== 'user not loggedIn')) &&
         <>
         <div className="navbar__logo">
           <a href="/blog"><img src={logo} alt="logo" /></a>

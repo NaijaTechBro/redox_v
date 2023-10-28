@@ -10,7 +10,11 @@ import Navbar from "../../components/Layout/Navbar/Navbar";
 const Register = () => {
 
   const [username,setUsername]=useState("")
+<<<<<<< Updated upstream
   const [ name,setName ] = useState("")
+=======
+  const [name, setName]=useState("")
+>>>>>>> Stashed changes
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [error,setError]=useState(false)
@@ -19,7 +23,8 @@ const Register = () => {
   const handleRegister=async ()=>{
     
     try{
-      const res=await axios.post(URL+"/api/auth/register",{username,email,password})
+      const res=await axios.post(URL+"/api/auth/register",{name,username,email,password})
+      setName(res.data.name)
       setUsername(res.data.username)
       setName(res.data.name)
       setEmail(res.data.email)
