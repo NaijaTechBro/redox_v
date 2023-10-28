@@ -19,6 +19,8 @@ const CreatePost = () => {
   const [cat, setCat] = useState("")
   const [cats, setCats] = useState([])
 
+  console.log(user)
+
   const deleteCategory = (i) => {
     let updatedCats = [...cats]
     updatedCats.splice(i)
@@ -44,7 +46,7 @@ const CreatePost = () => {
     const post = {
       title,
       desc: convert(desc), // Convert HTML content to plain text
-      username: "Jamin",
+      username: user.name,
       userId: user._id,
       categories: cats,
     }
