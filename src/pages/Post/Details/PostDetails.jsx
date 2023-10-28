@@ -5,7 +5,7 @@ import Navbar from "../../../components/Layout/Navbar/Navbar"
 import { BiEdit } from "react-icons/bi"
 import { MdDelete } from "react-icons/md"
 import axios from "axios"
-import { URL, IF } from "../../../url"
+import { URL } from "../../../url"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../../context/UserContext"
 import Loader from "../../../components/Loading/Loader"
@@ -102,7 +102,7 @@ const PostDetails = () => {
               <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
             </div>
           </div>
-          <img src={IF + post.photo} className="post-image" alt="" />
+          <img src={post.image} className="post-image" alt="" />
           <p className="post-description">{post.desc}</p>
           <div className="post-categories">
             <p>Categories:</p>
