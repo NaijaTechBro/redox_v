@@ -45,7 +45,7 @@ const CreatePost = () => {
       title,
       desc: convert(desc), // Convert HTML content to plain text
       username: "Jamin",
-      userId: user.user._id,
+      userId: user._id,
       categories: cats,
     }
 

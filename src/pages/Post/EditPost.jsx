@@ -37,7 +37,7 @@ const EditPost = () => {
       title,
       desc,
       username: user.username,
-      userId: user.user._id,
+      userId: user._id,
       categories: cats,
     }
 
