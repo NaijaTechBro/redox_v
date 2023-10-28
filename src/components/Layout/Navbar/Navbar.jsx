@@ -112,7 +112,7 @@ const Navbar = () => {
           </li>
         </ul>
           <div className="navbar__ctas">
-            <a target="blank" href="/register">Get Started</a>
+            <a href="/register">Get Started</a>
           </div>
           </>
           }
@@ -198,7 +198,7 @@ const Navbar = () => {
           </li>
         </ul>
             <div className="navbar__mobile__menu__ctas">
-              <a target="blank" href="/register">Get Started</a>
+              <a href="/register">Get Started</a>
             </div>
           </>
         }
