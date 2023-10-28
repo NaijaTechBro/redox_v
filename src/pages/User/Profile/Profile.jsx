@@ -105,7 +105,7 @@ useEffect(()=>{
           onChange={(e)=>setName(e.target.value)} 
           value={name} 
           className="profile-input" 
-          placeholder="Your username" 
+          placeholder="Your name" 
           type="text"/>
         </div>
         <div className="profile-main">
@@ -121,7 +121,7 @@ useEffect(()=>{
           onChange={(e)=>setBio(e.target.value)} 
           value={bio} 
           className="profile-input" 
-          placeholder="Your username" 
+          placeholder="Your Bio" 
           type="text"/>
         </div>
         <div className="profile-main">
@@ -137,7 +137,7 @@ useEffect(()=>{
           onChange={(e)=>setPhone(e.target.value)} 
           value={phone} 
           className="profile-input" 
-          placeholder="Your username" 
+          placeholder="Your Phone number" 
           type="text"/>
         </div>
           {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="outline-none px-4 py-2 text-gray-500" placeholder="Your password" type="password"/> */}
