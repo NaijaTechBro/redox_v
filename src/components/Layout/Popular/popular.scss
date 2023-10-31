@@ -143,7 +143,7 @@
   &-box {
     display: grid;
     grid-template-columns: 1fr 140px;
-    border-bottom: 0.1rem solid #33333355;
+    border-bottom: 1px solid #e6e6e6;
     padding-block: 1rem;
     gap: 1rem;
 
@@ -258,12 +258,13 @@
       grid-template-columns: 1fr 140px;
       border-bottom: 0.1rem solid #33333355;
       padding-block: 1rem;
+      row-gap: 0;
 
       .title--mobile {
         grid-column: span 2;
         font-weight: 600;
-        font-size: 1rem;
-        line-height: 2;
+        font-size: 0.9rem;
+        line-height: 1;
         margin-bottom: 0;
       }
 

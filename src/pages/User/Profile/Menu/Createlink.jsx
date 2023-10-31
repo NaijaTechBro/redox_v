@@ -5,7 +5,7 @@ const Createlink = ({ user }) => {
   return (
     <ul className="profile-dropdown__content--links">
       <li>
-        <Link to={"/profile/" + user._id}>
+        <Link to="/write">
           <span className="coloured">
             <AiOutlinePlus size={18} />
           </span>

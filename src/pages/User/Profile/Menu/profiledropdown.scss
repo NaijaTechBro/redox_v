@@ -48,13 +48,13 @@
       flex-direction: column;
       padding: 2rem;
       gap: 1rem;
-      border-bottom: 0.1rem solid #c8c8c8;
+      border-bottom: 1px solid #c8c8c8;
 
       a {
         @include flex($j: flex-start);
         gap: 0.5rem;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 400;
 
         span {
           @include flex();
