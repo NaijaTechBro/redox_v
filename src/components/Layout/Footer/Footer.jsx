@@ -32,7 +32,7 @@ const Footer = () => {
       <a href="https://twitter.com/insideredox" target='blank'><FaTwitter /></a>
       {/* <li><a href="#"><FaLinkedin /></a></li> */}
       <a href='https://t.me/insideredox' target='blank'><FaTelegramPlane /></a>
-      <li><a href="mailto:insideredox@gmail.com" target='blank'><AiOutlineMail /></a></li>
+      <a href="mailto:insideredox@gmail.com" target='blank'><AiOutlineMail /></a>
     </ul>
     <div className="button">
     <button><a href="/"></a>Subscribe</button>
