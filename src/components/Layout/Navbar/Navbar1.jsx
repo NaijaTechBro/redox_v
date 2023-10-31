@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import axios from "axios"
 import { URL } from "../../../url"
@@ -14,10 +14,6 @@ import Blog from "./Component/Blog"
 import ProfileDropdown from "../../../pages/User/Profile/Menu/ProfileDropdown"
 import Notification from "../../Notification/Notification"
 import Contact from "./Component/Contact"
-import Menu from "./Component/Menu"
-import SearchContainer from "./Component/SearchContainer"
-import CTA from "./Component/CTA"
-import DropDowns from "./Component/DropDowns"
 
 const Navbar = () => {
   const { setUser } = useContext(UserContext)
@@ -27,17 +23,17 @@ const Navbar = () => {
   const [posts, setPosts] = useState([])
   const [noResults, setNoResults] = useState(false)
   const [loader, setLoader] = useState(false)
-  const [open, setOpen] = useState(false)
   const { user } = useContext(UserContext)
   // console.log(user)
 
+  const [prompt, setPrompt] = useState("")
   const navigate = useNavigate()
   const path = useLocation().pathname
 
   const fetchPosts = async () => {
     setLoader(true)
     try {
-      const res = await axios.get(`${URL}/api/posts/${search}`)
+      const res = await axios.get(URL + "/api/posts/" + search)
       // console.log(res.data)
       setPosts(res.data)
       if (res.data.length === 0) {
@@ -55,6 +51,8 @@ const Navbar = () => {
   useEffect(() => {
     fetchPosts()
   }, [search])
+
+  const [open, setOpen] = useState(false)
 
   const componentStyle = {
     backgroundColor: "#f39d6b",
@@ -77,35 +75,84 @@ const Navbar = () => {
   }
 
   return (
-    <header className="header">
+    <>
       <div className="container">
-        <div className="header__logo">
-          <a href="/">
-            <img src={logo} alt="Redox" />
-          </a>
-        </div>
-        {/* {user && <Menu />} */}
-        {!user && <SearchContainer />}
-
-        {!user && <CTA />}
-        {/* <DropDowns /> */}
-
-        <div className="navbar__toggle">
-          {open ? (
-            <VscClose
-              className="io"
-              onClick={() => {
-                setOpen(!open)
-              }}
-            />
-          ) : (
-            <RiMenu4Fill
-              className="io"
-              onClick={() => {
-                setOpen(!open)
-              }}
-            />
+        <div className="navbar">
+          {!user && (
+            <>
+              <div className="navbar__logo">
+                <a href="/">
+                  <img src={logo} alt="logo" />
+                </a>
+              </div>
+              <ul className="navbar__links">
+                <li className="navbar__links__link">
+                  <Home />
+                </li>
+                <li className="navbar__links__link">
+                  <Product />
+                </li>
+                {/* <li className="navbar__links__link">
+            <About />
+          </li> */}
+                <li className="navbar__links__link">
+                  <Contact />
+                </li>
+                <li className="navbar__links__link">
+                  <Blog />
+                </li>
+              </ul>
+              <div className="navbar__ctas">
+                <a target="blank" href="/register">
+                  Get Started
+                </a>
+              </div>
+            </>
           )}
+
+          {user && (
+            <>
+              <div className="navbar__logo">
+                <a href="/blog">
+                  <img src={logo} alt="logo" />
+                </a>
+              </div>
+              <ul className="navbar__links">
+                {path === "/blog" && (
+                  <div className="search-bar">
+                    <input onChange={(e) => setPrompt(e.target.value)} className="outline-none px-3 " placeholder="Search" type="text" />
+                    <p onClick={() => navigate(prompt ? "?search=" + prompt : navigate("/"))} className="cursor-pointer">
+                      <BsSearch />
+                    </p>
+                  </div>
+                )}
+              </ul>
+              <div className="navbar__ctas">
+                <Link to="/write">Write</Link>
+                <br />
+                <Notification />
+                <br />
+                <ProfileDropdown />
+              </div>
+            </>
+          )}
+          <div className="navbar__toggle">
+            {open ? (
+              <VscClose
+                className="io"
+                onClick={() => {
+                  setOpen(!open)
+                }}
+              />
+            ) : (
+              <RiMenu4Fill
+                className="io"
+                onClick={() => {
+                  setOpen(!open)
+                }}
+              />
+            )}
+          </div>
         </div>
 
         <div style={componentStyle} className={`navbar__mobile__menu  ${open ? "open" : ""}`}>
@@ -204,7 +251,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </header>
+    </>
   )
 }
 
