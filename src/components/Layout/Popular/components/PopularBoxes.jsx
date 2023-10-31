@@ -9,13 +9,15 @@ const PopularBoxes = ({ user }) => {
         <>
           <div className="popular__user--managenent">
             <h5 className="popular--username">Hi, {user.username}</h5>
-            <Link to="#" className="btn mobile--hidden">
+            <Link to="/write" className="btn mobile--hidden">
               Create Analysis
             </Link>
           </div>
           <div className="popular__top">
             <h5 className="popular__top--heading">Explore more on RedoX</h5>
-            <AiOutlinePlus size={25} className="desktop--hidden add--icon" />
+            <Link to="/write">
+              <AiOutlinePlus size={25} className="desktop--hidden add--icon" />
+            </Link>
           </div>
         </>
       )}

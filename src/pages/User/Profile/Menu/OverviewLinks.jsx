@@ -6,7 +6,7 @@ const OverviewLinks = ({ user }) => {
   return (
     <ul className="profile-dropdown__content--links">
       <li>
-        <Link to={"/profile/" + user._id}>
+        <Link to={`/profile/${user._id}`}>
           <span>
             <img src={profile} alt="" />
           </span>
@@ -14,7 +14,7 @@ const OverviewLinks = ({ user }) => {
         </Link>
       </li>
       <li>
-        <Link to={"/profile/" + user._id}>
+        <Link to={`/myblogs/${user._id}`}>
           <span>
             <img src={analysis} alt="" />
           </span>

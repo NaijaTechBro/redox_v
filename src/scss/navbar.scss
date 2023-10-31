@@ -30,11 +30,13 @@
 
   &__search-container {
     display: flex;
+    align-items: center;
     flex: 3;
     color: #33333355;
 
     &--inner {
       display: flex;
+      align-items: center;
       max-width: 500px;
       width: 100%;
       border-radius: 0.5rem;
@@ -50,6 +52,10 @@
 
       .search--icon {
         cursor: pointer;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

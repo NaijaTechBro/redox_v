@@ -4,7 +4,7 @@ import "react-quill/dist/quill.snow.css"
 import { ImCross } from "react-icons/im"
 import { useContext } from "react"
 import { UserContext } from "../../context/UserContext"
-import Navbar from "../../components/Layout/Navbar/Navbar1"
+import Navbar from "../../components/Layout/Navbar/Navbar"
 import Footer from "../../components/Layout/Footer/Footer"
 import "./post.css"
 import { convert } from "html-to-text"
@@ -58,7 +58,7 @@ const CreatePost = () => {
   }
 
   return (
-    <div>
+    <>
       <Navbar />
       <div className="create">
         <form className="form-group">
@@ -98,7 +98,7 @@ const CreatePost = () => {
         </form>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

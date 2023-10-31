@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from "react"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import axios from "axios"
 import { URL } from "../../../url"
 import { UserContext } from "../../../context/UserContext"
 import logo from "../../../assets/logor.png"
+import mobileLogo from "../../../assets/x.png"
 import "../../../scss/navbar.scss"
 import Menu from "./Component/Menu"
 import SearchContainer from "./Component/SearchContainer"
@@ -49,7 +50,8 @@ const Navbar = () => {
       <div className="container">
         <div className="header__logo">
           <a href="/">
-            <img src={logo} alt="Redox" />
+            <img src={logo} alt="Redox" className="mobile--hidden" />
+            <img src={mobileLogo} alt="Redox" className="desktop--hidden" />
           </a>
         </div>
         {!user ? <Menu /> : <SearchContainer />}
