@@ -10,11 +10,7 @@ import Navbar from "../../components/Layout/Navbar/Navbar";
 const Register = () => {
 
   const [username,setUsername]=useState("")
-<<<<<<< Updated upstream
-  const [ name,setName ] = useState("")
-=======
   const [name, setName]=useState("")
->>>>>>> Stashed changes
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [error,setError]=useState(false)

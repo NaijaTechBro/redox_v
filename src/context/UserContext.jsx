@@ -6,28 +6,6 @@ import { URL } from "../url"
 
 export const UserContext = createContext({})
 
-export function UserContextProvider({ children }) {
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    getUser()
-  }, [])
-
-<<<<<<< Updated upstream
-  const getUser = async () => {
-    try {
-      await axios.get(URL + "/api/auth/refetch", { withCredentials: true }).then((res) => {
-        setUser(res.data.user)
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
-}
-=======
-
 export function UserContextProvider({children}){
     const [user,setUser]=useState(null)
     const [followers,setFollowers]=useState(null)
@@ -79,4 +57,3 @@ export function UserContextProvider({children}){
       {children}
     </UserContext.Provider>)
 }
->>>>>>> Stashed changes
