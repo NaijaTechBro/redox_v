@@ -1,24 +1,25 @@
-import React from 'react';
-import phone from '../../../assets/phone.png'
-import {AiOutlineArrowRight} from 'react-icons/ai'
-import './hero.css';
-const Hero = () => {
+import React from "react"
+import phone from "../../../assets/hero-phone.png"
+import "./hero.scss"
 
+const Hero = () => {
   return (
-    <div className='header-start'>
-      <div className="header-left">
-        <h1><span>Get Smarter with Financial Education</span></h1>
-        <p>We provide Market Intelligence, Research and analysis on the Future of money and the Economy in Africa. </p>
-        <div className="header-left-button">
-        <button><a href="/login">Start your journey with us</a></button>
-        <button><AiOutlineArrowRight /></button>
+    <section className="hero">
+      <div className="container">
+        <div className="hero__left">
+          <h1 className="mobile--hidden">Connect with traders, and analyst across Africa.</h1>
+          <h1 className="desktop--hidden">Get Smarter with Financial Education</h1>
+          <p>We provide Market Intelligence, Research and Analysis on the Future of Money and Economy in Africa.</p>
+          <a href="/login" className="hero__btn">
+            Start your journey with us
+          </a>
+        </div>
+        <div className="hero__right mobile--hidden">
+          <img src={phone} alt="phone" />
         </div>
       </div>
-      <div className="header-right">
-          <img src={phone} alt='phone'/>
-        </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default Hero;
+export default Hero
