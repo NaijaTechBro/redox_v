@@ -10,3 +10,11 @@
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.section {
+  padding-block: 3rem;
+
+  &--title {
+    font-size: 2rem;
+  }
+}

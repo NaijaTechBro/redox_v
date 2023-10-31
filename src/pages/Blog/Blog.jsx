@@ -28,8 +28,8 @@ const Blog = () => {
     try {
       const res = await axios.get(`${URL}/api/posts/${search}`)
       console.log(res.data)
-      setPosts(res.data)
-      if (res.data.length === 0) {
+      setPosts(res.data.posts)
+      if (res.data.posts.length === 0) {
         setNoResults(true)
       } else {
         setNoResults(false)
@@ -66,11 +66,9 @@ const Blog = () => {
           </div>
         ) : !noResults ? (
           posts.map((post) => (
-            <>
-              <Link to={user ? `/posts/post/${post._id}` : "/login"} style={{ textDecoration: "none" }}>
-                <BlogPosts key={post._id} post={post} />
-              </Link>
-            </>
+            <Link key={post._id} to={user ? `/posts/post/${post._id}` : "/login"} style={{ textDecoration: "none" }}>
+              <BlogPosts key={post._id} post={post} />
+            </Link>
           ))
         ) : (
           <h3 className="text-center font-bold mt-16">No posts available</h3>

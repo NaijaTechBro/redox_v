@@ -1,5 +1,6 @@
 import { IoMdNotificationsOutline } from "react-icons/io"
 import profile from "../../../../assets/profile.png"
+import ProfileDropdown from "../../../../pages/User/Profile/Menu/ProfileDropdown"
 
 const DropDowns = () => {
   return (
@@ -8,9 +9,7 @@ const DropDowns = () => {
         <IoMdNotificationsOutline size={20} />
         <span className="notify"></span>
       </span>
-      <span className="header__dropdowns--item">
-        <img src={profile} alt="" />
-      </span>
+      <ProfileDropdown />
     </div>
   )
 }

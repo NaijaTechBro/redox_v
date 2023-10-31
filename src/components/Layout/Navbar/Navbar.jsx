@@ -84,11 +84,9 @@ const Navbar = () => {
             <img src={logo} alt="Redox" />
           </a>
         </div>
-        {/* {user && <Menu />} */}
-        {!user && <SearchContainer />}
+        {!user ? <Menu /> : <SearchContainer />}
 
-        {!user && <CTA />}
-        {/* <DropDowns /> */}
+        {!user ? <CTA /> : <DropDowns />}
 
         <div className="navbar__toggle">
           {open ? (

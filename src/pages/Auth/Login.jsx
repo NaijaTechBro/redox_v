@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import Logo from '../../assets/logor.png';
+import Logo from "../../assets/logor.png"
 import Footer from "../../components/Layout/Footer/Footer"
 import { useContext, useState } from "react"
 import axios from "axios"
@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(URL + "/api/auth/login", { email, password }, { withCredentials: true })
+      const res = await axios.post(`${URL}/api/auth/login`, { email, password }, { withCredentials: true })
       localStorage.setItem(`t`, JSON.stringify(res.data.token))
       setUser(res.data)
       navigate("/blog")
@@ -30,7 +30,7 @@ const Login = () => {
     <>
       <Navbar />
       <div className="login-page">
-      <img src={Logo} alt="logo" width={150} />
+        <img src={Logo} alt="logo" width={150} />
         <h1 className="text-xl font-bold text-left">Sign In</h1>
         <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Enter your email" />
         <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter your password" />

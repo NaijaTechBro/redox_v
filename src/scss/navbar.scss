@@ -12,6 +12,7 @@
 }
 
 .header {
+  position: relative;
   padding-block: 1rem;
 
   .container {
@@ -98,6 +99,7 @@
 
   &__dropdowns {
     gap: 2rem;
+    position: relative;
   }
 }
 

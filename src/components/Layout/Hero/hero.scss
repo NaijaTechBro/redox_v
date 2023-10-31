@@ -4,6 +4,8 @@
 .hero {
   @include flex;
   height: calc(100vh - 5rem);
+  position: relative;
+  z-index: 0;
 
   .container {
     @include flex($j: space-between);

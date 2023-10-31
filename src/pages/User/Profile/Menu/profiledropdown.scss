@@ -1,0 +1,77 @@
+/* ProfileDropdown.css */
+@import "../../../../scss/mixins";
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 999;
+
+  &__image {
+    cursor: pointer;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    display: block;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 3rem;
+
+    &--blur {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #d9d9d955;
+    }
+
+    &--inner {
+      background-color: #fff;
+      width: 250px;
+      padding-block: 1rem;
+      overflow-y: auto;
+    }
+
+    &--links {
+      list-style: none;
+      @include flex($a: flex-start);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1rem;
+      border-bottom: 0.1rem solid #c8c8c8;
+
+      a {
+        @include flex($j: flex-start);
+        gap: 0.5rem;
+        font-size: 18px;
+        font-weight: 600;
+
+        span {
+          @include flex();
+
+          &.coloured {
+            color: #ff0000;
+          }
+
+          img {
+            width: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+li:hover {
+  /* background-color: #f0f0f0; */
+}
