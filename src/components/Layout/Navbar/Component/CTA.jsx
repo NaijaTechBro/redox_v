@@ -9,7 +9,7 @@ const CTA = () => {
         </Link>
       </span>
       <span className="header__ctas--link header__ctas--link--btn">
-        <Link target="_blank" className="header__ctas--link__item" href="/register">
+        <Link target="_blank" className="header__ctas--link__item" to="/register">
           Get Started
         </Link>
       </span>

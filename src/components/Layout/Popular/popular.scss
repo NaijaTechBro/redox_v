@@ -2,8 +2,44 @@
 @import "../../../scss/mixins";
 
 .popular {
+  position: relative;
+  z-index: 0;
+
+  .add--icon {
+    color: $main;
+  }
+
+  &__user--managenent {
+    @include flex(space-between);
+
+    .btn {
+      @include btn;
+      border-radius: 0.5rem;
+      background: #fff;
+      border: 0.1rem solid $main;
+      color: $main;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &--username {
+    font-size: 1.3rem;
+  }
+
+  &__top {
+    @include flex(space-between);
+    margin-top: 3rem;
+
+    &--heading {
+      font-size: 1.3rem;
+    }
+  }
+
   &--grid {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 22rem;
 
@@ -109,6 +145,7 @@
     grid-template-columns: 1fr 140px;
     border-bottom: 0.1rem solid #33333355;
     padding-block: 1rem;
+    gap: 1rem;
 
     &__info {
       &--top {
@@ -134,10 +171,11 @@
       &--title {
         font-weight: 400;
         font-size: 1.2rem;
-        line-height: 0.5;
+        line-height: 1;
       }
 
       &--text {
+        margin-top: 0;
         font-size: 1rem;
       }
 
@@ -173,6 +211,89 @@
           &:first-of-type {
             color: #757575;
           }
+        }
+      }
+    }
+  }
+
+  .mobile--top {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .popular {
+    padding-top: 0;
+
+    &__user--managenent {
+      .btn {
+        display: none;
+      }
+    }
+
+    &__top {
+      &--heading {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+
+    &--username {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #c8c8c8;
+    }
+
+    &--grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__boxes {
+      padding-top: 0;
+      padding-right: 0;
+    }
+
+    &-box {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      border-bottom: 0.1rem solid #33333355;
+      padding-block: 1rem;
+
+      .title--mobile {
+        grid-column: span 2;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 2;
+        margin-bottom: 0;
+      }
+
+      .mobile--top {
+        grid-column: span 2;
+        margin-bottom: 0;
+        @include flex($j: space-between);
+
+        & > div {
+          @include flex($j: flex-start);
+          gap: 1rem;
+        }
+      }
+
+      &__info {
+        &--top {
+          margin-bottom: 0;
+
+          &.mobile--hidden {
+            display: none;
+          }
+        }
+
+        &--text {
+          margin-top: 0 !important;
+          font-size: 0.8rem;
+        }
+
+        &--cta {
+          display: none;
         }
       }
     }
