@@ -215,29 +215,23 @@
   }
 }
 
-@media screen and (max-width: 750px) {
-  .container .navbar {
-    &__logo img {
-      margin-right: 7rem;
-      width: 80px;
-      height: 55px;
-    }
-    display: flex;
-    justify-content: space-around;
-    &__toggle {
-      display: block;
-      font-size: 40px;
-      cursor: pointer;
-    }
-    &__mobile__menu {
-      display: none;
-      &.open {
-        display: block;
+@media screen and (max-width: 768px) {
+  .header {
+    &__search-container {
+      justify-content: flex-end;
+
+      &--inner {
+        max-width: fit-content;
+        border: none;
+
+        input {
+          display: none;
+        }
       }
     }
-    &__links,
-    &__ctas {
-      display: none;
-    }
+  }
+
+  .navbar {
+    display: none;
   }
 }

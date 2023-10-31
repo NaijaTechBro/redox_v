@@ -4,7 +4,7 @@ import Search from "./Search"
 
 const Sidebar = () => {
   return (
-    <div className="popular__sidebar">
+    <div className="popular__sidebar mobile--hidden">
       <Search />
       <Reading />
       <Recomended />

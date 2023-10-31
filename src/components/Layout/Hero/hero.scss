@@ -40,14 +40,16 @@
 
 /* Media query for small devices */
 @media (max-width: 768px) {
-  .header-start {
-    flex-direction: column;
-    align-items: center;
-    margin: 0rem 0rem 0rem 1.5rem;
-  }
+  .hero {
+    height: fit-content;
 
-  .header-left h1 {
-    font-size: 30px;
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    &__left {
+      width: 100%;
+    }
   }
 
   .header-left h1 span {

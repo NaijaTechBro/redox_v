@@ -88,24 +88,6 @@ const Navbar = () => {
 
         {!user ? <CTA /> : <DropDowns />}
 
-        <div className="navbar__toggle">
-          {open ? (
-            <VscClose
-              className="io"
-              onClick={() => {
-                setOpen(!open)
-              }}
-            />
-          ) : (
-            <RiMenu4Fill
-              className="io"
-              onClick={() => {
-                setOpen(!open)
-              }}
-            />
-          )}
-        </div>
-
         <div style={componentStyle} className={`navbar__mobile__menu  ${open ? "open" : ""}`}>
           {!user && (
             <>

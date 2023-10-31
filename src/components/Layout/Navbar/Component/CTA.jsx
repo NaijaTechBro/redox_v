@@ -4,7 +4,7 @@ const CTA = () => {
   return (
     <div className="header__ctas">
       <span className="header__ctas--link">
-        <Link to="/login" target="_blank" className="header__ctas--link__item">
+        <Link to="/login" target="_blank" className="header__ctas--link__item mobile--hidden">
           Sign In
         </Link>
       </span>
