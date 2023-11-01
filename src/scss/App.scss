@@ -3,3 +3,44 @@
   width: 100vw;
   position: absolute;
 }
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+.section {
+  padding-block: 3rem;
+
+  &--title {
+    font-size: 2rem;
+  }
+}
+
+.text--center {
+  text-align: center;
+}
+
+.desktop--hidden {
+  display: none;
+}
+
+.mobile--hidden {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop--hidden {
+    display: block;
+  }
+
+  .mobile--hidden {
+    display: none;
+  }
+}

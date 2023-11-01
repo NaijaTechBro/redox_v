@@ -1,20 +1,19 @@
-import React from 'react'
-import './home.css'
-import Navbar from '../../components/Layout/Navbar/Navbar'
-import Hero from '../../components/Layout/Hero/Hero'
-import Footer from '../../components/Layout/Footer/Footer'
-import Product from '../../components/Layout/Product/Product'
-import Join from '../../components/Layout/Join/Join'
+import "./home.scss"
+import Navbar from "../../components/Layout/Navbar/Navbar"
+import Hero from "../../components/Layout/Hero/Hero"
+import Popular from "../../components/Layout/Popular/Popular"
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 
 const Home = () => {
+  const { user } = useContext(UserContext)
+
   return (
     <>
-    <Navbar />
-    <Hero />
-    <Product />
-    <Join />
-    <Footer />
-      </>
+      <Navbar />
+      {!user && <Hero />}
+      <Popular />
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import Comment from "../comment/Comment"
 import Footer from "../../../components/Layout/Footer/Footer"
-import Navbar from "../../../components/Layout/Navbar/Navbar"
+import Navbar from "../../../components/Layout/Navbar/Navbar1"
 import { BiEdit } from "react-icons/bi"
 import { MdDelete } from "react-icons/md"
 import axios from "axios"

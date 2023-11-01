@@ -1,5 +1,7 @@
 .create {
+  position: relative;
   max-width: 1140px;
+  z-index: 0;
   width: 100%;
   margin: 0 auto;
 }

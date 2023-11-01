@@ -57,7 +57,7 @@ const CreatePost = () => {
   }
 
   return (
-    <div>
+    <>
       <Navbar />
       <div className="create">
         <form className="form-group">
@@ -97,7 +97,7 @@ const CreatePost = () => {
         </form>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
 
