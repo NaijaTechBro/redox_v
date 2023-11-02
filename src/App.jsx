@@ -24,6 +24,7 @@ import Community from "./pages/Company/Community/Community"
 import ForgotPassword from "./pages/Auth/ForgotPassword"
 import Fresources from "./pages/Fresources/Fresources"
 import PostProvider from "./context/post/PostProvider"
+import Search from "./pages/Search/Search"
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <PostProvider>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/search/:name" element={<Search />} />
               <Route path="/blog" element={<Blog />} />
               {/* Company */}
               <Route path="/company/about-us" element={<AboutUs />} />
