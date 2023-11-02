@@ -45,15 +45,18 @@ const CreatePost = () => {
   const handleCreate = async (e) => {
     e.preventDefault()
 
+    console.log({title, desc: editorText, user, cats}, file)
+
     const post = {
       title,
-      tradViewLink,
-      desc,
-      editorText,
-      username: user.username,
+      // tradViewLink,
+      desc: editorText,
+      username: user.name,
       userId: user._id,
       categories: cats,
     }
+    
+    console.log(post, file)
 
     await handleCreatePost(post, file).then(() => {
       setTitle(``)
@@ -70,6 +73,8 @@ const CreatePost = () => {
     if (event.target.files && event.target.files[0]) {
       setImageUrl(URL.createObjectURL(event.target.files[0]));
     }
+    setFile(imageUrl)
+    console.log(file)
   };
 
 
@@ -155,6 +160,7 @@ const CreatePost = () => {
               <div className="create__form__section--categories">
                 {cats?.map((c, i) => (
                   <div key={i}>
+                    {console.log(c)}
                     <p className="color">{c}</p>
                     <i onClick={() => deleteCategory(i)}>
                       <ImCross />

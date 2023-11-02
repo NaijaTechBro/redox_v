@@ -5,10 +5,9 @@ import "../src/scss/App.scss"
 import Blog from "./pages/Blog/Blog"
 import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
-import PostDetails from "./pages/Post/Details/PostDetails"
-import CreatePost from "./pages/Post2/CreatePost"
+import PostDetails from "./pages/Post2/Details/PostDetails"
+import CreatePost from "./pages/Post/CreatePost"
 import EditPost from "./pages/Post2/EditPost"
-import BlogPost from "./pages/Post2/BlogPost"
 import Profile from "./pages/User/Profile/Profile"
 import { UserContextProvider } from "./context/UserContext"
 import MyBlogs from "./pages/Blog/MyBlogs"
@@ -43,7 +42,6 @@ const App = () => {
               <Route exact path="/register" element={<Register />} />
               <Route exact path="/forgotPassword" element={<ForgotPassword />} />
               <Route exact path="/write" element={<CreatePost />} />
-              <Route exact path="/blogpost" element={<BlogPost />} />
               <Route exact path="/posts/post/:id" element={<PostDetails />} />
               <Route exact path="/edit" element={<EditPost />} />
               <Route exact path="/myblogs/:id" element={<MyBlogs />} />
