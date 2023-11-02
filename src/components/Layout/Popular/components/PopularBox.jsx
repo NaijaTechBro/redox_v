@@ -2,10 +2,7 @@ import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import popularBox from "../../../../assets/popular-box.png"
 import PopularUser from "../../../../assets/popular-user.png"
-
-function truncate(str, maxlength) {
-  return str.length > maxlength ? str.slice(0, maxlength - 1) + "…" : str
-}
+import { postDate, truncate } from "../../../../helpers"
 
 const PopularBox = ({ post }) => {
   return (
@@ -16,13 +13,13 @@ const PopularBox = ({ post }) => {
           <img src={PopularUser} alt="Popular" className="popular-box__info--profile" />
           <h6 className="popular-box__info--heading">{post.username}</h6>
         </div>
-        <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">4 days ago</h6>
+        <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
       </div>
       <div className="popular-box__info">
         <div className="popular-box__info--top mobile--hidden">
           <img src={PopularUser} alt="Popular" className="popular-box__info--profile" />
           <h6 className="popular-box__info--heading">{post.username}</h6>
-          <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">4 days ago</h6>
+          <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
         </div>
         <div className="popular-box__info--body">
           <h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
