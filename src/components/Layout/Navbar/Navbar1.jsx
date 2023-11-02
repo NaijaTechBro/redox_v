@@ -43,7 +43,7 @@ const Navbar = () => {
       }
       setLoader(false)
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       setLoader(true)
     }
   }

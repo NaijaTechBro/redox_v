@@ -44,6 +44,10 @@
       overflow: hidden;
       padding: 0.5rem 2rem;
 
+      &.mobile--view {
+        display: none;
+      }
+
       input {
         outline: none;
         border: none;
@@ -223,15 +227,55 @@
 
 @media screen and (max-width: 768px) {
   .header {
+    position: relative;
+
     &__search-container {
       justify-content: flex-end;
 
       &--inner {
-        max-width: fit-content;
-        border: none;
+        display: none;
 
         input {
           display: none;
+        }
+
+        &.mobile--view {
+          display: flex;
+          border: none;
+          justify-content: flex-end;
+          width: 100%;
+        }
+      }
+
+      &--dropdown {
+        position: absolute;
+        z-index: 999999;
+        top: 5rem;
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        background: #f8f8f8;
+        display: flex;
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 0.1rem solid #33333355;
+        overflow: hidden;
+        padding: 0.5rem 2rem;
+
+        input {
+          display: inline-block;
+          background: transparent;
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+
+        .search--icon {
+          cursor: pointer;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
     }

@@ -27,7 +27,7 @@ const Blog = () => {
     setLoader(true)
     try {
       const res = await axios.get(`${URL}/api/posts/${search}`)
-      console.log(res.data)
+      // console.log(res.data)
       setPosts(res.data.posts)
       if (res.data.posts.length === 0) {
         setNoResults(true)
