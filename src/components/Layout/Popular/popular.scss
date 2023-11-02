@@ -5,6 +5,19 @@
   position: relative;
   z-index: 0;
 
+  .empty--search {
+    height: calc(100vh - 10rem);
+    @include flex;
+    flex-direction: column;
+
+    &--heading {
+      font-size: 2.3rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #000000;
+    }
+  }
+
   .add--icon {
     color: $main;
   }
