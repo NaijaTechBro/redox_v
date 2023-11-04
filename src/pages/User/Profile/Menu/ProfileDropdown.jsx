@@ -26,12 +26,11 @@ const ProfileDropdown = () => {
 
   const toggleDropdown = () => setIsOpen((prev) => !prev)
 
-  const followUser=async()=>{
-    try{
-      const res=await axios.post(URL+"/api/users/follow/",{toFollow},{withCredentials:true, Authorization:user.user._id})
+  const followUser = async () => {
+    try {
+      const res = await axios.post(URL + "/api/users/follow/", { toFollow }, { withCredentials: true, Authorization: user.user._id })
       console.log(res)
-    }
-    catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
@@ -45,7 +44,7 @@ const ProfileDropdown = () => {
   //     console.log(err)
   //   }
   // }
-  
+
   const handleLogout = async () => {
     try {
       const config = {
@@ -63,8 +62,8 @@ const ProfileDropdown = () => {
   return (
     <div className="profile-dropdown">
       <div className="profile-dropdown__image" onClick={toggleDropdown}>
-        <FaRegUserCircle src={user.photo} style={{ height: "60px", width: "30px" }} />
-        {/* <img src={user.photo} alt="Profile" /> */}
+        {/* <FaRegUserCircle src={user.photo} style={{ height: "60px", width: "30px" }} /> */}
+        <img src={user.user.photo} alt="Profile" style={{ height: "30px", width: "30px" }} />
       </div>
       {isOpen && (
         <div className="profile-dropdown__content">
