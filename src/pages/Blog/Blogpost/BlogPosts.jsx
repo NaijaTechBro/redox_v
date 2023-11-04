@@ -2,14 +2,12 @@
 import { useContext } from "react"
 import { UserContext } from "../../../context/UserContext"
 import { FaRegUserCircle } from "react-icons/fa"
-import Navbar from "../../../components/Layout/Navbar/Navbar"
 import "./blogpost.css"
 
 const BlogPosts = ({ post }) => {
   const { user } = useContext(UserContext)
   return (
     <>
-      <Navbar />
       <div className="blogpost">
         {/* left */}
         <img src={post.image} alt="image" />
