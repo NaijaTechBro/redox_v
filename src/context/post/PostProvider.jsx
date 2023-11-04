@@ -76,7 +76,7 @@ const PostProvider = (props) => {
       .catch((error) => {
         // Handle errors, if any
         console.error("Error uploading image:", error)
-        setErrorMsg(err.message)
+        setErrorMsg(error.message)
       })
   }
 
@@ -84,6 +84,7 @@ const PostProvider = (props) => {
     const formData = new FormData()
     formData.append("image", file)
 
+    file ? 
     await axios
       .post(`${URL}/api/posts/upload`, formData, {
         headers: {
@@ -110,8 +111,22 @@ const PostProvider = (props) => {
       .catch((error) => {
         // Handle errors, if any
         console.error("Error uploading image:", error)
-        setErrorMsg(err.message)
+        setErrorMsg(error.message)
       })
+      :
+      await axios
+        .post(`${URL}/api/posts/${postId}`, params, {
+          withCredentials: true,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
+        })
+        .then((res) => {
+          navigate(`/posts/post/${res.data._id}`)
+        })
+        .catch((err) => {
+          // console.log(err)
+          setErrorMsg(err.message)
+        })
   }
 
   const providerValues = { posts, postSearch, handleSearch, handleCreatePost, handleEditPost, handleFetchPost, errorMsg }

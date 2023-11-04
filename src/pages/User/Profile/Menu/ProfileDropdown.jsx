@@ -26,6 +26,26 @@ const ProfileDropdown = () => {
 
   const toggleDropdown = () => setIsOpen((prev) => !prev)
 
+  const followUser=async()=>{
+    try{
+      const res=await axios.post(URL+"/api/users/follow/",{toFollow},{withCredentials:true, Authorization:user.user._id})
+      console.log(res)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  // const handleLogout=async()=>{
+  //   try{
+  //     const res=await axios.post(URL+"/api/auth/logout",{withCredentials:true})
+  //     // console.log(res)
+  //     setUser(null)
+  //     navigate("/login")
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+  
   const handleLogout = async () => {
     try {
       const config = {

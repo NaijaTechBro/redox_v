@@ -1,0 +1,45 @@
+.comment {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+    width: 60%;
+}
+
+
+.comment__metadata  h3 {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.comment__main{
+    background-color: #e5e7eb;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #46404E;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.comment__metadata{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 5px;
+}
+.comment__metadata div{
+    display: flex;
+}
+
+@media screen and (max-width: 675px) {
+    .comment{
+        width: 100%;
+    }
+    .comment__main{
+        font-size: 16px;
+    }
+    .comment__metadata p{
+        font-size: 14px;
+    }
+}
