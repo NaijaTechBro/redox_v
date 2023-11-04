@@ -31,7 +31,7 @@ const SearchContainer = () => {
         </span>
         {isOpen && (
           <div className="header__search-container--dropdown">
-            <input onChange={handleSearchInput} className="outline-none px-3 " placeholder="Search" type="text" />
+            <input onChange={handleSearchInput} className="outline-none px-3" placeholder="Search" type="text" />
             <span onClick={() => navigate(prompt ? `/search/${prompt}` : "/")} className="search--icon">
               <BsSearch />
             </span>

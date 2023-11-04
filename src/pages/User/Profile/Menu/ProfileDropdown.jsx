@@ -17,18 +17,14 @@ import CTALinks from "./CTALinks"
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
+  const { user } = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
+    isOpen ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
   }, [isOpen])
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen)
-  }
+  const toggleDropdown = () => setIsOpen((prev) => !prev)
 
   const handleLogout = async () => {
     try {
@@ -43,8 +39,6 @@ const ProfileDropdown = () => {
       console.log(err)
     }
   }
-  const { user } = useContext(UserContext)
-  const { setUser } = useContext(UserContext)
 
   return (
     <div className="profile-dropdown">

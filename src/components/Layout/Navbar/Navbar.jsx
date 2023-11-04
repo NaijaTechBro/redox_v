@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import axios from "axios"
 import { URL } from "../../../url"
 import { UserContext } from "../../../context/UserContext"
@@ -49,10 +49,10 @@ const Navbar = () => {
     <header className="header">
       <div className="container">
         <div className="header__logo">
-          <a href="/">
+          <Link to="/">
             <img src={logo} alt="Redox" className="mobile--hidden" />
             <img src={mobileLogo} alt="Redox" className="desktop--hidden" />
-          </a>
+          </Link>
         </div>
         {!user ? <Menu /> : <SearchContainer />}
         {!user ? <CTA /> : <DropDowns />}
