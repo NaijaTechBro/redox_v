@@ -185,6 +185,11 @@
         font-weight: 400;
         font-size: 1.2rem;
         line-height: 1;
+        display: block;
+
+        &.desktop--hidden {
+          display: none !important;
+        }
       }
 
       &--text {
@@ -298,6 +303,14 @@
 
           &.mobile--hidden {
             display: none;
+          }
+        }
+
+        &--title {
+          display: none !important;
+
+          &.desktop--hidden {
+            display: block !important;
           }
         }
 
