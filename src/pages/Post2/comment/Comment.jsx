@@ -37,7 +37,7 @@ const Comment = ({c,post}) => {
       <div className="comment__metadata">
         <div>
           <img src={c.photo} alt="" />
-          {console.log(c)}
+          {/* {console.log(c)} */}
           <h3>@{c.author}</h3>
         </div>
         <div>

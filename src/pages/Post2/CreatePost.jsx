@@ -11,6 +11,7 @@ import { convert } from "html-to-text"
 import usePostContext from "../../context/post/usePostContext"
 import Imgplaceholder from "../../assets/imgplaceholder.png"
 import TradingViewIcon from "../../assets/tradingview_icon.png"
+import axios from "axios"
 
 const CreatePost = () => {
   const { errorMsg, handleCreatePost } = usePostContext()
@@ -40,19 +41,19 @@ const CreatePost = () => {
     const updatedCats = [...cats, cat]
     setCat("")
     setCats(updatedCats)
+    console.log(user)
   }
 
   const handleCreate = async (e) => {
     e.preventDefault()
 
-    console.log({title, desc: editorText, user, cats}, file)
 
     const post = {
       title,
       // tradViewLink,
       desc: editorText,
-      username: user.name,
-      userId: user._id,
+      username: user.user.username,
+      userId: user.user._id,
       categories: cats,
     }
     
@@ -69,11 +70,34 @@ const CreatePost = () => {
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const post = {
+      title:title,
+      desc: editorText,
+      username: user.user.username,
+      userId: user.user._id,
+      categories: cats,
+    }
+
+    axios.post('https://redoxv.onrender.com/api/posts/create', post)
+      .then(response => {
+        console.log('Response:', response.data);
+        console.log(post);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        console.log(post);
+        console.log(user.user);
+      });
+  };
+
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       setImageUrl(URL.createObjectURL(event.target.files[0]));
+      setFile(event.target.files[0]);
     }
-    setFile(imageUrl)
     console.log(file)
   };
 

@@ -12,6 +12,8 @@ import Loader from "../../../components/Loading/Loader"
 import "./postdetails.css"
 import { BsBookmarkCheck } from "react-icons/bs"
 import { BsBookmarkCheckFill } from "react-icons/bs"
+import { BsThreeDotsVertical } from "react-icons/bs"
+import { Link } from "react-router-dom"
 
 const PostDetails = () => {
   const postId = useParams().id
@@ -23,11 +25,12 @@ const PostDetails = () => {
   const navigate = useNavigate()
   const [bookmarked, setBookmarked] = useState(true)
   const [followStatus, setFollowStatus] = useState(false)
+  const [editMenu, setEditMenu] = useState(false)
 
   const fetchPost = async () => {
     try {
       const res = await axios.get(URL + "/api/posts/" + postId)
-      console.log(res.data)
+      // console.log(res.data)
       setPost(res.data)
     } catch (err) {
       console.log(err)
@@ -67,7 +70,7 @@ const PostDetails = () => {
   const postComment = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(URL + "/api/comments/create", { comment: comment, author: user.username, postId: postId, userId: user._id }, { withCredentials: true })
+      const res = await axios.post(URL + "/api/comments/create", { comment: comment, author: user.user.username, postId: postId, userId: user.user._id }, { withCredentials: true })
       window.location.reload(true)
     } catch (err) {
       console.log(err)
@@ -81,10 +84,14 @@ const PostDetails = () => {
       setFollowStatus(false)
     }
   }
-  console.log(user)
+  // console.log(user)
   // useEffect(() => {
   //   checkFollowed()
   // }, [postId])
+
+  const dispEditMenu = () => {
+    setEditMenu(!editMenu)
+  }
 
   return (
     <div>
@@ -110,13 +117,20 @@ const PostDetails = () => {
           </div>
           <div className="post__info">
             <div>
-              <img src={user.photo} alt="" />
+              <img src={user?.user?.photo} alt="" />
               <p>@{post.username}</p>
             </div>
             <div className="post-date">
               <p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
               <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
               {bookmarked ? <BsBookmarkCheckFill/> : <BsBookmarkCheck/>}
+              {(user?.user?._id === post?.userId) ? <span onClick={dispEditMenu} style={{cursor: "pointer"}}><BsThreeDotsVertical/></span> : ""}
+              {editMenu &&
+                <div className="edit-menu">
+                  <Link key={post._id} to={user ? `/edit/${post._id}` : "/login"} style={{ textDecoration: "none" }}> Edit </Link>
+                  <Link key={post._id} to={user ? `/blog` : "/login"} style={{ textDecoration: "none" }}> Delete </Link>
+                </div>
+              }
             </div>
           </div>
           <img src={post.image} className="post__image" alt="" />

@@ -6,7 +6,7 @@ import Blog from "./pages/Blog/Blog"
 import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import PostDetails from "./pages/Post2/Details/PostDetails"
-import CreatePost from "./pages/Post/CreatePost"
+import CreatePost from "./pages/Post2/CreatePost"
 import EditPost from "./pages/Post2/EditPost"
 import Profile from "./pages/User/Profile/Profile"
 import { UserContextProvider } from "./context/UserContext"
@@ -45,7 +45,7 @@ const App = () => {
               <Route exact path="/forgotPassword" element={<ForgotPassword />} />
               <Route exact path="/write" element={<CreatePost />} />
               <Route exact path="/posts/post/:id" element={<PostDetails />} />
-              <Route exact path="/edit" element={<EditPost />} />
+              <Route exact path="/edit/:id" element={<EditPost />} />
               <Route exact path="/myblogs/:id" element={<MyBlogs />} />
               <Route exact path="/profile/:id" element={<Profile />} />
               <Route exact path="/trading-tools" element={<Fresources />} />

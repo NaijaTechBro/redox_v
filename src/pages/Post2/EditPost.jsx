@@ -6,7 +6,7 @@ import Navbar from "../../components/Layout/Navbar/Navbar"
 import { ImCross } from "react-icons/im"
 import { useParams } from "react-router-dom"
 import { UserContext } from "../../context/UserContext"
-// import "./post.css"
+import "./post.css"
 import usePostContext from "../../context/post/usePostContext"
 import Imgplaceholder from "../../assets/imgplaceholder.png"
 import TradingViewIcon from "../../assets/tradingview_icon.png"
@@ -22,19 +22,22 @@ const EditPost = () => {
   const [cat, setCat] = useState("")
   const [cats, setCats] = useState([])
   const [tradViewLink, setTradViewLink] = useState("")
-  const [imageUrl, setImageUrl] = useState()
+  const [oldImageUrl, setOldImageUrl] = useState()
+  const [newImageUrl, setNewImageUrl] = useState()
   const [editorHtml, setEditorHtml] = useState('')
   const [editorText, setEditorText] = useState('')
 
   const fetchPost = async () => {
     await handleFetchPost(postId)
       .then((post) => {
+        console.log(post)
         setDisplayTitle(post.title)
         setTitle(post.title)
         setDesc(post.desc)
         setCats(post.categories)
         setTradViewLink(post.tradViewLink)
         setEditorText(post.editorText)
+        setOldImageUrl(post.image)
       })
       .catch((err) => {
         console.log(err)
@@ -45,13 +48,15 @@ const EditPost = () => {
     e.preventDefault()
     const post = {
       title,
-      tradViewLink,
-      desc,
-      editorText,
-      username: user.username,
-      userId: user._id,
+      // tradViewLink,
+      desc: editorText,
+      username: user.user.username,
+      userId: user.user._id,
       categories: cats,
     }
+    setFile(newImageUrl ? file : null)
+    // console.log(file)
+    // console.log(typeof file)
 
     await handleEditPost(post, file, postId)
   }
@@ -69,7 +74,7 @@ const EditPost = () => {
 
     const post = {
       title,
-      tradViewLink,
+      // tradViewLink,
       desc,
       editorText,
       username: user.username,
@@ -103,7 +108,8 @@ const EditPost = () => {
   
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setImageUrl(URL.createObjectURL(event.target.files[0]));
+      setNewImageUrl(URL.createObjectURL(event.target.files[0]));
+      setFile(event.target.files[0]);
     }
   };
 
@@ -118,7 +124,7 @@ const EditPost = () => {
     tempElement.innerHTML = html;
   
     setEditorText(tempElement.textContent || tempElement.innerText || '');
-    console.log(editorText);
+    // console.log(editorText);
     return;
   }
 
@@ -146,7 +152,7 @@ const EditPost = () => {
       <div className="create">
         <h1 className="create__h1">Edit Analysis</h1>
         <form className="create__form">
-          {!imageUrl ?
+          {!oldImageUrl ?
           <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
             <input
               type="file"
@@ -162,13 +168,13 @@ const EditPost = () => {
           <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
             <input type="file" accept="image/*" id="imageInput" onChange={onImageChange} className="filetype" style={{ display: 'none' }}/>
 
-            {imageUrl && <img src={imageUrl} alt="preview image" style={{width: '852px', height: '400px'}}/>}
+            {oldImageUrl && <img src={newImageUrl ? newImageUrl : oldImageUrl} alt="preview image" style={{width: '852px', height: '400px'}}/>}
           </div>
           }
           <section className="create__form--section">
             <div>
               <label htmlFor="title">Title:</label>
-              <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Enter title" />
+              <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder={title} />
             </div>
             <div>
               <img src={TradingViewIcon} alt="" width={52} height={48} />
@@ -206,7 +212,7 @@ const EditPost = () => {
                 onChange={handleEditorChange}
                 style={editorStyles} //styles
                 modules={modules} //text formatting options
-                placeholder="Give summary on analysis..."
+                placeholder="Enter analysis update..."
               />
             </div>
             {errorMsg !== `` && <p className="error-msg">{errorMsg}</p>}
