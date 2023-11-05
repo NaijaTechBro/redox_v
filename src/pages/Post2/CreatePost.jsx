@@ -12,6 +12,7 @@ import usePostContext from "../../context/post/usePostContext"
 import Imgplaceholder from "../../assets/imgplaceholder.png"
 import TradingViewIcon from "../../assets/tradingview_icon.png"
 import axios from "axios"
+import { useTheme } from "../../context/ThemeContext"
 
 const CreatePost = () => {
   const { errorMsg, handleCreatePost } = usePostContext()
@@ -25,6 +26,7 @@ const CreatePost = () => {
   const [imageUrl, setImageUrl] = useState()
   const [editorHtml, setEditorHtml] = useState("")
   const [editorText, setEditorText] = useState("")
+  const { darkMode, toggleTheme } = useTheme()
 
   const deleteCategory = (i) => {
     const updatedCats = cats.filter((_, index) => index !== i)
@@ -133,9 +135,9 @@ const CreatePost = () => {
   }
 
   return (
-    <div>
+    <div className={darkMode ? "dark_mode" : ""}>
       <Navbar />
-      <div className="create">
+      <div className={darkMode ? "dark_mode create" : "create"}>
         <h1 className="create__h1">Create Analysis</h1>
         <form className="create__form">
           {!imageUrl ? (

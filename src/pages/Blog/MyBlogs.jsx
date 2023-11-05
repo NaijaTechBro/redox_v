@@ -7,6 +7,7 @@ import axios from "axios"
 import { URL } from "../../url"
 import Loader from "../../components/Loading/Loader"
 import BlogPosts from "./Blogpost/BlogPosts"
+import { useTheme } from "../../context/ThemeContext"
 
 const MyBlogs = () => {
   const { search } = useLocation()
@@ -16,6 +17,7 @@ const MyBlogs = () => {
   const [loader, setLoader] = useState(false)
   const { user } = useContext(UserContext)
   // console.log(user)
+  const { darkMode, toggleTheme } = useTheme()
 
   const fetchPosts = async () => {
     setLoader(true)
@@ -40,7 +42,7 @@ const MyBlogs = () => {
   }, [search])
 
   return (
-    <div>
+    <div className={darkMode ? "dark_mode" : ""}>
       <Navbar />
       <div className="px-8 md:px-[200px] min-h-[80vh]">
         <h1>Edit your story</h1>

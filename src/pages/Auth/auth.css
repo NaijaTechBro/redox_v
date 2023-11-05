@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  padding: 60px;
 }
 
 .register-page h1 {
@@ -100,7 +100,7 @@ margin-top: -7px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  padding-top: 60px;
 }
 
  .login-page h1 {

@@ -8,6 +8,7 @@ import { URL } from "../../url"
 import { UserContext } from "../../context/UserContext"
 import "./auth.css"
 import Navbar from "../../components/Layout/Navbar/Navbar"
+import { useTheme } from "../../context/ThemeContext"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -15,6 +16,7 @@ const Login = () => {
   const [error, setError] = useState(false)
   const { setUser } = useContext(UserContext)
   const navigate = useNavigate()
+  const { darkMode, toggleTheme } = useTheme()
 
   const handleLogin = async () => {
     try {
@@ -30,7 +32,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="login-page">
+      <div className={darkMode ? "dark_mode login-page" : "login-page"}>
         <img src={Logo} alt="logo" width={150} />
         <h1 className="text-xl font-bold text-left">Sign In</h1>
         <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Enter your email" />

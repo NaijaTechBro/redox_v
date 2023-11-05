@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../../components/Layout/Navbar/Navbar';
 import Footer from '../../../components/Layout/Footer/Footer';
 import './contact.css'; // Import the CSS file for the component
+import { useTheme } from '../../../context/ThemeContext';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -9,6 +10,7 @@ const Contact = () => {
   const [phone, setPhone] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const { darkMode, toggleTheme } = useTheme();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +34,7 @@ const Contact = () => {
   return (
     <>
     <Navbar />
-    <div className="contact-us">
+    <div className={darkMode ? "dark_mode contact-us" : "contact-us"}>
       <h2>Contact Us</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

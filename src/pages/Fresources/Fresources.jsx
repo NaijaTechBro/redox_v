@@ -2,12 +2,15 @@ import React from 'react'
 import Footer from '../../components/Layout/Footer/Footer'
 import './fresource.css'
 import Navbar from '../../components/Layout/Navbar/Navbar'
+import { useTheme } from '../../context/ThemeContext'
 
 const Fresources = () => {
+  const { darkMode, toggleTheme } = useTheme()
+  
   return (
     <>
     <Navbar />
-    <div className="free-resources">
+    <div className={darkMode ? "dark_mode free-resources" : "free-resources"}>
       <div className="content">
         <h1>Free Resources</h1>
 <h4>Last updated: March 21st, 2023</h4>
