@@ -12,8 +12,6 @@ import CTA from "./Component/CTA"
 import DropDowns from "./Component/DropDowns"
 
 const Navbar = () => {
-  const { setUser } = useContext(UserContext)
-
   const { search } = useLocation()
   // console.log(search)
   const [posts, setPosts] = useState([])
@@ -53,8 +51,8 @@ const Navbar = () => {
             <img src={mobileLogo} alt="Redox" className="desktop--hidden" />
           </Link>
         </div>
-        {user.length === 0 ? <Menu /> : <SearchContainer />}
-        {user.length === 0 ? <CTA /> : <DropDowns />}
+        {user._id === undefined ? <Menu /> : <SearchContainer />}
+        {user._id === undefined ? <CTA /> : <DropDowns />}
       </div>
     </header>
   )

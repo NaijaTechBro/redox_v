@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 const PopularBox = ({ post, user }) => {
   return (
     <div className="popular-box">
-      {user.length > 0 ? (
+      {user._id !== undefined ? (
         <Link to={`/posts/post/${post._id}`} className="popular-box__info--title title--mobile desktop--hidden text--center">
           {post.title}
         </Link>
@@ -28,7 +28,7 @@ const PopularBox = ({ post, user }) => {
           <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
         </div>
         <div className="popular-box__info--body">
-          {user.length > 0 ? (
+          {user._id !== undefined ? (
             <Link to={`/posts/post/${post._id}`} className="popular-box__info--title mobile--hidden">
               {post.title}
             </Link>

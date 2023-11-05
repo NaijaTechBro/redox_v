@@ -5,7 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai"
 const PopularBoxes = ({ user, type, posts }) => {
   return (
     <div className="popular__boxes">
-      {user.length > 0 && type !== "Search" && (
+      {user._id !== undefined && type !== "Search" && (
         <>
           <div className="popular__user--managenent">
             <h5 className="popular--username">Hi, {user.username}</h5>

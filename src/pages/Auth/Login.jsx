@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import Logo from "../../assets/logor.png"
 import Footer from "../../components/Layout/Footer/Footer"
-import PasswordInput from '../../components/PasswordInput/PasswordInput';
+import PasswordInput from "../../components/PasswordInput/PasswordInput"
 import { useContext, useState } from "react"
 import axios from "axios"
 import { URL } from "../../url"
@@ -24,7 +24,7 @@ const Login = () => {
       navigate("/blog")
     } catch (err) {
       setError(true)
-      console.log(err)
+      console.log(err.message)
     }
   }
   return (
@@ -34,13 +34,9 @@ const Login = () => {
         <img src={Logo} alt="logo" width={150} />
         <h1 className="text-xl font-bold text-left">Sign In</h1>
         <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Enter your email" />
-        <PasswordInput
-          onChange={(e) => setPassword(e.target.value)} 
-          type="password" 
-          placeholder="Enter your password"
-          />
+        <PasswordInput onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter your password" />
         <button onClick={handleLogin}>Log in</button>
-        {error && <h3 style={{color: "#ff0000", fontWeight: "500"}}>Something went wrong</h3>}
+        {error && <h3 style={{ color: "#ff0000", fontWeight: "500" }}>Something went wrong</h3>}
         <p>
           Don't Have an Account?{" "}
           <Link className="register-page-Link" to="/register">
