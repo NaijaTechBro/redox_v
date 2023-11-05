@@ -2,18 +2,11 @@ import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import { postDate, truncate } from "../../../../helpers"
 import postPhoto from "../../../../assets/popular-box.png"
-import { Link } from "react-router-dom"
 
-const PopularBox = ({ post, user }) => {
+const PopularBox = ({ post }) => {
   return (
     <div className="popular-box">
-      {user._id !== undefined ? (
-        <Link to={`/posts/post/${post._id}`} className="popular-box__info--title title--mobile desktop--hidden text--center">
-          {post.title}
-        </Link>
-      ) : (
-        <h4 className="popular-box__info--title title--mobile desktop--hidden text--center">{post.title}</h4>
-      )}
+      <h4 className="popular-box__info--title title--mobile desktop--hidden text--center">{post.title}</h4>
       <div className="popular-box__info--top mobile--top desktop--hidden">
         <div>
           <img src={postPhoto} alt="Popular" className="popular-box__info--profile" />
@@ -28,13 +21,7 @@ const PopularBox = ({ post, user }) => {
           <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
         </div>
         <div className="popular-box__info--body">
-          {user._id !== undefined ? (
-            <Link to={`/posts/post/${post._id}`} className="popular-box__info--title mobile--hidden">
-              {post.title}
-            </Link>
-          ) : (
-            <h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
-          )}
+          <h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
           <p className="popular-box__info--text">{truncate(post.desc, 300)}</p>
         </div>
         <div className="popular-box__info--bottom">
