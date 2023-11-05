@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom"
 import dark from "../../../../assets/menu-dark.png"
 import logout from "../../../../assets/menu-logout.png"
+import { useTheme } from "../../../../context/ThemeContext"
 
 const CTALinks = ({ user, onClick }) => {
+  const { darkMode, toggleTheme } = useTheme()
+  
   return (
     <ul className="profile-dropdown__content--links">
-      <li>
-        <Link to={"/profile/" + user._id}>
+      <li onClick={toggleTheme}>
+        <Link to="">
           <span>
             <img src={dark} alt="" />
           </span>

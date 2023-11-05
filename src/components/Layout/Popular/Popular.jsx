@@ -4,12 +4,14 @@ import Sidebar from "./components/Sidebar"
 import "./popular.scss"
 import { UserContext } from "../../../context/UserContext"
 import empty_post from "../../../assets/empty-post.png"
+import { useTheme } from "../../../context/ThemeContext"
 
 const Popular = ({ posts, type }) => {
   const { user } = useContext(UserContext)
+  const { darkMode, toggleTheme } = useTheme()
 
   return (
-    <section className="popular section">
+    <section className={darkMode ? "popular section dark_mode" : "popular section"}>
       <div className="container">
         {posts.length > 0 ? (
           <>

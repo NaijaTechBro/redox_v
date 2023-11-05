@@ -13,12 +13,14 @@ import OverviewLinks from "./OverviewLinks"
 import SettingsLinks from "./SettingsLinks"
 import MembershipLinks from "./MembershipLinks"
 import CTALinks from "./CTALinks"
+import { useTheme } from "../../../../context/ThemeContext"
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
   const { user } = useContext(UserContext)
   const { setUser } = useContext(UserContext)
+  const { darkMode, toggleTheme } = useTheme()
 
   useEffect(() => {
     isOpen ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
@@ -69,7 +71,7 @@ const ProfileDropdown = () => {
       {isOpen && (
         <div className="profile-dropdown__content">
           <div className="profile-dropdown__content--blur" onClick={toggleDropdown}></div>
-          <div className="profile-dropdown__content--inner">
+          <div className={darkMode ? "profile-dropdown__content--inner dark_mode" : "profile-dropdown__content--inner"}>
             <Createlink user={user} />
             <OverviewLinks user={user} />
             <SettingsLinks user={user} />
