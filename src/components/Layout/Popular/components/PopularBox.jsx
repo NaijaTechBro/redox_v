@@ -1,12 +1,13 @@
 import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import { postDate, truncate } from "../../../../helpers"
+import postPhoto from "../../../../assets/popular-box.png"
 import { Link } from "react-router-dom"
 
 const PopularBox = ({ post, user }) => {
   return (
     <div className="popular-box">
-      {user ? (
+      {user.length > 0 ? (
         <Link to={`/posts/post/${post._id}`} className="popular-box__info--title title--mobile desktop--hidden text--center">
           {post.title}
         </Link>
@@ -15,19 +16,19 @@ const PopularBox = ({ post, user }) => {
       )}
       <div className="popular-box__info--top mobile--top desktop--hidden">
         <div>
-          <img src={user.user.photo} alt="Popular" className="popular-box__info--profile" />
+          <img src={postPhoto} alt="Popular" className="popular-box__info--profile" />
           <h6 className="popular-box__info--heading">{post.username}</h6>
         </div>
         <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
       </div>
       <div className="popular-box__info">
         <div className="popular-box__info--top mobile--hidden">
-          <img src={user.user.photo} alt="Popular" className="popular-box__info--profile" />
+          <img src={postPhoto} alt="Popular" className="popular-box__info--profile" />
           <h6 className="popular-box__info--heading">{post.username}</h6>
           <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
         </div>
         <div className="popular-box__info--body">
-          {user ? (
+          {user.length > 0 ? (
             <Link to={`/posts/post/${post._id}`} className="popular-box__info--title mobile--hidden">
               {post.title}
             </Link>

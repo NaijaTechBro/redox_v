@@ -23,8 +23,8 @@ const CreatePost = () => {
   const [cats, setCats] = useState([])
   const [tradViewLink, setTradViewLink] = useState("")
   const [imageUrl, setImageUrl] = useState()
-  const [editorHtml, setEditorHtml] = useState('')
-  const [editorText, setEditorText] = useState('')
+  const [editorHtml, setEditorHtml] = useState("")
+  const [editorText, setEditorText] = useState("")
 
   const deleteCategory = (i) => {
     const updatedCats = cats.filter((_, index) => index !== i)
@@ -47,16 +47,15 @@ const CreatePost = () => {
   const handleCreate = async (e) => {
     e.preventDefault()
 
-
     const post = {
       title,
       // tradViewLink,
       desc: editorText,
-      username: user.user.username,
+      username: user.username,
       userId: user.user._id,
       categories: cats,
     }
-    
+
     console.log(post, file)
 
     await handleCreatePost(post, file).then(() => {
@@ -71,68 +70,67 @@ const CreatePost = () => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const post = {
-      title:title,
+      title: title,
       desc: editorText,
-      username: user.user.username,
-      userId: user.user._id,
+      username: user.username,
+      userId: user._id,
       categories: cats,
     }
 
-    axios.post('https://redoxv.onrender.com/api/posts/create', post)
-      .then(response => {
-        console.log('Response:', response.data);
-        console.log(post);
+    axios
+      .post("https://redoxv.onrender.com/api/posts/create", post)
+      .then((response) => {
+        console.log("Response:", response.data)
+        console.log(post)
       })
-      .catch(error => {
-        console.error('Error:', error);
-        console.log(post);
-        console.log(user.user);
-      });
-  };
+      .catch((error) => {
+        console.error("Error:", error)
+        console.log(post)
+        console.log(user.user)
+      })
+  }
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setImageUrl(URL.createObjectURL(event.target.files[0]));
-      setFile(event.target.files[0]);
+      setImageUrl(URL.createObjectURL(event.target.files[0]))
+      setFile(event.target.files[0])
     }
     console.log(file)
-  };
-
+  }
 
   const handleEditorChange = (html) => {
-    convertHtmlToPlainText(html);
-    setEditorHtml(html);
-  };
+    convertHtmlToPlainText(html)
+    setEditorHtml(html)
+  }
 
   function convertHtmlToPlainText(html) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = html;
-  
-    setEditorText(tempElement.textContent || tempElement.innerText || '');
-    console.log(editorText);
-    return;
+    const tempElement = document.createElement("div")
+    tempElement.innerHTML = html
+
+    setEditorText(tempElement.textContent || tempElement.innerText || "")
+    console.log(editorText)
+    return
   }
 
   //specific styles for the editor
   const editorStyles = {
-    width: '100%', // Set the width
-    height: '300px', // Set the height
-  };
+    width: "100%", // Set the width
+    height: "300px", // Set the height
+  }
 
   //modules for text formatting options
   const modules = {
     toolbar: [
-      [{ 'align': 'left' }, { 'align': 'right' }, { 'align': 'center' }, { 'align': 'justify' }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link'],
-      ['clean']
+      [{ align: "left" }, { align: "right" }, { align: "center" }, { align: "justify" }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+      ["link"],
+      ["clean"],
     ],
-  };
-  
+  }
 
   return (
     <div>
@@ -140,25 +138,19 @@ const CreatePost = () => {
       <div className="create">
         <h1 className="create__h1">Create Analysis</h1>
         <form className="create__form">
-          {!imageUrl ?
-          <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
-            <input
-              type="file"
-              id="imageInput"
-              accept="image/*"
-              onChange={onImageChange}
-              style={{ display: 'none' }}
-            />
-            <img src={Imgplaceholder} alt="image placeholder" />
-            <p>Add  Analysis cover Image</p>
-          </div>
-          :
-          <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
-            <input type="file" accept="image/*" id="imageInput" onChange={onImageChange} className="filetype" style={{ display: 'none' }}/>
+          {!imageUrl ? (
+            <div className="create__form--image" onClick={() => document.getElementById("imageInput").click()}>
+              <input type="file" id="imageInput" accept="image/*" onChange={onImageChange} style={{ display: "none" }} />
+              <img src={Imgplaceholder} alt="image placeholder" />
+              <p>Add Analysis cover Image</p>
+            </div>
+          ) : (
+            <div className="create__form--image" onClick={() => document.getElementById("imageInput").click()}>
+              <input type="file" accept="image/*" id="imageInput" onChange={onImageChange} className="filetype" style={{ display: "none" }} />
 
-            {imageUrl && <img src={imageUrl} alt="preview image" style={{width: '852px', height: '400px'}}/>}
-          </div>
-          }
+              {imageUrl && <img src={imageUrl} alt="preview image" style={{ width: "852px", height: "400px" }} />}
+            </div>
+          )}
           <section className="create__form--section">
             <div>
               <label htmlFor="title">Title:</label>
@@ -175,7 +167,7 @@ const CreatePost = () => {
             <div>
               <label htmlFor="categories">Categories</label>
               <span>
-                <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter Category" type="text" className="cat-input"/>
+                <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter Category" type="text" className="cat-input" />
                 <div onClick={addCategory} className="add-category">
                   Add
                 </div>
@@ -205,7 +197,9 @@ const CreatePost = () => {
               />
             </div>
             {errorMsg !== `` && <p className="error-msg">{errorMsg}</p>}
-            <button onClick={handleCreate} className="create--button">Publish</button>
+            <button onClick={handleCreate} className="create--button">
+              Publish
+            </button>
           </section>
         </form>
       </div>

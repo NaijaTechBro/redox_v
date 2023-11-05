@@ -28,7 +28,7 @@ const ProfileDropdown = () => {
 
   const followUser = async () => {
     try {
-      const res = await axios.post(URL + "/api/users/follow/", { toFollow }, { withCredentials: true, Authorization: user.user._id })
+      const res = await axios.post(URL + "/api/users/follow/", { toFollow }, { withCredentials: true, Authorization: user._id })
       console.log(res)
     } catch (err) {
       console.log(err)
@@ -63,7 +63,7 @@ const ProfileDropdown = () => {
     <div className="profile-dropdown">
       <div className="profile-dropdown__image" onClick={toggleDropdown}>
         {/* <FaRegUserCircle src={user.photo} style={{ height: "60px", width: "30px" }} /> */}
-        <img src={user.user.photo} alt="Profile" style={{ height: "30px", width: "30px" }} />
+        <img src={user.photo} alt="Profile" style={{ height: "30px", width: "30px" }} />
       </div>
       {isOpen && (
         <div className="profile-dropdown__content">

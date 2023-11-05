@@ -21,7 +21,6 @@ const Navbar = () => {
   const [loader, setLoader] = useState(false)
   const [open, setOpen] = useState(false)
   const { user } = useContext(UserContext)
-  // console.log(user)
 
   const fetchPosts = async () => {
     setLoader(true)
@@ -54,8 +53,8 @@ const Navbar = () => {
             <img src={mobileLogo} alt="Redox" className="desktop--hidden" />
           </Link>
         </div>
-        {!user ? <Menu /> : <SearchContainer />}
-        {!user ? <CTA /> : <DropDowns />}
+        {user.length === 0 ? <Menu /> : <SearchContainer />}
+        {user.length === 0 ? <CTA /> : <DropDowns />}
       </div>
     </header>
   )
