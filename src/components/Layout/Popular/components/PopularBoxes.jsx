@@ -21,15 +21,11 @@ const PopularBoxes = ({ user, type, posts }) => {
           </div>
         </>
       )}
-      {posts.map((post) =>
-        user._id !== undefined ? (
-          <Link to={`/posts/post/${post._id}`} key={post._id}>
-            <PopularBox key={post._id} post={post} />
-          </Link>
-        ) : (
+      {posts.map((post) => (
+        <Link to={user._id !== undefined ? `/posts/post/${post._id}` : `/login`} key={post._id}>
           <PopularBox key={post._id} post={post} />
-        )
-      )}
+        </Link>
+      ))}
     </div>
   )
 }
