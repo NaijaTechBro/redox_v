@@ -3,10 +3,9 @@ import PopularBox from "./PopularBox"
 import { AiOutlinePlus } from "react-icons/ai"
 
 const PopularBoxes = ({ user, type, posts }) => {
-  // console.log(posts)
   return (
     <div className="popular__boxes">
-      {user && type !== "Search" && (
+      {user._id !== undefined && type !== "Search" && (
         <>
           <div className="popular__user--managenent">
             <h5 className="popular--username">Hi, {user.username}</h5>
@@ -23,7 +22,9 @@ const PopularBoxes = ({ user, type, posts }) => {
         </>
       )}
       {posts.map((post) => (
-        <PopularBox key={post._id} post={post} />
+        <Link to={user._id !== undefined ? `/posts/post/${post._id}` : `/login`} key={post._id}>
+          <PopularBox key={post._id} post={post} />
+        </Link>
       ))}
     </div>
   )

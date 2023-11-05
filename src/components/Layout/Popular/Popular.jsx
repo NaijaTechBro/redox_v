@@ -15,7 +15,7 @@ const Popular = ({ posts, type }) => {
       <div className="container">
         {posts.length > 0 ? (
           <>
-            {!user && type !== "search" && (
+            {user._id === undefined && type !== "search" && (
               <>
                 <h3 className="section--title mobile--hidden">Popular this Week</h3>
                 <h3 className="section--title desktop--hidden">Popular Analyst</h3>

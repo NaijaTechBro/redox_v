@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      {!user && <Hero />}
+      {user._id === undefined && <Hero />}
       <Popular posts={posts} type="all" />
     </>
   )

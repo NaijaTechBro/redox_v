@@ -72,7 +72,7 @@ const PostDetails = () => {
   const postComment = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(URL + "/api/comments/create", { comment: comment, author: user.user.username, postId: postId, userId: user.user._id }, { withCredentials: true })
+      const res = await axios.post(URL + "/api/comments/create", { comment: comment, author: user.username, postId: postId, userId: user._id }, { withCredentials: true })
       window.location.reload(true)
     } catch (err) {
       console.log(err)
@@ -125,14 +125,26 @@ const PostDetails = () => {
             <div className="post-date">
               <p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
               <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
-              {bookmarked ? <BsBookmarkCheckFill/> : <BsBookmarkCheck/>}
-              {(user?.user?._id === post?.userId) ? <span onClick={dispEditMenu} style={{cursor: "pointer"}}><BsThreeDotsVertical/></span> : ""}
-              {editMenu &&
+              {bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
+              {user?.user?._id === post?.userId ? (
+                <span onClick={dispEditMenu} style={{ cursor: "pointer" }}>
+                  <BsThreeDotsVertical />
+                </span>
+              ) : (
+                ""
+              )}
+              {editMenu && (
                 <div className="edit-menu">
-                  <Link key={post._id} to={user ? `/edit/${post._id}` : "/login"} style={{ textDecoration: "none" }}> Edit </Link>
-                  <Link key={post._id} to={user ? `/blog` : "/login"} style={{ textDecoration: "none" }}> Delete </Link>
+                  <Link key={post._id} to={user ? `/edit/${post._id}` : "/login"} style={{ textDecoration: "none" }}>
+                    {" "}
+                    Edit{" "}
+                  </Link>
+                  <Link key={post._id} to={user ? `/blog` : "/login"} style={{ textDecoration: "none" }}>
+                    {" "}
+                    Delete{" "}
+                  </Link>
                 </div>
-              }
+              )}
             </div>
           </div>
           <img src={post.image} className="post__image" alt="" />
