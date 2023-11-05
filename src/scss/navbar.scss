@@ -10,6 +10,29 @@
     color: $main;
   }
 }
+.dark_mode{
+  background-color: #2e2e2e!important;
+  color: #ffffff!important;
+  border-color: #ffffff!important;
+}
+.dark_mode input{
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border-color: #ffffff!important;
+}
+.dark_mode article{
+  background-color: #4d4d4d!important;
+  color: #ffffff!important;
+}
+.dark_mode input::placeholder{
+  color: #e7e7e7;
+}
+.dark_mode .popular__user--managenent a{
+  background-color: #2e2e2e!important;
+}
+.dark_mode .popular__recomended--badges span{
+  background-color: #4d4d4d!important;
+}
 
 .header {
   position: relative;

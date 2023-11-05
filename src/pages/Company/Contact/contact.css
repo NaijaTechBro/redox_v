@@ -1,6 +1,9 @@
 .contact-us {
-    max-width: 400px;
-    margin: 0 auto;
+    /* max-width: 400px;
+    margin: 0 auto; */
+    width: 100%;
+    padding: 10px 35%;
+    height: 500px;
   }
   
   .contact-us h2 {

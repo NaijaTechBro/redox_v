@@ -4,12 +4,15 @@ import Footer from '../../../components/Layout/Footer/Footer';
 import { FaTelegram, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail} from 'react-icons/ai';
 import './community.css'; // Updated filename to match standard naming conventions
+import { useTheme } from '../../../context/ThemeContext';
 
 const Community = () => {
+  const { darkMode, toggleTheme } = useTheme();
+
   return (
     <>
       <Navbar />
-      <div className="community">
+      <div className={darkMode ? "dark_mode community" : "community"}>
         <h1>Kindly do follow us on all social media platforms to engage</h1>
         <div className="community-list">
           <p>

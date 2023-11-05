@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import axios from "axios"
 import { URL } from "../../../url"
 import { UserContext } from "../../../context/UserContext"
+import { useTheme } from "../../../context/ThemeContext"
 import logo from "../../../assets/logor.png"
 import mobileLogo from "../../../assets/x.png"
 import "../../../scss/navbar.scss"
@@ -12,6 +13,9 @@ import CTA from "./Component/CTA"
 import DropDowns from "./Component/DropDowns"
 
 const Navbar = () => {
+  const { setUser } = useContext(UserContext)
+  const { darkMode, toggleTheme } = useTheme()
+
   const { search } = useLocation()
   // console.log(search)
   const [posts, setPosts] = useState([])
@@ -43,7 +47,7 @@ const Navbar = () => {
   }, [search])
 
   return (
-    <header className="header">
+    <header className={darkMode ? "header dark_mode" : "header"}>
       <div className="container">
         <div className="header__logo">
           <Link to="/">

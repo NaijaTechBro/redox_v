@@ -14,6 +14,7 @@ import { BsBookmarkCheck } from "react-icons/bs"
 import { BsBookmarkCheckFill } from "react-icons/bs"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { useTheme } from "../../../context/ThemeContext"
 
 const PostDetails = () => {
   const postId = useParams().id
@@ -26,6 +27,7 @@ const PostDetails = () => {
   const [bookmarked, setBookmarked] = useState(true)
   const [followStatus, setFollowStatus] = useState(false)
   const [editMenu, setEditMenu] = useState(false)
+  const { darkMode, toggleTheme } = useTheme()
 
   const fetchPost = async () => {
     try {
@@ -94,14 +96,14 @@ const PostDetails = () => {
   }
 
   return (
-    <div>
+    <div className={darkMode ? "dark_mode" : ""}>
       <Navbar />
       {loader ? (
         <div className="loader-container">
           <Loader />
         </div>
       ) : (
-        <div className="post__details__container">
+        <div className={darkMode ? "post__details__container dark_mode" : "post__details__container"}>
           <div className="post-details-header">
             <h1 className="post-title">{post.title}</h1>
             {user?._id === post?.userId && (

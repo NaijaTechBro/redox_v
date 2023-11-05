@@ -7,6 +7,7 @@ import { BsSearch } from "react-icons/bs"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import Loader from "../../components/Loading/Loader"
 import { UserContext } from "../../context/UserContext"
+import { useTheme } from "../../context/ThemeContext"
 import BlogPosts from "./Blogpost/BlogPosts"
 import "./blog.css"
 
@@ -18,6 +19,7 @@ const Blog = () => {
   const [loader, setLoader] = useState(false)
   const { user } = useContext(UserContext)
   // console.log(user)
+  const { darkMode, toggleTheme } = useTheme()
 
   const [prompt, setPrompt] = useState("")
   const navigate = useNavigate()
@@ -48,7 +50,7 @@ const Blog = () => {
   return (
     <>
       <Navbar />
-      <div className="blog">
+      <div className={darkMode ? "dark_mode blog" : "blog"}>
         <h1>Find your Favourite Content</h1>
         <div className="mobile">
           {path === "/blog" && (

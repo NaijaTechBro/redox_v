@@ -7,6 +7,7 @@ import { IF, URL } from "../../../url"
 import { UserContext } from "../../../context/UserContext"
 import { useNavigate, useParams } from "react-router-dom"
 import "./profile.css"
+import { useTheme } from "../../../context/ThemeContext"
 
 const Profile = () => {
   const param = useParams().id
@@ -21,6 +22,7 @@ const Profile = () => {
   const [posts, setPosts] = useState([])
   const [updated, setUpdated] = useState(false)
   // console.log(user)
+  const { darkMode, toggleTheme } = useTheme()
 
   const fetchProfile = async () => {
     try {
@@ -80,7 +82,7 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <div className="profile-page">
+      <div className={darkMode ? "dark_mode profile-page" : "profile-page"}>
         <div className="container">
           <div className="min-h-[80vh] px-8 md:px-[200px] mt-8 flex md:flex-row flex-col-reverse md:items-start items-start">
             {/* <div className="flex flex-col md:w-[70%] w-full mt-8 md:mt-0">

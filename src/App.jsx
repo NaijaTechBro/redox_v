@@ -12,6 +12,7 @@ import Profile from "./pages/User/Profile/Profile"
 import { UserContextProvider } from "./context/UserContext"
 import MyBlogs from "./pages/Blog/MyBlogs"
 // import Imageupload from './pages/Post/Imageupload'
+import { ThemeProvider } from "./context/ThemeContext"
 
 // LayOut
 import Home from "./pages/Home/Home"
@@ -29,6 +30,7 @@ import Search from "./pages/Search/Search"
 const App = () => {
   return (
     <>
+    <ThemeProvider>
       <UserContextProvider>
         <BrowserRouter>
           <PostProvider>
@@ -55,6 +57,7 @@ const App = () => {
           </PostProvider>
         </BrowserRouter>
       </UserContextProvider>
+      </ThemeProvider>
     </>
   )
 }

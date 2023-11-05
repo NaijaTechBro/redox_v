@@ -5,6 +5,7 @@ import { useState } from "react"
 import axios from "axios"
 import { URL } from "../../url"
 import Navbar from "../../components/Layout/Navbar/Navbar"
+import { useTheme } from "../../context/ThemeContext"
 
 const Register = () => {
   const [username, setUsername] = useState("")
@@ -13,6 +14,7 @@ const Register = () => {
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
   const navigate = useNavigate()
+  const { darkMode, toggleTheme } = useTheme()
 
   const handleRegister = async () => {
     try {
@@ -34,7 +36,7 @@ const Register = () => {
   return (
     <>
       <Navbar />
-      <div className="register-page">
+      <div className={darkMode ? "dark_mode register-page" : "register-page"}>
         <img src={Logo} alt="logo" width={150} />
         <h2>Create an account</h2>
         <input onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter your name" />

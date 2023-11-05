@@ -10,11 +10,13 @@ import "./post.css"
 import usePostContext from "../../context/post/usePostContext"
 import Imgplaceholder from "../../assets/imgplaceholder.png"
 import TradingViewIcon from "../../assets/tradingview_icon.png"
+import { useTheme } from "../../context/ThemeContext"
 
 const EditPost = () => {
   const { errorMsg, handleFetchPost, handleEditPost } = usePostContext()
   const postId = useParams().id
   const { user } = useContext(UserContext)
+  const { darkMode, toggleTheme } = useTheme()
   const [displayTitle, setDisplayTitle] = useState("")
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
@@ -145,9 +147,9 @@ const EditPost = () => {
   }
 
   return (
-    <div>
+    <div className={darkMode ? "dark_mode" : ""}>
       <Navbar />
-      <div className="create">
+      <div className={darkMode ? "dark_mode create" : "create"}>
         <h1 className="create__h1">Edit Analysis</h1>
         <form className="create__form">
           {!oldImageUrl ? (

@@ -2,12 +2,15 @@ import React from 'react'
 import './about.css'
 import Footer from '../../../components/Layout/Footer/Footer'
 import Navbar from '../../../components/Layout/Navbar/Navbar'
+import { useTheme } from '../../../context/ThemeContext'
 
 const About = () => {
+  const { darkMode, toggleTheme } = useTheme()
+
   return (
     <>
     <Navbar />
-    <div className="about">
+    <div className={darkMode ? "dark_mode about" : "about"}>
       <div className="content">
         <h1>About Redox Trading</h1>
 <h4>If any of this describes you, then you're in the right place</h4>

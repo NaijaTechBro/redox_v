@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/logor.png';
 import './auth.css';
+import { useTheme } from '../../context/ThemeContext';
 
 const ForgotPassword = () => {
   const [email,setEmail]=useState("")
   const [success,setSuccess]=useState(false)
   const [error,setError]=useState(false)
+  const { darkMode, toggleTheme } = useTheme()
 
   const handleForgotPassword=async ()=>{
     
@@ -25,7 +27,7 @@ const ForgotPassword = () => {
 
   return (
     <>
-    <div className="login-page">
+    <div className={darkMode ? "dark_mode login-page" : "login-page"}>
       <img src={Logo} alt='' width={150} />
       <h2>Forgot Password</h2>
       {success ?
