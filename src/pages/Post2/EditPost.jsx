@@ -24,8 +24,8 @@ const EditPost = () => {
   const [tradViewLink, setTradViewLink] = useState("")
   const [oldImageUrl, setOldImageUrl] = useState()
   const [newImageUrl, setNewImageUrl] = useState()
-  const [editorHtml, setEditorHtml] = useState('')
-  const [editorText, setEditorText] = useState('')
+  const [editorHtml, setEditorHtml] = useState("")
+  const [editorText, setEditorText] = useState("")
 
   const fetchPost = async () => {
     await handleFetchPost(postId)
@@ -50,8 +50,8 @@ const EditPost = () => {
       title,
       // tradViewLink,
       desc: editorText,
-      username: user.user.username,
-      userId: user.user._id,
+      username: user.username,
+      userId: user._id,
       categories: cats,
     }
     setFile(newImageUrl ? file : null)
@@ -63,7 +63,7 @@ const EditPost = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    
+
     setTitle(``)
     setDesc(``)
     setCat(``)
@@ -105,46 +105,44 @@ const EditPost = () => {
     setCat("")
     setCats(updatedCats)
   }
-  
+
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setNewImageUrl(URL.createObjectURL(event.target.files[0]));
-      setFile(event.target.files[0]);
+      setNewImageUrl(URL.createObjectURL(event.target.files[0]))
+      setFile(event.target.files[0])
     }
-  };
-
+  }
 
   const handleEditorChange = (html) => {
-    convertHtmlToPlainText(html);
-    setEditorHtml(html);
-  };
+    convertHtmlToPlainText(html)
+    setEditorHtml(html)
+  }
 
   function convertHtmlToPlainText(html) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = html;
-  
-    setEditorText(tempElement.textContent || tempElement.innerText || '');
+    const tempElement = document.createElement("div")
+    tempElement.innerHTML = html
+
+    setEditorText(tempElement.textContent || tempElement.innerText || "")
     // console.log(editorText);
-    return;
+    return
   }
 
   //specific styles for the editor
   const editorStyles = {
-    width: '100%', // Set the width
-    height: '300px', // Set the height
-  };
+    width: "100%", // Set the width
+    height: "300px", // Set the height
+  }
 
   //modules for text formatting options
   const modules = {
     toolbar: [
-      [{ 'align': 'left' }, { 'align': 'right' }, { 'align': 'center' }, { 'align': 'justify' }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link'],
-      ['clean']
+      [{ align: "left" }, { align: "right" }, { align: "center" }, { align: "justify" }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+      ["link"],
+      ["clean"],
     ],
-  };
-  
+  }
 
   return (
     <div>
@@ -152,25 +150,19 @@ const EditPost = () => {
       <div className="create">
         <h1 className="create__h1">Edit Analysis</h1>
         <form className="create__form">
-          {!oldImageUrl ?
-          <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
-            <input
-              type="file"
-              id="imageInput"
-              accept="image/*"
-              onChange={onImageChange}
-              style={{ display: 'none' }}
-            />
-            <img src={Imgplaceholder} alt="image placeholder" />
-            <p>Add  Analysis cover Image</p>
-          </div>
-          :
-          <div className="create__form--image" onClick={() => document.getElementById('imageInput').click()}>
-            <input type="file" accept="image/*" id="imageInput" onChange={onImageChange} className="filetype" style={{ display: 'none' }}/>
+          {!oldImageUrl ? (
+            <div className="create__form--image" onClick={() => document.getElementById("imageInput").click()}>
+              <input type="file" id="imageInput" accept="image/*" onChange={onImageChange} style={{ display: "none" }} />
+              <img src={Imgplaceholder} alt="image placeholder" />
+              <p>Add Analysis cover Image</p>
+            </div>
+          ) : (
+            <div className="create__form--image" onClick={() => document.getElementById("imageInput").click()}>
+              <input type="file" accept="image/*" id="imageInput" onChange={onImageChange} className="filetype" style={{ display: "none" }} />
 
-            {oldImageUrl && <img src={newImageUrl ? newImageUrl : oldImageUrl} alt="preview image" style={{width: '852px', height: '400px'}}/>}
-          </div>
-          }
+              {oldImageUrl && <img src={newImageUrl ? newImageUrl : oldImageUrl} alt="preview image" style={{ width: "852px", height: "400px" }} />}
+            </div>
+          )}
           <section className="create__form--section">
             <div>
               <label htmlFor="title">Title:</label>
@@ -187,7 +179,7 @@ const EditPost = () => {
             <div>
               <label htmlFor="categories">Categories</label>
               <span>
-                <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter Category" type="text" className="cat-input"/>
+                <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter Category" type="text" className="cat-input" />
                 <div onClick={addCategory} className="add-category">
                   Add
                 </div>
@@ -216,8 +208,12 @@ const EditPost = () => {
               />
             </div>
             {errorMsg !== `` && <p className="error-msg">{errorMsg}</p>}
-            <button onClick={handleUpdate} className="update--button">Update</button>
-            <button onClick={handleDelete} className="delete--button">Delete</button>
+            <button onClick={handleUpdate} className="update--button">
+              Update
+            </button>
+            <button onClick={handleDelete} className="delete--button">
+              Delete
+            </button>
           </section>
         </form>
       </div>

@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      {!user && <Hero />}
+      {user.length === 0 && <Hero />}
       <Popular posts={posts} type="all" />
     </>
   )
