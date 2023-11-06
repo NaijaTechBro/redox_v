@@ -40,6 +40,20 @@
       width: 250px;
       padding-block: 1rem;
       overflow-y: auto;
+      
+      &.dark_mode > .profile-dropdown__content--links {
+        border-bottom: 1px solid #868686;
+      }
+      & span{
+        width: 18px;
+        height: 18px; 
+        
+        & img, svg{
+          width: 100%;
+          height: 100%;
+        }
+      }
+
     }
 
     &--links {
@@ -48,7 +62,7 @@
       flex-direction: column;
       padding: 2rem;
       gap: 1rem;
-      border-bottom: 1px solid #c8c8c8;
+      border-bottom: 1px solid #f2f2f2;
 
       a {
         @include flex($j: flex-start);
@@ -69,5 +83,24 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .profile-dropdown{
+    overflow-y: hidden;
+
+    &__content {
+      right: -40px;
+
+      &--inner{
+        box-shadow: 1px 1px 5px #2c2c2c;
+      }
+      &--inner::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+
   }
 }

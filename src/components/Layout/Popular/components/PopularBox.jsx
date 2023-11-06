@@ -10,7 +10,7 @@ const PopularBox = ({ post }) => {
       <div className="popular-box__info--top mobile--top desktop--hidden">
         <div>
           <img src={postPhoto} alt="Popular" className="popular-box__info--profile" />
-          <h6 className="popular-box__info--heading">{post.username}</h6>
+          <h6 className="popular-box__info--heading">{`@${post.username}`}</h6>
         </div>
         <h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
       </div>
@@ -22,7 +22,7 @@ const PopularBox = ({ post }) => {
         </div>
         <div className="popular-box__info--body">
           <h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
-          <p className="popular-box__info--text">{truncate(post.desc, 300)}</p>
+          <p className="popular-box__info--text">{truncate(post.desc, 200)}</p>
         </div>
         <div className="popular-box__info--bottom">
           <div className="popular-box__info--meta meta">
