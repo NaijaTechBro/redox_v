@@ -125,7 +125,7 @@ const EditPost = () => {
     tempElement.innerHTML = html
 
     setEditorText(tempElement.textContent || tempElement.innerText || "")
-    // console.log(editorText);
+    console.log(editorText);
     return
   }
 
@@ -168,7 +168,7 @@ const EditPost = () => {
           <section className="create__form--section">
             <div>
               <label htmlFor="title">Title:</label>
-              <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder={title} />
+              <input onChange={(e) => setTitle(e.target.value)} type="text" value={title} />
             </div>
             <div>
               <img src={TradingViewIcon} alt="" width={52} height={48} />
@@ -176,7 +176,7 @@ const EditPost = () => {
             </div>
             <div>
               <label htmlFor="desc">Description</label>
-              <input onChange={(e) => setDesc(e.target.value)} type="text" placeholder="Enter description" />
+              <input onChange={(e) => setDesc(e.target.value)} type="text" placeholder="Enter description" value={desc} />
             </div>
             <div>
               <label htmlFor="categories">Categories</label>
@@ -203,7 +203,12 @@ const EditPost = () => {
               <ReactQuill
                 theme="snow"
                 value={editorHtml}
-                onChange={handleEditorChange}
+                // onChange={handleEditorChange}
+                onChange={(content) => {
+                  handleEditorChange(content)
+                  setEditorHtml(content)
+                  // console.log(editorHtml)
+                }}
                 style={editorStyles} //styles
                 modules={modules} //text formatting options
                 placeholder="Enter analysis update..."

@@ -186,7 +186,11 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  content: attr(placeholder);
+  font-size: 20px;
+  color: red;
+}
 
 .create__form__section--categories {
   display: flex;
