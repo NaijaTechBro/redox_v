@@ -202,25 +202,12 @@
 }
 
 .profile-main button:first-child {
-  margin: 1rem 1rem 1rem 4.7rem;
-  width: 20%;
-  padding: 1.5rem 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
   background-color: #ff5f00;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-.profile-main button:last-child {
-  margin: 1rem 1rem 1rem 4.7rem;
-  width: 20%;
-  padding: 1.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #ff0000;
   color: #fff;
   font-size: 1rem;
   line-height: 1.5;

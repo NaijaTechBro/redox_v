@@ -4,9 +4,8 @@ import Navbar from "../../../components/Layout/Navbar/Navbar"
 import axios from "axios"
 import { URL } from "../../../url"
 import { UserContext } from "../../../context/UserContext"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import "./profile.scss"
-import { useTheme } from "../../../context/ThemeContext"
 
 const EditProfile = () => {
   const param = useParams().id
@@ -16,12 +15,9 @@ const EditProfile = () => {
   const [bio, setBio] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const { user, setUser } = useContext(UserContext)
-  const navigate = useNavigate()
-  const [posts, setPosts] = useState([])
+  const { user } = useContext(UserContext)
   const [updated, setUpdated] = useState(false)
   // console.log(user)
-  const { darkMode, toggleTheme } = useTheme()
 
   const fetchProfile = async () => {
     try {
@@ -49,33 +45,8 @@ const EditProfile = () => {
     }
   }
 
-  const handleUserDelete = async () => {
-    try {
-      const res = await axios.delete(URL + "/api/users/" + user._id, { withCredentials: true })
-      setUser(null)
-      navigate("/")
-      // console.log(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  // console.log(user)
-  const fetchUserPosts = async () => {
-    try {
-      const res = await axios.get(URL + "/api/posts/user/" + user._id)
-      // console.log(res.data)
-      setPosts(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   useEffect(() => {
     fetchProfile()
-  }, [param])
-
-  useEffect(() => {
-    fetchUserPosts()
   }, [param])
 
   return (
@@ -84,12 +55,6 @@ const EditProfile = () => {
       <div className="profile">
         <div className="container">
           <div className="min-h-[80vh] px-8 md:px-[200px] mt-8 flex md:flex-row flex-col-reverse md:items-start items-start">
-            {/* <div className="flex flex-col md:w-[70%] w-full mt-8 md:mt-0">
-          <h1 className="text-xl font-bold mb-4">Your posts:</h1>
-          {posts?.map((p)=>(
-            <ProfilePosts key={p._id} p={p}/>
-          ))}
-        </div> */}
             <div className="profile">
               <h1>Profile</h1>
               <div className="profile-main">
@@ -109,11 +74,8 @@ const EditProfile = () => {
               </div>
               {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="outline-none px-4 py-2 text-gray-500" placeholder="Your password" type="password"/> */}
               <div className="profile-main">
-                <button onClick={handleUserUpdate} className="text-white font-semibold bg-black px-4 py-2 hover:text-black hover:bg-gray-400">
+                <button onClick={handleUserUpdate} className="profile-edit__btn">
                   Update
-                </button>
-                <button onClick={handleUserDelete} className="text-white font-semibold bg-black px-4 py-2 hover:text-black hover:bg-gray-400">
-                  Delete
                 </button>
               </div>
               {updated && <h3 className="text-green-500 text-sm text-center mt-4">user updated successfully!</h3>}
