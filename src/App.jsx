@@ -26,37 +26,39 @@ import ForgotPassword from "./pages/Auth/ForgotPassword"
 import Fresources from "./pages/Fresources/Fresources"
 import PostProvider from "./context/post/PostProvider"
 import Search from "./pages/Search/Search"
+import EditProfile from "./pages/User/Profile/EditProfile"
 
 const App = () => {
   return (
     <>
-    <ThemeProvider>
-      <UserContextProvider>
-        <BrowserRouter>
-          <PostProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/search/:name" element={<Search />} />
-              <Route path="/blog" element={<Blog />} />
-              {/* Company */}
-              <Route path="/company/about-us" element={<AboutUs />} />
-              <Route path="/company-contact" element={<Contact />} />
-              <Route path="/community" element={<Community />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
-              <Route exact path="/forgotPassword" element={<ForgotPassword />} />
-              <Route exact path="/write" element={<CreatePost />} />
-              <Route exact path="/posts/post/:id" element={<PostDetails />} />
-              <Route exact path="/edit/:id" element={<EditPost />} />
-              <Route exact path="/myblogs/:id" element={<MyBlogs />} />
-              <Route exact path="/profile/:id" element={<Profile />} />
-              <Route exact path="/trading-tools" element={<Fresources />} />
-              {/* <Route path='/image-upload' element={<Imageupload />} /> */}
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </PostProvider>
-        </BrowserRouter>
-      </UserContextProvider>
+      <ThemeProvider>
+        <UserContextProvider>
+          <BrowserRouter>
+            <PostProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/search/:name" element={<Search />} />
+                <Route path="/blog" element={<Blog />} />
+                {/* Company */}
+                <Route path="/company/about-us" element={<AboutUs />} />
+                <Route path="/company-contact" element={<Contact />} />
+                <Route path="/community" element={<Community />} />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+                <Route exact path="/write" element={<CreatePost />} />
+                <Route exact path="/posts/post/:id" element={<PostDetails />} />
+                <Route exact path="/edit/:id" element={<EditPost />} />
+                <Route exact path="/myblogs/:id" element={<MyBlogs />} />
+                <Route exact path="/profile/:id" element={<Profile />} />
+                <Route exact path="/profile/edit/:id" element={<EditProfile />} />
+                <Route exact path="/trading-tools" element={<Fresources />} />
+                {/* <Route path='/image-upload' element={<Imageupload />} /> */}
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </PostProvider>
+          </BrowserRouter>
+        </UserContextProvider>
       </ThemeProvider>
     </>
   )
