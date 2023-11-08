@@ -49,6 +49,8 @@ const EditProfile = () => {
 		}
 	}
 
+	const handleProfileClick = () => imageRef.current.click()
+
 	const handleProfileChange = e => setProfileImg(e.target.files[0])
 
 	const handleProfileDelete = async () => {
@@ -84,7 +86,7 @@ const EditProfile = () => {
 									/>
 									<button
 										className="profile-form__img--cta__btn"
-										onClick={() => imageRef.current.click()}>
+										onClick={handleProfileClick}>
 										Upload
 									</button>
 									<button
