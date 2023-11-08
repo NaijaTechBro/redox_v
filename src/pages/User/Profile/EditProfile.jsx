@@ -49,29 +49,17 @@ const EditProfile = () => {
 		}
 	}
 
-	const handleProfileChange = e => {
-		const newProfileImg = window.URL.createObjectURL(e.target.files[0])
-		setProfileImg(newProfileImg)
-		window.URL.revokeObjectURL(newProfileImg)
-	}
+	const handleProfileChange = e => setProfileImg(e.target.files[0])
 
-	const handleProfileDelete = () => setProfileImg(``)
+	const handleProfileDelete = async () => {
+		const res = await axios.get(`${URL}/api/users/${id}`)
+		const { photo } = res.data
+		setProfileImg(photo)
+	}
 
 	useEffect(() => {
 		fetchProfile(id)
 	}, [id])
-
-	useEffect(() => {
-		if (profileImg === ``) {
-			const getImg = async id => {
-				const res = await axios.get(`${URL}/api/users/${id}`)
-				const { photo } = res.data
-				setProfileImg(photo)
-			}
-
-			getImg(id)
-		}
-	}, [profileImg, id])
 
 	return (
 		<>
@@ -84,7 +72,7 @@ const EditProfile = () => {
 							<div className="profile-form__img-container">
 								<img
 									className="profile-form__img--img"
-									src={profileImg}
+									src={typeof profileImg !== `string` ? window.URL.createObjectURL(profileImg) : profileImg}
 									alt="profile"
 								/>
 								<div className="profile-form__img--cta">
