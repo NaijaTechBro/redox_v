@@ -20,14 +20,15 @@ const Register = () => {
 
 	const handleRegister = async () => {
 		try {
-			const res = await axios.post(URL + "/api/auth/register", { username, email, password })
-			setUsername(res.data.username)
-			setName(res.data.name)
-			setEmail(res.data.email)
-			setPassword(res.data.password)
-			setError(false)
-			// setErrorMessage("")
-			navigate("/login")
+			await axios.post(URL + "/api/auth/register", { username, email, password }).then(res => {
+				setUsername(res.data.username)
+				setName(res.data.name)
+				setEmail(res.data.email)
+				setPassword(res.data.password)
+				setError(false)
+				// setErrorMessage("")
+				navigate("/login")
+			})
 		} catch (err) {
 			setError(true)
 			// setErrorMessage("Something went wrong. Please try again.")
