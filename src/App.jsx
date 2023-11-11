@@ -23,6 +23,7 @@ import AboutUs from "./pages/Company/About/About"
 import Contact from "./pages/Company/Contact/Contact"
 import Community from "./pages/Company/Community/Community"
 import ForgotPassword from "./pages/Auth/ForgotPassword"
+import ResetPassword from "./pages/Auth/ResetPassword"
 import Fresources from "./pages/Fresources/Fresources"
 import PostProvider from "./context/post/PostProvider"
 import Search from "./pages/Search/Search"
@@ -46,6 +47,7 @@ const App = () => {
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+                <Route exact path="/resetPassword" element={<ResetPassword />} />
                 <Route exact path="/write" element={<CreatePost />} />
                 <Route exact path="/posts/post/:id" element={<PostDetails />} />
                 <Route exact path="/edit/:id" element={<EditPost />} />
