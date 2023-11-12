@@ -14,25 +14,21 @@ const Register = () => {
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	const [error, setError] = useState(false)
 	const navigate = useNavigate()
 	const { darkMode } = useTheme()
 
 	const handleRegister = async () => {
 		try {
-			const res = await axios.post(URL + "/api/auth/register", { username, email, password })
-			setUsername(res.data.username)
-			setName(res.data.name)
-			setEmail(res.data.email)
-			setPassword(res.data.password)
-			setError(false)
-			// setErrorMessage("")
-			navigate("/login")
+			await axios.post(`${URL}/api/auth/register`, { name, username, email, password }).then(({ data }) => {
+				setUsername(data.username)
+				setName(data.name)
+				setEmail(data.email)
+				setPassword(data.password)
+				navigate("/login")
+			})
 		} catch (err) {
-			setError(true)
-			// setErrorMessage("Something went wrong. Please try again.")
 			console.log(err)
-			toast.error(err.message)
+			toast.error(err.response.data.message)
 		}
 	}
 
@@ -68,7 +64,6 @@ const Register = () => {
 					placeholder="Enter your password"
 				/>
 				<button onClick={handleRegister}>Register</button>
-				{error && <h3 className="text-red-500 text-sm ">Something went wrong</h3>}
 				<p>
 					Already Have an Account?{" "}
 					<Link
