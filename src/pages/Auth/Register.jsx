@@ -45,21 +45,25 @@ const Register = () => {
 				<h2>Create an account</h2>
 				<input
 					onChange={e => setName(e.target.value)}
+					value={name}
 					type="text"
 					placeholder="Enter your name"
 				/>
 				<input
 					onChange={e => setUsername(e.target.value)}
+					value={username}
 					type="text"
 					placeholder="Enter your username"
 				/>
 				<input
 					onChange={e => setEmail(e.target.value)}
+					value={email}
 					type="text"
 					placeholder="Enter your email"
 				/>
 				<input
 					onChange={e => setPassword(e.target.value)}
+					value={password}
 					type="password"
 					placeholder="Enter your password"
 				/>
