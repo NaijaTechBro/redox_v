@@ -19,7 +19,7 @@ const Register = () => {
 
 	const handleRegister = async () => {
 		try {
-			await axios.post(`${URL}/api/auth/register`, { username, email, password }).then(({ data }) => {
+			await axios.post(`${URL}/api/auth/register`, { name, username, email, password }).then(({ data }) => {
 				setUsername(data.username)
 				setName(data.name)
 				setEmail(data.email)
@@ -28,7 +28,7 @@ const Register = () => {
 			})
 		} catch (err) {
 			console.log(err)
-			toast.error(err.message)
+			toast.error(err.response.data.message)
 		}
 	}
 
