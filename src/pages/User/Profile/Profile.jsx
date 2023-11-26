@@ -9,6 +9,7 @@ import ProfileAnalysis from "./Component/ProfileAnalysis"
 import ProfileDetailsSection from "./Component/ProfileDetailsSection"
 import ProfileDetailsToggler from "./Component/ProfileDetailsToggler"
 import "./profile.scss"
+import { useTheme } from "../../../context/ThemeContext"
 
 const Profile = () => {
 	const { id } = useParams()
@@ -18,6 +19,7 @@ const Profile = () => {
 	const { user } = useContext(UserContext)
 	const [posts, setPosts] = useState([])
 	const [analysisState, setAnalysisState] = useState(true)
+	const { darkMode } = useTheme()
 
 	const profileDetailsSection = {
 		id,
@@ -62,7 +64,7 @@ const Profile = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="profile">
+			<div className={darkMode ? "dark_mode profile" : "profile"}>
 				<div className="container">
 					<div className="profile">
 						<h4 className="profile-details__heading">Profile</h4>
