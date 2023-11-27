@@ -1,114 +1,128 @@
-import React, { useState } from "react"
+import { convert } from "html-to-text"
+import React, { useContext, useState } from "react"
+import { ImCross } from "react-icons/im"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
-import { ImCross } from "react-icons/im"
-import { useContext } from "react"
-import { UserContext } from "../../context/UserContext"
-import Navbar from "../../components/Layout/Navbar/Navbar"
 import Footer from "../../components/Layout/Footer/Footer"
-import "./post.css"
-import { convert } from "html-to-text"
+import Navbar from "../../components/Layout/Navbar/Navbar"
+import { UserContext } from "../../context/UserContext"
 import usePostContext from "../../context/post/usePostContext"
+import "./post.css"
 
 const CreatePost = () => {
-  const { errorMsg, handleCreatePost } = usePostContext()
-  const [title, setTitle] = useState("")
-  const [desc, setDesc] = useState("")
-  const [file, setFile] = useState(null)
-  const { user } = useContext(UserContext)
-  const [cat, setCat] = useState("")
-  const [cats, setCats] = useState([])
+	const { errorMsg, handleCreatePost } = usePostContext()
+	const [title, setTitle] = useState("")
+	const [desc, setDesc] = useState("")
+	const [file, setFile] = useState(null)
+	const { user } = useContext(UserContext)
+	const [cat, setCat] = useState("")
+	const [cats, setCats] = useState([])
 
-  const deleteCategory = (i) => {
-    const updatedCats = cats.filter((_, index) => index !== i)
-    setCats(updatedCats)
-  }
+	console.log(user)
 
-  const handleEnterKey = (e) => {
-    if (e.key === `Enter`) {
-      addCategory()
-    }
-  }
+	const deleteCategory = i => {
+		const updatedCats = cats.filter((_, index) => index !== i)
+		setCats(updatedCats)
+	}
 
-  const addCategory = () => {
-    const updatedCats = [...cats, cat]
-    setCat("")
-    setCats(updatedCats)
-  }
+	const handleEnterKey = e => {
+		if (e.key === `Enter`) {
+			addCategory()
+		}
+	}
 
-  const handleCreate = async (e) => {
-    e.preventDefault()
+	const addCategory = () => {
+		const updatedCats = [...cats, cat]
+		setCat("")
+		setCats(updatedCats)
+	}
 
-    const post = {
-      title,
-      desc: convert(desc), // Convert HTML content to plain text
-      username: user.username,
-      userId: user._id,
-      categories: cats,
-    }
+	const handleCreate = async e => {
+		e.preventDefault()
 
-    await handleCreatePost(post, file).then(() => {
-      setTitle(``)
-      setDesc(``)
-      setCat(``)
-      setCats([]) // Set it back to an empty array
-      setFile(null)
-    })
-  }
+		const post = {
+			title,
+			desc: convert(desc), // Convert HTML content to plain text
+			username: user.username,
+			userId: user._id,
+			categories: cats,
+		}
 
-  return (
-    <>
-      <Navbar />
-      <div className="create">
-        <form className="form-group">
-          <h1>Write a post</h1>
-          <div className="form-group">
-            <label htmlFor="title">Title:</label>
-            <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Enter post title" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="file">Add Image</label>
-            <input onChange={(e) => setFile(e.target.files[0])} accept="image/*" type="file" />
-          </div>
-          <div className="form-group">
-            <div>
-              <input value={cat} onChange={(e) => setCat(e.target.value)} onKeyDown={handleEnterKey} placeholder="Enter post category" type="text" />
-              <div onClick={addCategory} className="add-category">
-                Add
-              </div>
-            </div>
+		await handleCreatePost(post, file).then(() => {
+			setTitle(``)
+			setDesc(``)
+			setCat(``)
+			setCats([]) // Set it back to an empty array
+			setFile(null)
+		})
+	}
 
-            <div className="form-group">
-              {cats?.map((c, i) => (
-                <div key={i}>
-                  <p className="color">{c}</p>
-                  <p onClick={() => deleteCategory(i)}>
-                    <ImCross />
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="form-group">
-            <ReactQuill value={desc} onChange={setDesc} placeholder="Write post here" />
-          </div>
-          {errorMsg !== `` && <p className="error-msg">{errorMsg}</p>}
-          <button onClick={handleCreate}>Create</button>
-        </form>
-      </div>
-      <Footer />
-    </>
-  )
+	return (
+		<>
+			<Navbar />
+			<div className="create">
+				<form className="form-group">
+					<h1>Write a post</h1>
+					<div className="form-group">
+						<label htmlFor="title">Title:</label>
+						<input
+							onChange={e => setTitle(e.target.value)}
+							type="text"
+							placeholder="Enter post title"
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="file">Add Image</label>
+						<input
+							onChange={e => setFile(e.target.files[0])}
+							accept="image/*"
+							type="file"
+						/>
+					</div>
+					<div className="form-group">
+						<div>
+							<input
+								value={cat}
+								onChange={e => setCat(e.target.value)}
+								onKeyDown={handleEnterKey}
+								placeholder="Enter post category"
+								type="text"
+							/>
+							<div
+								onClick={addCategory}
+								className="add-category">
+								Add
+							</div>
+						</div>
+
+						<div className="form-group">
+							{cats?.map((c, i) => (
+								<div key={i}>
+									<p className="color">{c}</p>
+									<p onClick={() => deleteCategory(i)}>
+										<ImCross />
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+					<div className="form-group">
+						<ReactQuill
+							value={desc}
+							onChange={setDesc}
+							placeholder="Write post here"
+						/>
+					</div>
+					{errorMsg !== `` && <p className="error-msg">{errorMsg}</p>}
+					<button onClick={handleCreate}>Create</button>
+				</form>
+			</div>
+			<Footer />
+		</>
+	)
 }
 
 export default CreatePost
-
-
-
-
-
-
-
 
 // import React, { useState } from "react"
 // import ReactQuill from "react-quill"
