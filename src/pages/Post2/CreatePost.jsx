@@ -224,7 +224,6 @@ const CreatePost = () => {
 							<div className="create__form__section--categories">
 								{cats?.map((c, i) => (
 									<div key={i}>
-										{console.log(c)}
 										<p className="color">{c}</p>
 										<i onClick={() => deleteCategory(i)}>
 											<ImCross />
