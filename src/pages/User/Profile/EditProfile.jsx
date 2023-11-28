@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import Footer from "../../../components/Layout/Footer/Footer"
 import Navbar from "../../../components/Layout/Navbar/Navbar"
 import { UserContext } from "../../../context/UserContext"
+import { useTheme } from "../../../context/ThemeContext"
 import { URL } from "../../../url"
 import "./profile.scss"
 
@@ -19,6 +20,7 @@ const EditProfile = () => {
 	const [password, setPassword] = useState("")
 	const { user } = useContext(UserContext)
 	const [updated, setUpdated] = useState(false)
+	const { darkMode } = useTheme()
 
 	const fetchProfile = async id => {
 		try {
@@ -66,7 +68,7 @@ const EditProfile = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="profile">
+			<div className={darkMode ? "dark_mode profile" : "profile"}>
 				<div className="container">
 					<div className="min-h-[80vh] px-8 md:px-[200px] mt-8 flex md:flex-row flex-col-reverse md:items-start items-start">
 						<div className="profile">
