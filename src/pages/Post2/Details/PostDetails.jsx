@@ -9,12 +9,15 @@ import Navbar from "../../../components/Layout/Navbar/Navbar"
 import Loader from "../../../components/Loading/Loader"
 import { useTheme } from "../../../context/ThemeContext"
 import { UserContext } from "../../../context/UserContext"
+import usePostContext from "../../../context/post/usePostContext"
 import { URL } from "../../../url"
 import Comment from "../comment/Comment"
 import "./postdetails.css"
 
 const PostDetails = () => {
-	const postId = useParams().id
+	const postTitle = useParams().title
+	const { posts } = usePostContext()
+	const [postId, setPostId] = useState(``)
 	const [post, setPost] = useState({})
 	const { user } = useContext(UserContext)
 	const [comments, setComments] = useState([])
@@ -25,30 +28,6 @@ const PostDetails = () => {
 	const [followStatus, setFollowStatus] = useState(false)
 	const [editMenu, setEditMenu] = useState(false)
 	const { darkMode, toggleTheme } = useTheme()
-
-	const fetchPost = async () => {
-		try {
-			const res = await axios.get(URL + "/api/posts/" + postId)
-			// console.log(res.data)
-			setPost(res.data)
-		} catch (err) {
-			console.log(err)
-		}
-	}
-
-	const handleDeletePost = async () => {
-		try {
-			const res = await axios.delete(URL + "/api/posts/" + postId, { withCredentials: true })
-			console.log(res.data)
-			navigate("/")
-		} catch (err) {
-			console.log(err)
-		}
-	}
-
-	useEffect(() => {
-		fetchPost()
-	}, [postId])
 
 	const fetchPostComments = async () => {
 		setLoader(true)
@@ -62,14 +41,41 @@ const PostDetails = () => {
 		}
 	}
 
+	const fetchPost = async () => {
+		try {
+			const res = await axios.get(`${URL}/api/posts`)
+			const foundPost = res.data.posts.find(p => p.title.toLowerCase() === postTitle.toLowerCase())
+
+			if (foundPost) {
+				setPostId(foundPost._id)
+				setPost(foundPost)
+				// await fetchPostComments()
+			} else {
+				// Handle the case where the post with the specified title is not found
+				console.log("Post not found")
+			}
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	const handleDeletePost = async () => {
+		try {
+			await axios.delete(URL + "/api/posts/" + postId, { withCredentials: true })
+			navigate("/")
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	useEffect(() => {
-		fetchPostComments()
-	}, [postId])
+		fetchPost()
+	}, [postTitle])
 
 	const postComment = async e => {
 		e.preventDefault()
 		try {
-			const res = await axios.post(URL + "/api/comments/create", { comment: comment, author: user.username, postId: postId, userId: user._id }, { withCredentials: true })
+			await axios.post(URL + "/api/comments/create", { comment: comment, author: user.username, postId: postId, userId: user._id }, { withCredentials: true })
 			window.location.reload(true)
 		} catch (err) {
 			console.log(err)
