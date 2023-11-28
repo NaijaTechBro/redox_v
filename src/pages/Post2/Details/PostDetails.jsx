@@ -9,14 +9,12 @@ import Navbar from "../../../components/Layout/Navbar/Navbar"
 import Loader from "../../../components/Loading/Loader"
 import { useTheme } from "../../../context/ThemeContext"
 import { UserContext } from "../../../context/UserContext"
-import usePostContext from "../../../context/post/usePostContext"
 import { URL } from "../../../url"
 import Comment from "../comment/Comment"
 import "./postdetails.css"
 
 const PostDetails = () => {
 	const postTitle = useParams().title
-	const { posts } = usePostContext()
 	const [postId, setPostId] = useState(``)
 	const [post, setPost] = useState({})
 	const { user } = useContext(UserContext)

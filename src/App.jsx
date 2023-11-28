@@ -1,4 +1,3 @@
-import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "../src/scss/App.scss"
 
@@ -16,6 +15,7 @@ import { ThemeProvider } from "./context/ThemeContext"
 
 // LayOut
 import NotFound from "./components/Error/NotFound"
+import Category from "./pages/Category/Category"
 import Home from "./pages/Home/Home"
 
 // Company
@@ -44,6 +44,10 @@ const App = () => {
 								<Route
 									path="/search/:name"
 									element={<Search />}
+								/>
+								<Route
+									path="/category/:category"
+									element={<Category />}
 								/>
 								<Route
 									path="/blog"
