@@ -20,7 +20,7 @@ const Category = () => {
 	return (
 		<>
 			<Navbar />
-			<h2 style={{ textAlign: `center`, paddingBlock: `4rem` }}>{category}</h2>
+			<h2 className="category__heading">{category}</h2>
 			<Popular
 				posts={categoryPosts}
 				type="all"

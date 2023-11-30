@@ -1,4 +1,5 @@
 @import "./navbar";
+
 .App {
   width: 100vw;
   position: absolute;
@@ -35,9 +36,20 @@ p {
   display: block;
 }
 
+.category__heading {
+  font-size: 4rem;
+  text-align: center;
+  padding-block: 4rem;
+  text-transform: capitalize;
+}
+
 @media screen and (max-width: 768px) {
   .desktop--hidden {
     display: block;
+  }
+
+  .category__heading {
+    font-size: 2rem;
   }
 
   .mobile--hidden {
