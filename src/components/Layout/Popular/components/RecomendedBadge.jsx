@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom"
+
 const RecomendedBadge = ({ text }) => {
-  return <span className="recomended__badge">{text}</span>
+	return (
+		<Link
+			to={`/category/${text}`}
+			className="recomended__badge">
+			{text}
+		</Link>
+	)
 }
 
 export default RecomendedBadge
