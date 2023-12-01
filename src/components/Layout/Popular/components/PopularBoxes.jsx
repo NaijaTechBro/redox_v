@@ -8,7 +8,7 @@ const PopularBoxes = ({ user, type, posts }) => {
 			{user._id !== undefined && type !== "Search" && (
 				<>
 					<div className="popular__user--managenent">
-						<h5 className="popular--username">Hi, {user.username}</h5>
+						<h5 className="popular--username">Hi, {user.username}🎊</h5>
 						<Link
 							to="/write"
 							className="btn mobile--hidden">
