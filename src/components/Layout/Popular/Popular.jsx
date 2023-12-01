@@ -19,7 +19,7 @@ const Popular = ({ posts, type }) => {
 						{user._id === undefined && type !== "search" && (
 							<>
 								<h3 className="section--title mobile--hidden">Popular this Week</h3>
-								<h3 className="section--title desktop--hidden">Popular Analyst</h3>
+								<h3 className="section--title desktop--hidden">Popular Analysis</h3>
 							</>
 						)}
 						<div className="popular--grid">

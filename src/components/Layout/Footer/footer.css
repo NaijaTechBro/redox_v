@@ -75,8 +75,16 @@ footer {
   }
   
   .social-media a {
-    color: #fff;
-    font-size: 1.5rem;
+    color: #D3540C;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(211, 84, 12, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
     transition: color 0.3s ease;
   }
   
@@ -105,9 +113,10 @@ footer {
     background-color: #161514;
     color: #fff;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 40px
+    padding: 40px;
   }
   
   .footer-section img {
@@ -120,16 +129,18 @@ footer {
   }
   
   .footer-section h4 {
-    font-size: .6rem;
+    font-size: 14px;
     margin-bottom: 15px;
   }
   
   .footer-section p {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
-  
+  .footer-section > a{
+    font-size: 12px;
+  }
   .footer-section ul {
     list-style: none;
     margin: 0;
@@ -160,6 +171,7 @@ footer {
   
   .social-media {
     display: flex;
+    gap: 10px;
   }
   
   .social-media li {
@@ -167,8 +179,16 @@ footer {
   }
   
   .social-media a {
-    color: #fff;
-    font-size: 1rem;
+    color: #D3540C;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(211, 84, 12, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
     transition: color 0.3s ease;
   }
   
@@ -209,13 +229,16 @@ footer {
     margin-bottom: 20px;
   }
   
+  .footer-section > a{
+    font-size: 12px;
+  }
   .footer-section h4 {
-    font-size: .6rem;
+    font-size: 14px;
     margin-bottom: 15px;
   }
   
   .footer-section p {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1;
     margin-bottom: 15px;
   }
@@ -250,6 +273,7 @@ footer {
   
   .social-media {
     display: flex;
+    gap: 10px;
   }
   
   .social-media li {
@@ -257,8 +281,16 @@ footer {
   }
   
   .social-media a {
-    color: #fff;
-    font-size: 1rem;
+    color: #D3540C;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(211, 84, 12, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
     transition: color 0.3s ease;
   }
   
@@ -299,16 +331,19 @@ footer {
   }
   
   .footer-section h4 {
-    font-size: .6rem;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   
   .footer-section p {
-    font-size: 9px;
+    font-size: 14px;
     line-height: 1;
     margin-bottom: 15px;
   }
   
+  .footer-section > a{
+    font-size: 14px;
+  }
   .footer-section ul {
     list-style: none;
     margin: 0;
@@ -339,6 +374,7 @@ footer {
   
   .social-media {
     display: flex;
+    gap: 15px;
   }
   
   .social-media li {
@@ -346,8 +382,16 @@ footer {
   }
   
   .social-media a {
-    color: #fff;
-    font-size: 1rem;
+    color: #D3540C;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(211, 84, 12, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
     transition: color 0.3s ease;
   }
   
@@ -384,19 +428,19 @@ footer {
   }
 
   .footer-section {
-    flex-basis: 30%;
+    flex-basis: 20%;
     margin-bottom: 40px;
   }
   
   .footer-section h4 {
-    font-size: 1rem;
+    font-size: 20px;
     margin-bottom: 20px;
   }
   
   .footer-section p {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .footer-section ul {
@@ -429,6 +473,7 @@ footer {
   
   .social-media {
     display: flex;
+    gap: 15px;
   }
   
   .social-media li {
@@ -436,8 +481,16 @@ footer {
   }
   
   .social-media a {
-    color: #fff;
-    font-size: 1.5rem;
+    color: #D3540C;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(211, 84, 12, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
     transition: color 0.3s ease;
   }
   

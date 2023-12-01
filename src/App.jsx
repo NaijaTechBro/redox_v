@@ -59,7 +59,7 @@ const App = () => {
 									element={<AboutUs />}
 								/>
 								<Route
-									path="/company-contact"
+									path="/company/contact"
 									element={<Contact />}
 								/>
 								<Route
