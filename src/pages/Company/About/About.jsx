@@ -87,9 +87,9 @@ You want to learn from someone that will share useful information and NOT dump c
 <p>Check out my list of <a href='/free-resources'>resources</a></p>
 
 <h4>Contacting Me</h4>
-<p>The best way to contact us is via email - me@redox.com.ng</p>
+<p>The best way to contact us is via email - support@redox.com.ng</p>
 
-<p>You can follow me on Twitter @RedoxTrading.</p>
+<p>You can follow us on Twitter @insideredox.</p>
 
 <p>You can join our Newsletter here to get a high-quality email each week.</p>
 </div>
