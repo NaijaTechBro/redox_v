@@ -3,13 +3,13 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Footer from "../../../components/Layout/Footer/Footer"
 import Navbar from "../../../components/Layout/Navbar/Navbar"
+import { useTheme } from "../../../context/ThemeContext"
 import { UserContext } from "../../../context/UserContext"
 import { URL } from "../../../url"
 import ProfileAnalysis from "./Component/ProfileAnalysis"
 import ProfileDetailsSection from "./Component/ProfileDetailsSection"
 import ProfileDetailsToggler from "./Component/ProfileDetailsToggler"
 import "./profile.scss"
-import { useTheme } from "../../../context/ThemeContext"
 
 const Profile = () => {
 	const { id } = useParams()
@@ -28,6 +28,7 @@ const Profile = () => {
 		posts: posts.length,
 		followers: followers.length,
 		following: following.length,
+		isCurrentUser: user._id == id,
 	}
 
 	const profileAnalysis = { posts, user }
