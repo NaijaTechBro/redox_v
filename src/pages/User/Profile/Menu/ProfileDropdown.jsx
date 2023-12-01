@@ -65,7 +65,7 @@ const ProfileDropdown = () => {
     <div className="profile-dropdown">
       <div className="profile-dropdown__image" onClick={toggleDropdown}>
         {/* <FaRegUserCircle src={user.photo} style={{ height: "60px", width: "30px" }} /> */}
-        <img src={user.photo} alt="Profile" style={{ height: "30px", width: "30px" }} />
+        <img src={user.photo} alt="Profile" />
       </div>
       {isOpen && (
         <div className="profile-dropdown__content">
