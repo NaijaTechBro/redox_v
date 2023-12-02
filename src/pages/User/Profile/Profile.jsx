@@ -21,16 +21,6 @@ const Profile = () => {
 	const [analysisState, setAnalysisState] = useState(true)
 	const { darkMode } = useTheme()
 
-	const profileDetailsSection = {
-		id,
-		photo: user.photo,
-		username,
-		posts: posts.length,
-		followers: followers.length,
-		following: following.length,
-		isCurrentUser: user._id == id,
-	}
-
 	const profileAnalysis = { posts, user }
 
 	const toggleAnalysisState = () => setAnalysisState(prev => !prev)
@@ -44,6 +34,18 @@ const Profile = () => {
 		} catch (err) {
 			console.log(err)
 		}
+	}
+
+	const profileDetailsSection = {
+		id,
+		photo: user.photo,
+		username,
+		posts: posts.length,
+		followers: followers,
+		following: following,
+		user,
+		isCurrentUser: user._id == id,
+		fetchProfile,
 	}
 
 	const fetchUserPosts = async id => {
