@@ -34,7 +34,7 @@ const PostDetails = () => {
 			setComments(res.data)
 			setLoader(false)
 		} catch (err) {
-			setLoader(true)
+			setLoader(false)
 			console.log(err)
 		}
 	}
@@ -47,7 +47,7 @@ const PostDetails = () => {
 			if (foundPost) {
 				setPostId(foundPost._id)
 				setPost(foundPost)
-				// await fetchPostComments()
+				await fetchPostComments()
 			} else {
 				// Handle the case where the post with the specified title is not found
 				console.log("Post not found")
@@ -107,7 +107,7 @@ const PostDetails = () => {
 				<div className={darkMode ? "post__details__container dark_mode" : "post__details__container"}>
 					<div className="post-details-header">
 						<h1 className="post-title">{post.title}</h1>
-						{user?._id === post?.userId && (
+						{/* {user?._id === post?.userId && (
 							<div className="edit-delete-buttons">
 								<p
 									className="edit-button"
@@ -120,7 +120,7 @@ const PostDetails = () => {
 									<MdDelete />
 								</p>
 							</div>
-						)}
+						)} */}
 					</div>
 					<div className="post__info">
 						<div>
@@ -134,14 +134,13 @@ const PostDetails = () => {
 							<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
 							<p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
 							{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
-							{user?.user?._id === post?.userId ? (
+							{/* {console.log(user, post)} */}
+							{(user?._id === post?.userId) && (
 								<span
 									onClick={dispEditMenu}
 									style={{ cursor: "pointer" }}>
 									<BsThreeDotsVertical />
 								</span>
-							) : (
-								""
 							)}
 							{editMenu && (
 								<div className="edit-menu">
@@ -149,15 +148,14 @@ const PostDetails = () => {
 										key={post._id}
 										to={user ? `/edit/${post._id}` : "/login"}
 										style={{ textDecoration: "none" }}>
-										{" "}
-										Edit{" "}
+										<BiEdit /> Edit
 									</Link>
 									<Link
 										key={post._id}
-										to={user ? `/blog` : "/login"}
+										// to={user ? `/` : "/login"}
+										onClick={handleDeletePost}
 										style={{ textDecoration: "none" }}>
-										{" "}
-										Delete{" "}
+										<MdDelete /> Delete
 									</Link>
 								</div>
 							)}

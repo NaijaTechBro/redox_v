@@ -34,6 +34,7 @@ const CreatePost = () => {
 
 	const handleEnterKey = e => {
 		if (e.key === `Enter`) {
+			e.preventDefault()
 			addCategory()
 		}
 	}
@@ -87,7 +88,7 @@ const CreatePost = () => {
 			.catch(error => {
 				console.error("Error:", error)
 				console.log(post)
-				console.log(user.user)
+				console.log(user)
 			})
 	}
 
