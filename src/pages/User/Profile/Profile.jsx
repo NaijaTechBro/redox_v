@@ -17,6 +17,7 @@ const Profile = () => {
 	const [id, setId] = useState("")
 	const [followers, setFollowers] = useState([])
 	const [following, setFollowing] = useState([])
+	const [bio, setBio] = useState("")
 	const { user } = useContext(UserContext)
 	const [posts, setPosts] = useState([])
 	const [analysisState, setAnalysisState] = useState(true)
@@ -33,10 +34,15 @@ const Profile = () => {
 			setUsername(res.data.username)
 			setFollowers(res.data.followers)
 			setFollowing(res.data.following)
+			setBio(res.data.bio)
 		} catch (err) {
 			console.log(err)
 		}
 	}
+
+	useEffect(() => {
+		fetchProfile()
+	}, [])
 
 	const profileDetailsSection = {
 		id,
@@ -47,6 +53,7 @@ const Profile = () => {
 		following: following,
 		user,
 		isCurrentUser: user._id == id,
+		bio: bio,
 		fetchProfile,
 	}
 

@@ -7,6 +7,7 @@ import { UserContext } from "../../../context/UserContext"
 import { useTheme } from "../../../context/ThemeContext"
 import { URL } from "../../../url"
 import "./profile.scss"
+import { useNavigate } from "react-router-dom"
 
 const EditProfile = () => {
 	const { id } = useParams()
@@ -15,12 +16,13 @@ const EditProfile = () => {
 	const [username, setUsername] = useState("")
 	const [name, setName] = useState("")
 	const [phone, setPhone] = useState("")
-	const [bio, setBio] = useState("")
+	const { user } = useContext(UserContext)
+	const [bio, setBio] = useState(user.bio)
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	const { user } = useContext(UserContext)
 	const [updated, setUpdated] = useState(false)
 	const { darkMode } = useTheme()
+	const navigate = useNavigate()
 
 	const fetchProfile = async id => {
 		try {
@@ -41,10 +43,11 @@ const EditProfile = () => {
 	const handleUserUpdate = async () => {
 		setUpdated(false)
 		try {
-			const params = { username, email, password }
+			const params = { username, email, password, bio }
 			const credentials = { withCredentials: true }
 
 			await axios.put(`${URL}/api/users/${user._id}`, params, credentials).then(() => setUpdated(true))
+			navigate(`/profile/${user._id}`)
 		} catch (err) {
 			console.log(err.message)
 			setUpdated(false)
