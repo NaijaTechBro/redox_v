@@ -23,7 +23,7 @@ const SettingsLinks = ({ user }) => {
         </Link>
       </li>
       <li>
-        <Link to={"/profile/" + user._id}>
+        <Link to="/company/contact">
           <span>
             <img src={help} alt="" />
           </span>

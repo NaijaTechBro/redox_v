@@ -25,6 +25,7 @@ const PostDetails = () => {
 	const [bookmarked, setBookmarked] = useState(true)
 	const [followStatus, setFollowStatus] = useState(false)
 	const [editMenu, setEditMenu] = useState(false)
+	const [userID, setUserID] = useState(``)
 	const { darkMode, toggleTheme } = useTheme()
 
 	const fetchPostComments = async () => {
@@ -47,7 +48,8 @@ const PostDetails = () => {
 			if (foundPost) {
 				setPostId(foundPost._id)
 				setPost(foundPost)
-				await fetchPostComments()
+				setUserID(foundPost.userId)
+				// await fetchPostComments()
 			} else {
 				// Handle the case where the post with the specified title is not found
 				console.log("Post not found")
@@ -128,7 +130,7 @@ const PostDetails = () => {
 								src={user?.photo}
 								alt=""
 							/>
-							<p>@{post.username}</p>
+							<p>{user?._id == userID ? <>@{post.username}</> : <Link to={`/profile/${userID}`}>@{post.username}</Link>}</p>
 						</div>
 						<div className="post-date">
 							<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>

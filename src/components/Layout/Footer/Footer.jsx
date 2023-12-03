@@ -15,24 +15,25 @@ const Footer = () => {
           <a href="https://twitter.com/insideredox" target="blank">
             <BsTwitter/>
           </a>
-          <a href="https://t.me/insideredox" target="blank">
+          <a href="https://instagram.com/_insideredox" target="blank">
             <BsInstagram/>
           </a>
           <a href="https://t.me/insideredox" target="blank">
             <BsTelegram/>
           </a>
         </ul>
-        <a href="mailto:insideredox@gmail.com" target="blank">support@redox.com.ng</a>
+        <a href="mailto:support@redox.com.ng" target="blank">support@redox.com.ng</a>
       </div>
       <div className="footer-section">
         <h4>Products</h4>
-        <p><a href="/#">Market Research</a></p>
         <p><a href="/#">Learn</a></p>
+        <p><a href="/blog">Market Research</a></p>
+        <p><a href="/trading-tools">Trading Tools</a></p>
       </div>
       <div className="footer-section">
         <h4>Company</h4>
-        <p><a href="/about">About Us</a></p>
-        <p><a href="/#">FAQ</a></p>
+        <p><a href="/company/about-us">About Us</a></p>
+        <p><a href="/company/contact">Contact</a></p>
       </div>
       <div className="footer-section">
         <h4>Legal</h4>
