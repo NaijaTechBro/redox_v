@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { URL } from "../../../../url"
 
 const ProfileDetailsSection = ({ data }) => {
-	const { id, photo, username, posts, followers, following, user, isCurrentUser, fetchProfile } = data
+	const { id, photo, username, posts, followers, following, user, isCurrentUser, bio, fetchProfile } = data
 	const [followState, setFollowState] = useState(`Follow`)
 	const [btnClicked, setBtnClicked] = useState(false)
 
@@ -43,6 +43,9 @@ const ProfileDetailsSection = ({ data }) => {
 					<span className="profile-details__info--box">{posts} Posts</span>
 					<span className="profile-details__info--box">{followers.length} Followers</span>
 					<span className="profile-details__info--box">{following.length} Following</span>
+				</div>
+				<div className="profile-details__info">
+					<p>{bio}</p>
 				</div>
 				<div className="profile-details__cta">
 					{isCurrentUser ? (
