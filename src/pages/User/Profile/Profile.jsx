@@ -35,14 +35,11 @@ const Profile = () => {
 			setFollowers(res.data.followers)
 			setFollowing(res.data.following)
 			setBio(res.data.bio)
+			fetchUserPosts(res.data._id)
 		} catch (err) {
 			console.log(err)
 		}
 	}
-
-	useEffect(() => {
-		fetchProfile()
-	}, [])
 
 	const profileDetailsSection = {
 		id,
@@ -69,7 +66,6 @@ const Profile = () => {
 	useEffect(() => {
 		if (usertag !== undefined) {
 			fetchProfile(usertag)
-			fetchUserPosts(id)
 		}
 	}, [usertag])
 
