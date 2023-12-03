@@ -130,7 +130,9 @@ const PostDetails = () => {
 								src={user?.photo}
 								alt=""
 							/>
-							<p>{user?._id == userID ? <>@{post.username}</> : <Link to={`/profile/${userID}`}>@{post.username}</Link>}</p>
+							<p>
+								<Link to={`/profile/${post.username}`}>@{post.username}</Link>
+							</p>
 						</div>
 						<div className="post-date">
 							<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>

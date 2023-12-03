@@ -7,23 +7,24 @@ import { URL } from "../url"
 export const UserContext = createContext({})
 
 export function UserContextProvider({ children }) {
-  const [user, setUser] = useState([])
+	const [user, setUser] = useState([])
 
-  useEffect(() => {
-    getUser()
-  }, [])
+	useEffect(() => {
+		getUser()
+	}, [])
 
-  const getUser = async () => {
-    try {
-      await axios.get(URL + "/api/auth/refetch", { withCredentials: true }).then((res) => {
-        if (res.data.user) {
-          setUser(res.data.user)
-        }
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
+	const getUser = async () => {
+		try {
+			await axios.get(URL + "/api/auth/refetch", { withCredentials: true }).then(res => {
+				if (res.data.user) {
+					// console.log(res.data.user)
+					setUser(res.data.user)
+				}
+			})
+		} catch (err) {
+			console.log(err)
+		}
+	}
 
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
+	return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
 }

@@ -108,7 +108,7 @@ const App = () => {
 								/>
 								<Route
 									exact
-									path="/profile/:id"
+									path="/profile/:usertag"
 									element={<Profile />}
 								/>
 								<Route

@@ -12,8 +12,9 @@ import ProfileDetailsToggler from "./Component/ProfileDetailsToggler"
 import "./profile.scss"
 
 const Profile = () => {
-	const { id } = useParams()
+	const { usertag } = useParams()
 	const [username, setUsername] = useState("")
+	const [id, setId] = useState("")
 	const [followers, setFollowers] = useState([])
 	const [following, setFollowing] = useState([])
 	const [bio, setBio] = useState("")
@@ -28,7 +29,8 @@ const Profile = () => {
 
 	const fetchProfile = async param => {
 		try {
-			const res = await axios.get(`${URL}/api/users/${param}`)
+			const res = await axios.get(`${URL}/api/users/username/${param}`)
+			setId(res.data._id)
 			setUsername(res.data.username)
 			setFollowers(res.data.followers)
 			setFollowing(res.data.following)
@@ -65,11 +67,11 @@ const Profile = () => {
 	}
 
 	useEffect(() => {
-		if (id !== undefined) {
-			fetchProfile(id)
+		if (usertag !== undefined) {
+			fetchProfile(usertag)
 			fetchUserPosts(id)
 		}
-	}, [id])
+	}, [usertag])
 
 	return (
 		<>
