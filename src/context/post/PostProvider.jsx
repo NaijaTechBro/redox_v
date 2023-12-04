@@ -66,10 +66,9 @@ const PostProvider = props => {
 						Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 					})
 					.then(res => {
-						navigate(`/posts/post/${res.data._id}`)
+						navigate(`/posts/post/${res.data.title}`)
 					})
 					.catch(err => {
-						// console.log(err)
 						setErrorMsg(err.message)
 					})
 			})

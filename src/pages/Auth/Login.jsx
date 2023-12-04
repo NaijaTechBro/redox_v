@@ -24,7 +24,7 @@ const Login = () => {
 			await axios.post(`${URL}/api/auth/login`, { email, password }, { withCredentials: true }).then(res => {
 				localStorage.setItem(`t`, JSON.stringify(res.data.token))
 				setUser(res.data)
-				navigate("/blog")
+				navigate("/")
 			})
 		} catch (err) {
 			console.log(err)

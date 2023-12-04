@@ -47,13 +47,24 @@ const PostDetails = () => {
 
 			if (foundPost) {
 				setPostId(foundPost._id)
+				console.log(foundPost)
 				setPost(foundPost)
 				setUserID(foundPost.userId)
-				// await fetchPostComments()
+				await confirmBookmarked(foundPost._id, foundPost.userId)
 			} else {
 				// Handle the case where the post with the specified title is not found
 				console.log("Post not found")
 			}
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	const confirmBookmarked = async (postID, userID) => {
+		try {
+			await axios.get(`${URL}/api/bookmarks/confirm?postId=${postID}&userId=${userID}`).then(res => {
+				console.log(res.data)
+			})
 		} catch (err) {
 			console.log(err)
 		}
@@ -139,7 +150,7 @@ const PostDetails = () => {
 							<p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
 							{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
 							{/* {console.log(user, post)} */}
-							{(user?._id === post?.userId) && (
+							{user?._id === post?.userId && (
 								<span
 									onClick={dispEditMenu}
 									style={{ cursor: "pointer" }}>
