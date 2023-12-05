@@ -51,10 +51,9 @@ const PostProvider = props => {
 		formData.append("image", file)
 
 		await axios
-			.post(`${URL}/api/posts/upload`, formData, {
+			.post(`https://cloudinary-test-viix.onrender.com/api/posts/upload`, formData, {
 				headers: {
 					"Content-Type": "multipart/form-data",
-					Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 				},
 			})
 			.then(async res => {
@@ -66,10 +65,9 @@ const PostProvider = props => {
 						Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 					})
 					.then(res => {
-						navigate(`/posts/post/${res.data._id}`)
+						navigate(`/posts/post/${res.data.title}`)
 					})
 					.catch(err => {
-						// console.log(err)
 						setErrorMsg(err.message)
 					})
 			})
