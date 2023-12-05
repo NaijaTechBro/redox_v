@@ -29,6 +29,8 @@ import Fresources from "./pages/Fresources/Fresources"
 import Search from "./pages/Search/Search"
 import EditProfile from "./pages/User/Profile/EditProfile"
 
+import Admin from './admin/App'
+
 const App = () => {
 	return (
 		<>
@@ -37,6 +39,10 @@ const App = () => {
 					<BrowserRouter>
 						<PostProvider>
 							<Routes>
+								<Route
+									path="/admin/*"
+									element={<Admin />}
+								/>
 								<Route
 									path="/"
 									element={<Home />}
