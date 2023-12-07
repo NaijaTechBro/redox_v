@@ -1,16 +1,15 @@
 import axios from "axios"
 import { useContext, useEffect, useRef, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Footer from "../../../components/Layout/Footer/Footer"
 import Navbar from "../../../components/Layout/Navbar/Navbar"
-import { UserContext } from "../../../context/UserContext"
 import { useTheme } from "../../../context/ThemeContext"
+import { UserContext } from "../../../context/UserContext"
 import { URL } from "../../../url"
 import "./profile.scss"
-import { useNavigate } from "react-router-dom"
 
 const EditProfile = () => {
-	const { id } = useParams()
+	const { currentUser } = useParams()
 	const imageRef = useRef()
 	const [profileImg, setProfileImg] = useState(``)
 	const [username, setUsername] = useState("")
@@ -18,16 +17,18 @@ const EditProfile = () => {
 	const [phone, setPhone] = useState("")
 	const { user } = useContext(UserContext)
 	const [bio, setBio] = useState(user.bio)
+	const [id, setId] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [updated, setUpdated] = useState(false)
 	const { darkMode } = useTheme()
 	const navigate = useNavigate()
 
-	const fetchProfile = async id => {
+	const fetchProfile = async currentUser => {
 		try {
-			const res = await axios.get(`${URL}/api/users/${id}`)
-			const { username, bio, name, phone, email, password, photo } = res.data
+			const res = await axios.get(`${URL}/api/users/username/${currentUser}`)
+			const { _id, username, bio, name, phone, email, password, photo } = res.data
+			setId(_id)
 			setUsername(username)
 			setBio(bio)
 			setName(name)
@@ -65,8 +66,8 @@ const EditProfile = () => {
 	}
 
 	useEffect(() => {
-		fetchProfile(id)
-	}, [id])
+		fetchProfile(currentUser)
+	}, [currentUser])
 
 	return (
 		<>

@@ -29,7 +29,7 @@ import Fresources from "./pages/Fresources/Fresources"
 import Search from "./pages/Search/Search"
 import EditProfile from "./pages/User/Profile/EditProfile"
 
-import Admin from './admin/App'
+import Admin from "./admin/App"
 
 const App = () => {
 	return (
@@ -119,7 +119,7 @@ const App = () => {
 								/>
 								<Route
 									exact
-									path="/profile/edit/:id"
+									path="/profile/edit/:currentUser"
 									element={<EditProfile />}
 								/>
 								<Route

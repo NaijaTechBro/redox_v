@@ -49,7 +49,7 @@ const ProfileDetailsSection = ({ data }) => {
 				</div>
 				<div className="profile-details__cta">
 					{isCurrentUser ? (
-						<Link to={`/profile/edit/${id}`}>
+						<Link to={`/profile/edit/${username}`}>
 							<button className="cta__btn">Edit Profile</button>
 						</Link>
 					) : (
