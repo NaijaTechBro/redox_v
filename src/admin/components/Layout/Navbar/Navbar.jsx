@@ -11,8 +11,9 @@ import Menu from "./Component/Menu"
 import SearchContainer from "./Component/SearchContainer"
 import CTA from "./Component/CTA"
 import DropDowns from "./Component/DropDowns"
+import { BsList } from "react-icons/bs"
 
-const Navbar = () => {
+const Navbar = ({sideMenuOpen, setSideMenuOpen}) => {
   const { setUser } = useContext(UserContext)
   const { darkMode, toggleTheme } = useTheme()
 
@@ -58,6 +59,7 @@ const Navbar = () => {
         {user._id === undefined ? <Menu /> : <SearchContainer />}
         {user._id === undefined ? <CTA /> : <DropDowns />}
       </div>
+      <BsList className="togglesidebar" onClick={() => {setSideMenuOpen(!sideMenuOpen)}}/>
     </header>
   )
 }
