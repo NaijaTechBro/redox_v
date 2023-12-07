@@ -28,7 +28,7 @@ const Popular = ({ posts, type }) => {
 								posts={posts}
 								type={type}
 							/>
-							<Sidebar posts={posts} />
+							<Sidebar />
 						</div>
 					</>
 				) : (

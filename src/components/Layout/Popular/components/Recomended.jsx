@@ -1,25 +1,24 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
+import { URL } from "../../../../url"
 import RecomendedBadge from "./RecomendedBadge"
 
-const Recomended = ({ posts }) => {
-	const badgeData = ["Fundamentals", "Money", "Business", "Productivity", "USD", "Trading Strategy", "Yada Yada"]
-
+const Recomended = () => {
 	const [categoryPosts, setCategoryPosts] = useState([])
 
-	useEffect(() => {
-		if (posts) {
-			const filteredPosts = posts.reduce((acc, post) => {
-				// Assuming post.categories is an array
-				post.categories.forEach(category => {
-					if (!acc.includes(category)) {
-						acc.push(category)
-					}
-				})
-				return acc
-			}, [])
-			setCategoryPosts(filteredPosts)
+	const fetchCategories = async () => {
+		try {
+			const { data } = await axios.get(`${URL}/api/posts/category/getall`)
+			console.log(data)
+			setCategoryPosts(data)
+		} catch (err) {
+			console.log(err)
 		}
-	}, [posts])
+	}
+
+	useEffect(() => {
+		fetchCategories()
+	}, [])
 
 	return (
 		<div className="popular__recomended">

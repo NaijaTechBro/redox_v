@@ -7,6 +7,7 @@ import { useTheme } from "../../../context/ThemeContext"
 import { UserContext } from "../../../context/UserContext"
 import { URL } from "../../../url"
 import ProfileAnalysis from "./Component/ProfileAnalysis"
+import ProfileBookmarks from "./Component/ProfileBookmarks"
 import ProfileDetailsSection from "./Component/ProfileDetailsSection"
 import ProfileDetailsToggler from "./Component/ProfileDetailsToggler"
 import "./profile.scss"
@@ -20,10 +21,13 @@ const Profile = () => {
 	const [bio, setBio] = useState("")
 	const { user } = useContext(UserContext)
 	const [posts, setPosts] = useState([])
+	const [bookmarks, setBookmarks] = useState([])
 	const [analysisState, setAnalysisState] = useState(true)
 	const { darkMode } = useTheme()
 
 	const profileAnalysis = { posts, user }
+
+	const profileBookmarks = { bookmarks, user }
 
 	const toggleAnalysisState = () => setAnalysisState(prev => !prev)
 
@@ -36,6 +40,7 @@ const Profile = () => {
 			setFollowing(res.data.following)
 			setBio(res.data.bio)
 			fetchUserPosts(res.data._id)
+			fetchUserBookmarks(res.data._id)
 		} catch (err) {
 			console.log(err)
 		}
@@ -63,6 +68,15 @@ const Profile = () => {
 		}
 	}
 
+	const fetchUserBookmarks = async id => {
+		try {
+			const { data } = await axios.get(`${URL}/api/bookmarks/${id}`)
+			setBookmarks(data)
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	useEffect(() => {
 		if (usertag !== undefined) {
 			fetchProfile(usertag)
@@ -81,13 +95,7 @@ const Profile = () => {
 							analysisState={analysisState}
 							toggleAnalysisState={toggleAnalysisState}
 						/>
-						{analysisState ? (
-							<ProfileAnalysis data={profileAnalysis} />
-						) : (
-							<div className="profile-details__bookmarks">
-								<h4 className="profile-details__heading">No Bookmark Found</h4>
-							</div>
-						)}
+						{analysisState ? <ProfileAnalysis data={profileAnalysis} /> : <ProfileBookmarks data={profileBookmarks} />}
 					</div>
 				</div>
 			</div>

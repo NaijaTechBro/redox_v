@@ -8,7 +8,7 @@ import { postDate, truncate } from "../../../../helpers"
 const ProfilePost = ({ post, user }) => {
 	return (
 		<Link
-			to={`/posts/post/${post._id}`}
+			to={`/posts/post/${post.title.toLowerCase().replace(/ /g, "-")}`}
 			key={post._id}>
 			<div className="profile-box">
 				<h4 className="profile-box__info--title title--mobile desktop--hidden text--center">{post.title}</h4>

@@ -6,13 +6,19 @@ const ProfileAnalysis = ({ data }) => {
 
 	return (
 		<div className="profile-details__grid">
-			{posts.map(post => (
-				<ProfilePost
-					post={post}
-					user={user}
-					key={post._id}
-				/>
-			))}
+			{posts.length > 0 ? (
+				posts.map(post => (
+					<ProfilePost
+						post={post}
+						user={user}
+						key={post._id}
+					/>
+				))
+			) : (
+				<div className="profile-details__bookmarks">
+					<h4 className="profile-details__heading">No Analysis Found</h4>
+				</div>
+			)}
 		</div>
 	)
 }
