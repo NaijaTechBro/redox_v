@@ -22,7 +22,7 @@ const PostDetails = () => {
 	const [comment, setComment] = useState("")
 	const [loader, setLoader] = useState(false)
 	const navigate = useNavigate()
-	const [bookmarked, setBookmarked] = useState(true)
+	const [bookmarked, setBookmarked] = useState(false)
 	const [followStatus, setFollowStatus] = useState(false)
 	const [editMenu, setEditMenu] = useState(false)
 	const [userID, setUserID] = useState(``)
@@ -42,15 +42,19 @@ const PostDetails = () => {
 
 	const fetchPost = async () => {
 		try {
-			const res = await axios.get(`${URL}/api/posts`)
-			const foundPost = res.data.posts.find(p => p.title.toLowerCase() === postTitle.toLowerCase())
+			let { data } = await axios.get(`${URL}/api/posts/title/${postTitle.toLowerCase().replace(/-/g, " ")}`, {
+				withCredentials: true,
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
+			})
+			// const foundPost = res.data.posts.find(p => p.title.toLowerCase() == postTitle.toLowerCase().replace("-", " "))
 
-			if (foundPost) {
-				setPostId(foundPost._id)
-				console.log(foundPost)
-				setPost(foundPost)
-				setUserID(foundPost.userId)
-				await confirmBookmarked(foundPost._id, foundPost.userId)
+			if (data) {
+				data = data[0]
+				setPostId(data._id)
+				setPost(data)
+				setUserID(data.userId)
+				await confirmBookmarked(data._id, data.userId)
 			} else {
 				// Handle the case where the post with the specified title is not found
 				console.log("Post not found")
@@ -62,9 +66,35 @@ const PostDetails = () => {
 
 	const confirmBookmarked = async (postID, userID) => {
 		try {
-			await axios.get(`${URL}/api/bookmarks/confirm?postId=${postID}&userId=${userID}`).then(res => {
-				console.log(res.data)
-			})
+			await axios
+				.get(`${URL}/api/bookmarks/confirm?postId=${postID}&userId=${userID}`, {
+					withCredentials: true,
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
+				})
+				.then(res => {
+					setBookmarked(res.data.bookmarked)
+				})
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	const handleBookmark = async () => {
+		try {
+			await axios
+				.post(
+					`${URL}/api/bookmarks/${bookmarked ? `remove` : ``}`,
+					{ postId, userId: userID },
+					{
+						withCredentials: true,
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
+					},
+				)
+				.then(async () => {
+					await confirmBookmarked(postId, userID)
+				})
 		} catch (err) {
 			console.log(err)
 		}
@@ -148,7 +178,11 @@ const PostDetails = () => {
 						<div className="post-date">
 							<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
 							<p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
-							{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
+							<p
+								style={{ cursor: `pointer` }}
+								onClick={handleBookmark}>
+								{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
+							</p>
 							{/* {console.log(user, post)} */}
 							{user?._id === post?.userId && (
 								<span

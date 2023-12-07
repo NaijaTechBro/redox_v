@@ -2,12 +2,12 @@ import Reading from "./Reading"
 import Recomended from "./Recomended"
 import Search from "./Search"
 
-const Sidebar = ({ posts }) => {
+const Sidebar = () => {
 	return (
 		<div className="popular__sidebar mobile--hidden">
 			<Search />
 			<Reading />
-			<Recomended posts={posts} />
+			<Recomended />
 		</div>
 	)
 }
