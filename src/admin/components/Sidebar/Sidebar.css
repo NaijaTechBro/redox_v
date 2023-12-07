@@ -1,0 +1,33 @@
+.admin--sidebar{
+  width: 300px;
+  border-top: 1px solid #fbfbfb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.admin--sidebar > div{
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.admin--sidebar > div > h3{
+  padding: 0px 50px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #00000080;
+}
+.admin--sidebar > div > a{
+  padding: 0px 50px;
+  /* border: 1px solid lightblue; */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+}

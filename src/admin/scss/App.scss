@@ -1,0 +1,58 @@
+@import "./navbar";
+
+.App {
+  width: 100vw;
+  position: absolute;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+.section {
+  padding-block: 3rem;
+
+  &--title {
+    font-size: 2rem;
+  }
+}
+
+.text--center {
+  text-align: center;
+}
+
+.desktop--hidden {
+  display: none;
+}
+
+.mobile--hidden {
+  display: block;
+}
+
+.category__heading {
+  font-size: 4rem;
+  text-align: center;
+  padding-block: 4rem;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop--hidden {
+    display: block;
+  }
+
+  .category__heading {
+    font-size: 2rem;
+  }
+
+  .mobile--hidden {
+    display: none;
+  }
+}
