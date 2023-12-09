@@ -1,5 +1,6 @@
 import React from 'react'
 import Chart from '../../components/Chart/DashboardChart';
+import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -41,7 +42,7 @@ const Dashboard = () => {
       <aside>
         <span>
           <h6>Users</h6>
-          <h6>All Users</h6>
+          <h6><a href="/admin/allusers">All Users</a></h6>
         </span>
         <table>
           <thead>
@@ -60,7 +61,9 @@ const Dashboard = () => {
                 <td>{row.name}</td>
                 <td>{row.email}</td>
                 <td>{row.phone}</td>
-                <td>Action</td>
+                <td>
+                  <span><BsPencilSquare/><BsTrash/></span>
+                </td>
               </tr>
             ))}
           </tbody>
