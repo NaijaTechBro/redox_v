@@ -116,6 +116,10 @@ td{
   text-align: left;
   padding: 10px 10px;
 }
+td span{
+  display: flex;
+  gap: 20px;
+}
 .dashboard__section table .user-img{
   background-color: rgb(107, 60, 107);
   color: white;
@@ -125,4 +129,65 @@ td{
   font-size: 12px;
   width: 30px;
   height: 33px;
+}
+
+
+
+
+
+/*************************************************************************************************************/
+@media screen and (max-width: 678px) {
+  .dashboard__section{
+    overflow-x: hidden;
+    padding: 20px 15px;
+  }
+  .dashboard__section > header{
+    padding: 30px 0px;
+  }
+  .admin--details{
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+  }
+  .admin--details .btn {
+    padding: 0.2rem 0.2rem;
+    height: 40px;
+    width: 120px;
+    font-weight: 400;
+    font-size: 0.8rem;
+    /* line-height: 1; */
+    border-radius: 0.5rem;
+  }
+  .admin--details h2{
+    font-size: 16px;
+  }
+  .admin--details p{
+    font-size: 12px;
+  }
+  .box--analytics{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .box--analytics > .info--boxes{
+    width: 100%;
+  }
+  .dashboard__section table{
+    width: 100%;
+  }
+  .dashboard__section table .user-img{
+    text-align: center;
+    font-size: 12px;
+    line-height: 28px;
+    width: 24px;
+    height: 28px;
+  }
+  th{
+    font-size: 14px;
+    padding: 0px 5px;
+  }
+  td{
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px 5px;
+  }
 }
