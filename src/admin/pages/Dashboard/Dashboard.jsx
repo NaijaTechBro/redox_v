@@ -1,5 +1,5 @@
 import React from 'react'
-import Chart from '../../components/Chart/DashboardChart';
+// import Chart from '../../components/Chart/DashboardChart';
 import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 import './Dashboard.css'
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
           </article>
         </div>
       </header>
-      <Chart/>
+      {/* <Chart/> */}
       <aside>
         <span>
           <h6>Users</h6>
