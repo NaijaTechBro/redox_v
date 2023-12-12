@@ -50,6 +50,9 @@
 @media screen and (max-width: 1028px) {
   .admin--details{
     display: flex;
-    flex-direction: row;
+    flex-direction: row!important;
+  }
+  .activity > p{
+    font-size: 12px;
   }
 }
