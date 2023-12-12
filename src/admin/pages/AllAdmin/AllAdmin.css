@@ -1,0 +1,68 @@
+.allAdmin--btn{
+  width: 180px;
+  height: 60px;
+  top: 152px;
+  left: 1126px;
+  padding: 14px 24px 14px 24px;
+  border-radius: 10px;
+  border: 2px;
+  gap: 10px;
+  background: #FFFFFF;
+  color: black;
+  border: 2px solid #000000;
+}
+.normal--admin{
+  background: #E1981B1A;
+  color: #E1981B;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 88px;
+  height: 38px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+.pro--admin{
+  background: #45B8451A;
+  color: #45B845;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 88px;
+  height: 38px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+.charter--admin{
+  background: #FF00001A;
+  color: #FF0000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 88px;
+  height: 38px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+
+
+/********************************************************************************/
+@media screen and (max-width: 1028px) {
+  .charter--admin, .normal--admin, .pro--admin{
+    font-size: 12px;
+    line-height: 18px;
+    padding: 10px 10px 10px 10px;
+  }
+  .allAdmin--btn{
+    width: max-content;
+    height: 40px;
+    padding: 10px 14px 10px 14px;
+  }
+}

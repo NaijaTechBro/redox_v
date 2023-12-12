@@ -89,6 +89,8 @@
 .dashboard__section > aside > span{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 .dashboard__section  > aside > span > h6{
   font-size: 18px;
@@ -98,12 +100,12 @@
   text-align: left;
 }
 .dashboard__section table{
-  width: 90%;
+  width: 100%;
 }
 th{
   font-size: 18px;
   font-weight: 500;
-  line-height: 36px;
+  /* line-height: 36px; */
   letter-spacing: 0px;
   text-align: left;
   padding: 0px 10px;
@@ -119,6 +121,9 @@ td{
 td span{
   display: flex;
   gap: 20px;
+}
+td p{
+  padding-bottom: 0px;
 }
 .dashboard__section table .user-img{
   background-color: rgb(107, 60, 107);
@@ -136,7 +141,7 @@ td span{
 
 
 /*************************************************************************************************************/
-@media screen and (max-width: 678px) {
+@media screen and (max-width: 1028px) {
   .dashboard__section{
     overflow-x: hidden;
     padding: 20px 15px;
