@@ -4,11 +4,10 @@ import './Account.css'
 
 const Account = () => {
   return (
-    <div className="banking-info">
-      <h1 className="title">Banking Info</h1>
-      <p className="description">The name on your bank account should be the same as the one you filled in to ensure easy validation.</p>
-      <div className="form-group">
-        <label htmlFor="bankName">Bank Name:</label>
+    <div className="admin--account">
+      <h3 >Banking Info</h3>
+      <p>The name on your bank account should be the same as the one you filled in to ensure easy validation.</p>
+      <div className="form--fields">
         <input
           type="text"
           id="bankName"
@@ -16,9 +15,6 @@ const Account = () => {
           placeholder="Enter Bank Name"
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="accountNumber">Account Number:</label>
         <input
           type="text"
           id="accountNumber"
@@ -26,9 +22,6 @@ const Account = () => {
           placeholder="Enter Account Number"
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="accountName">Account Name:</label>
         <input
           type="text"
           id="accountName"
