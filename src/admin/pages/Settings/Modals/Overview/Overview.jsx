@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import './Overview.css'
+import { CountryDropdown } from 'react-country-region-selector';
+import { RegionDropdown } from 'react-country-region-selector';
 
 const Overview = () => {
   const [name, setName] = useState('');
@@ -8,6 +10,10 @@ const Overview = () => {
   const [state, setState] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
+
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedState, setSelectedState] = useState('');
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,35 +55,32 @@ const Overview = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="admin--overview">
       <h3>Contact Information</h3>
       <p>Provide your legal name, home address and work mail.</p>
-      <div className="form-group">
-        <label htmlFor="name">Email Address</label>
+      <div className="form--fields">
         <input
           type="email"
           id="name"
           name="name"
           value={name}
           onChange={handleChange}
-          placeholder="yourname@example.com"
+          placeholder="Email Address"
           required
+          className="admin--email"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="address">Home Address</label>
+      
         <input
           type="text"
           id="address"
           name="address"
           value={address}
           onChange={handleChange}
-          placeholder="Street Address"
+          placeholder="Home Address"
           required
+          className="admin--home"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="city">City</label>
+      
         <input
           type="text"
           id="city"
@@ -86,10 +89,9 @@ const Overview = () => {
           onChange={handleChange}
           placeholder="City"
           required
+          className="admin--city"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="state">State</label>
+      
         <input
           type="text"
           id="state"
@@ -98,10 +100,9 @@ const Overview = () => {
           onChange={handleChange}
           placeholder="State"
           required
+          className="admin--state"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="postalCode">Postal Code</label>
+      
         <input
           type="text"
           id="postalCode"
@@ -110,11 +111,10 @@ const Overview = () => {
           onChange={handleChange}
           placeholder="Postal Code"
           required
+          className="admin--postal"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="country">Country</label>
-        <input
+      
+        {/* <input
           type="text"
           id="country"
           name="country"
@@ -122,6 +122,15 @@ const Overview = () => {
           onChange={handleChange}
           placeholder="Country"
           required
+          className="admin--country"
+        /> */}
+        <CountryDropdown
+          value={selectedCountry}
+          onChange={(country) => {
+            setSelectedCountry(country)
+            setSelectedState('')
+          }}
+          className="admin--country"
         />
       </div>
       <button type="submit" className="primary-button">
