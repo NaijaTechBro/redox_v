@@ -45,8 +45,8 @@ const AdminProfileDropdown = () => {
         <div className="profile-dropdown__content">
           <div className="profile-dropdown__content--blur" onClick={toggleDropdown}></div>
           <div className={darkMode ? "profile-dropdown__content--inner dark_mode admin-profile-dropdown" : "profile-dropdown__content--inner admin-profile-dropdown"}>
-            <p className="admin-profile-dropdown-link"><BsPersonCircle/> Profile</p>
-            <p className="admin-profile-dropdown-link"><BsGear/> Settings</p>
+            <p className="admin-profile-dropdown-link"><Link to={`/profile/${user.username}`}><BsPersonCircle/> Profile</Link></p>
+            <p className="admin-profile-dropdown-link"><Link to='/admin/settings'><BsGear/> Settings</Link></p>
             <p className="admin-profile-dropdown-link"><BsCheckSquare /> Verification</p>
             <p className="admin-profile-dropdown-link" onClick={toggleTheme}><BsMoon /> Dark Mode</p>
             <p className="admin-profile-dropdown-link" onClick={handleLogout}><BsBoxArrowRight /> Log Out</p>

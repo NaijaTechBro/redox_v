@@ -1,0 +1,36 @@
+.admin--settings{
+  padding: 30px 60px;
+  background-color: #fafafa;
+  width: 100%;
+}
+.admin--settings h2{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.admin--settings ul{
+  background: #0C46D305;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.admin--settings li{
+  color: #000000;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 11.5px 20px 11.5px 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.admin--settings .active--modal{
+  background-color: #FF5F00;
+  color: white;
+}
