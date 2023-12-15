@@ -10,20 +10,17 @@ const Category = () => {
 	const [categoryPosts, setCategoryPosts] = useState([])
 
 	useEffect(() => {
-		// Filter posts based on the category
 		const filteredPosts = posts.filter(post => post.categories.includes(category))
-
-		// Set the filtered posts to the state
 		setCategoryPosts(filteredPosts)
 	}, [posts, category])
 
 	return (
 		<>
 			<Navbar />
-			<h2 className="category__heading">{category}</h2>
 			<Popular
 				posts={categoryPosts}
 				type="all"
+				category={category}
 			/>
 		</>
 	)

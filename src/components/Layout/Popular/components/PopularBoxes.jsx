@@ -2,10 +2,10 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { Link } from "react-router-dom"
 import PopularBox from "./PopularBox"
 
-const PopularBoxes = ({ user, type, posts }) => {
+const PopularBoxes = ({ user, type, posts, category }) => {
 	return (
 		<div className="popular__boxes">
-			{user._id !== undefined && type !== "Search" && (
+			{user._id !== undefined && category === undefined && type !== "Search" && (
 				<>
 					<div className="popular__user--managenent">
 						<h5 className="popular--username">Hi, {user.username}🎊</h5>
