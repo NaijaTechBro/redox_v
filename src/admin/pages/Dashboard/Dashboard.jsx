@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import Chart from '../../components/Chart/DashboardChart';
 import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 import './Dashboard.css'
+import AVATARImg from '../../assets/AVATAR.png'
 
 const Dashboard = () => {
   const data = [
-    { name: 'Ayo Jahn', email: 'john@mail.com', phone: '+234 900 000 0000' },
-    { name: 'Dominic Praise', email: 'dom@nestlypay.co', phone: '+234 900 000 0000' },
-    { name: 'John Doe', email: 'hello@doe.xyz', phone: '+234 900 000 0000' },
+    { name: 'Ayo Jahn', email: 'john@mail.com', phone: '+234 900 000 0000', amount: '₦39,000.00' },
+    { name: 'Dominic Praise', email: 'dom@nestlypay.co', phone: '+234 900 000 0000', amount: '₦90,000.00' },
+    { name: 'John Doe', email: 'hello@doe.xyz', phone: '+234 900 000 0000', amount: '₦69,000.00' },
   ];
 
   return (
@@ -39,7 +41,7 @@ const Dashboard = () => {
         </div>
       </header>
       {/* <Chart/> */}
-      <aside>
+      <aside className='desktop__only'>
         <span>
           <h6>Users</h6>
           <h6><a href="/admin/allusers">All Users</a></h6>
@@ -68,6 +70,24 @@ const Dashboard = () => {
             ))}
           </tbody>
         </table>
+      </aside>
+      <aside className="mobile__only">
+        <span>
+          <h5>All Users</h5>
+          <Link to="/admin/allusers">View All</Link>
+        </span>
+        {data.map((user) => (
+          <div className="user">
+            <span>
+              <img src={AVATARImg} alt="" />
+              <span>
+                <h6>{user.name}</h6>
+                <p>{user.amount}</p>
+              </span>
+            </span>
+            <button>Action</button>
+          </div>
+        ))}
       </aside>
     </section>
   )

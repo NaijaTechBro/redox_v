@@ -135,7 +135,9 @@ td p{
   width: 30px;
   height: 33px;
 }
-
+.dashboard__section .mobile__only{
+  display: none;
+}
 
 
 
@@ -144,7 +146,7 @@ td p{
 @media screen and (max-width: 1028px) {
   .dashboard__section{
     overflow-x: hidden;
-    padding: 20px 15px;
+    padding: 20px 25px;
   }
   .dashboard__section > header{
     padding: 30px 0px;
@@ -175,6 +177,8 @@ td p{
   }
   .box--analytics > .info--boxes{
     width: 100%;
+    border-radius: 8px;
+    padding: 20px 30px;
   }
   .dashboard__section table{
     width: 100%;
@@ -194,5 +198,62 @@ td p{
     font-size: 12px;
     line-height: 16px;
     padding: 10px 5px;
+  }
+  .dashboard__section .desktop__only{
+    display: none;
+  }
+  .dashboard__section .mobile__only{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+  .dashboard__section .mobile__only .user{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+  .dashboard__section .mobile__only .user > span{
+    display: flex;
+  }
+  .dashboard__section .mobile__only h6{
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    margin: 0px;
+  }
+  .dashboard__section .mobile__only img{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+  .dashboard__section .mobile__only p{
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000CC;
+    margin: 0px;
+    padding: 0px;
+  }
+  .dashboard__section .mobile__only button{
+    width: 59px;
+    height: 29px;
+    padding: 8px 14px 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background: #E1981B1A;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 13px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #E1981B;
+    cursor: pointer;
   }
 }
