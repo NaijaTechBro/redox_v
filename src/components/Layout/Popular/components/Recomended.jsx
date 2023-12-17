@@ -9,7 +9,6 @@ const Recomended = () => {
 	const fetchCategories = async () => {
 		try {
 			const { data } = await axios.get(`${URL}/api/posts/category/getall`)
-			console.log(data)
 			setCategoryPosts(data)
 		} catch (err) {
 			console.log(err)

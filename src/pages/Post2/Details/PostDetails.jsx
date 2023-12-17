@@ -5,6 +5,7 @@ import { BiEdit } from "react-icons/bi"
 import { BsBookmarkCheck, BsBookmarkCheckFill, BsThreeDotsVertical } from "react-icons/bs"
 import { MdDelete } from "react-icons/md"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import HeadHelment from "../../../components/HeadHelment"
 import Footer from "../../../components/Layout/Footer/Footer"
 import Navbar from "../../../components/Layout/Navbar/Navbar"
 import Loader from "../../../components/Loading/Loader"
@@ -142,21 +143,11 @@ const PostDetails = () => {
 
 	return (
 		<>
-			<Helmet>
-				<title>{post.title}</title>
-				<meta
-					property="og:title"
-					content={post.title}
-				/>
-				<meta
-					property="og:image"
-					content={post.image}
-				/>
-				<meta
-					property="og:description"
-					content="Brief description of the post"
-				/>
-			</Helmet>
+			<HeadHelment
+				title={post.title}
+				image={post.image}
+				desc={post.desc}
+			/>
 			<div className={darkMode ? "dark_mode" : ""}>
 				<Navbar />
 				{loader ? (

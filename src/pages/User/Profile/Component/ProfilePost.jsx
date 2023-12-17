@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import { Link } from "react-router-dom"
-import { postDate, truncate } from "../../../../helpers"
+import { getBriefStr, postDate } from "../../../../helpers"
 
 const ProfilePost = ({ post, user }) => {
 	return (
@@ -35,7 +35,7 @@ const ProfilePost = ({ post, user }) => {
 					</div>
 					<div className="profile-box__info--body">
 						<h4 className="profile-box__info--title mobile--hidden">{post.title}</h4>
-						<p className="profile-box__info--text">{truncate(post.desc, 300)}</p>
+						<p className="profile-box__info--text">{getBriefStr(post.desc, 300)}</p>
 					</div>
 					<div className="profile-box__info--bottom">
 						<div className="profile-box__info--meta meta">
