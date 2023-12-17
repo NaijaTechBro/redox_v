@@ -9,6 +9,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Activities from './pages/Activities/Activities'
 import AllAdmin from './pages/AllAdmin/AllAdmin'
 import AllUsers from './pages/AllUsers/AllUsers'
+import Posts from './pages/Posts/Posts'
+import Categories from './pages/Categories/Categories';
 import Coupons from './pages/Coupons/Coupons'
 import Courses from './pages/Courses/Courses'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -31,6 +33,8 @@ const App = () => {
             <Route path='/activities' element={<Activities sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/alladmins' element={<AllAdmin sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/allusers' element={<AllUsers sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/posts' element={<Posts sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/categories' element={<Categories sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/coupons' element={<Coupons sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/courses' element={<Courses sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/paymenthistory' element={<PaymentHistory sideMenuOpen={sideMenuOpen} />}/>

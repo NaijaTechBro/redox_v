@@ -20,8 +20,8 @@ const Sidebar = ({sideMenuOpen, setSideMenuOpen}) => {
       </div>
       <div>
         <h3>Market</h3>
-        <NavLink to="/admin" exact end activeClassName="active"><BsStopwatch/> Posts</NavLink>
-        <NavLink to="/admin" exact end activeClassName="active"><BsBriefcaseFill/> Category</NavLink>
+        <NavLink to="/admin/posts" exact end activeClassName="active"><BsStopwatch/> Posts</NavLink>
+        <NavLink to="/admin/categories" exact end activeClassName="active"><BsBriefcaseFill/> Category</NavLink>
       </div>
       <div>
         <h3>Learn</h3>
@@ -44,8 +44,8 @@ const Sidebar = ({sideMenuOpen, setSideMenuOpen}) => {
         </div>
         <div>
           <h3>Market</h3>
-          <NavLink to="/admin" exact end activeClassName="active"><BsStopwatch/> Posts</NavLink>
-          <NavLink to="/admin" exact end activeClassName="active"><BsBriefcaseFill/> Category</NavLink>
+          <NavLink to="/admin/posts" exact end activeClassName="active"><BsStopwatch/> Posts</NavLink>
+          <NavLink to="/admin/categories" exact end activeClassName="active"><BsBriefcaseFill/> Category</NavLink>
         </div>
         <div>
           <h3>Learn</h3>

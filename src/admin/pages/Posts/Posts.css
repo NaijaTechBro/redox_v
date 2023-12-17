@@ -1,0 +1,85 @@
+.admin-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 35px 60px;
+  background-color: #fafafa;
+}
+
+.admin-posts-list .admin__post {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff8a;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-posts-list .admin__post__image {
+  width: 150px;
+  height: auto;
+}
+
+.admin-posts-list .admin__post__info {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.admin-posts-list .admin__post__info__name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.admin-posts-list .admin__post__info__description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  text-align: left;
+}
+.admin-posts-list button{
+  width: 80px;
+  height: 29px;
+  padding: 8px 14px 8px 14px;
+  border: none;
+  border-radius: 5px;
+  background: #E1981B1A;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #E1981B;
+  cursor: pointer;
+}
+.admin__post__info__author{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #000000CC;
+  padding: 0px;
+}
+.admin__post__info__metadata{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin__post__edit__span{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.admin__post__edit__span svg{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
