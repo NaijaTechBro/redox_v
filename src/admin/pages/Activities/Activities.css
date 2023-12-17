@@ -48,6 +48,9 @@
 
 /********************************************************************************/
 @media screen and (max-width: 1028px) {
+  .mobile--hidden{
+    display: none;
+  }
   .admin--activities{
     padding: 20px 10px;
   }

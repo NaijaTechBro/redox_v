@@ -2,9 +2,9 @@ import React from 'react'
 import AvatarImg from '../../assets/AVATAR.png'
 import './Activities.css'
 
-const Activities = () => {
+const Activities = ({sideMenuOpen}) => {
   return (
-    <section className='admin--activities'>
+    <section className={sideMenuOpen ? 'admin--activities mobile--hidden' : 'admin--activities'}>
       <h2>My Activities</h2>
       <main>
         <article className='activity'>

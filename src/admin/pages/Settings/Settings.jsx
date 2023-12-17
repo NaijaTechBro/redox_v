@@ -3,11 +3,11 @@ import './Settings.css'
 import Overview from './Modals/Overview/Overview';
 import Account from './Modals/Account/Account';
 
-const Settings = () => {
+const Settings = ({sideMenuOpen}) => {
   const [settingModal, setSettingModal] = useState('Overview');
 
   return (
-    <section className='admin--settings'>
+    <section className={sideMenuOpen ? 'admin--settings mobile--hidden' : 'admin--settings'}>
       <h2>Account Settings</h2>
       <ul>
         <li onClick={() => setSettingModal('Overview')} className={settingModal == 'Overview' ? 'active--modal' : ''}>Overview</li>

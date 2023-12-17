@@ -51,13 +51,16 @@
     display: none;
   }
   .admin--sidebar--mobile{
-    width: 30%;
+    width: 100%;
     border-top: 1px solid #fbfbfb;
     border-right: 1px solid #fbfbfb;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: #FF5F00;
+    padding-top: 20px;
+    padding-left: 20px;
   }
   .admin--sidebar--mobile > div{
     padding: 15px 0px;
@@ -73,7 +76,8 @@
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    color: #00000080;
+    color: #ffffffaf;
+    text-transform: uppercase;
   }
   .admin--sidebar--mobile > div > a{
     padding: 5px 20px;
@@ -85,9 +89,15 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    color: #FFF;
   }
   .admin--sidebar--mobile > div > a > svg{
-    color: #FF5F00;
+    color: #FFF;
+    background-color: #ffffff23;
+    padding: 5px;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   .admin--sidebar--mobile > div > a.active{
     border-left: 3px solid #FF5F00;

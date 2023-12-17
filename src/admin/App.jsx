@@ -27,14 +27,14 @@ const App = () => {
       <div className='admin--layout--div'>
         <Sidebar sideMenuOpen={sideMenuOpen} setSideMenuOpen={setSideMenuOpen}/>
           <Routes>
-            <Route path='/' element={<Dashboard />}/>
-            <Route path='/activities' element={<Activities />}/>
-            <Route path='/alladmins' element={<AllAdmin />}/>
-            <Route path='/allusers' element={<AllUsers />}/>
-            <Route path='/coupons' element={<Coupons />}/>
-            <Route path='/courses' element={<Courses />}/>
-            <Route path='/paymenthistory' element={<PaymentHistory />}/>
-            <Route path='/settings' element={<Settings />}/>
+            <Route path='/' element={<Dashboard sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/activities' element={<Activities sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/alladmins' element={<AllAdmin sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/allusers' element={<AllUsers sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/coupons' element={<Coupons sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/courses' element={<Courses sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/paymenthistory' element={<PaymentHistory sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/settings' element={<Settings sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/*' element={<NotFound />}/>
           </Routes>
       </div>

@@ -5,7 +5,7 @@ import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 import './Dashboard.css'
 import AVATARImg from '../../assets/AVATAR.png'
 
-const Dashboard = () => {
+const Dashboard = ({sideMenuOpen}) => {
   const data = [
     { name: 'Ayo Jahn', email: 'john@mail.com', phone: '+234 900 000 0000', amount: '₦39,000.00' },
     { name: 'Dominic Praise', email: 'dom@nestlypay.co', phone: '+234 900 000 0000', amount: '₦90,000.00' },
@@ -13,7 +13,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <section className='dashboard__section'>
+    <section className={sideMenuOpen ? 'dashboard__section mobile--hidden' : 'dashboard__section'}>
       <header>
         <div className="admin--details">
           <div>
