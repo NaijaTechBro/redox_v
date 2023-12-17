@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import Chart from '../../components/Chart/DashboardChart';
+import Chart from '../../components/Chart/DashboardChart';
 import {BsPencilSquare, BsTrash} from 'react-icons/bs'
 import './Dashboard.css'
 import AVATARImg from '../../assets/AVATAR.png'
@@ -40,7 +40,7 @@ const Dashboard = () => {
           </article>
         </div>
       </header>
-      {/* <Chart/> */}
+      <Chart/>
       <aside className='desktop__only'>
         <span>
           <h6>Users</h6>
