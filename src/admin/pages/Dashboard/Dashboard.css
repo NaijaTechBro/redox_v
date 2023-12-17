@@ -144,6 +144,9 @@ td p{
 
 /*************************************************************************************************************/
 @media screen and (max-width: 1028px) {
+  .mobile--hidden{
+    display: none;
+  }
   .dashboard__section{
     overflow-x: hidden;
     padding: 20px 25px;

@@ -37,6 +37,9 @@
 
 /*****************************************************/
 @media screen and (max-width: 678px) {
+  .mobile--hidden{
+    display: none;
+  }
   .admin--settings{
     overflow-x: hidden;
     padding: 15px 10px;

@@ -1,7 +1,8 @@
 import React from 'react'
 import './AllAdmin.css'
+import AvatarImg from '../../assets/AVATAR.png'
 
-const AllAdmin = () => {
+const AllAdmin = ({sideMenuOpen}) => {
   const data = [
     { name: 'Ayo Jahn', email: 'john@mail.com', number: '390.00', type: 'Normal' },
     { name: 'Dominic Praise', email: 'dom@nestlypay.co', number: '390.00', type: 'Pro' },
@@ -9,13 +10,13 @@ const AllAdmin = () => {
   ];
 
   return (
-    <section className='dashboard__section'>
+    <section className={sideMenuOpen ? 'dashboard__section mobile--hidden' : 'dashboard__section'}>
       <aside>
         <span>
           <h6>All Admin</h6>
           <button className='allAdmin--btn'><a href="/admin">Download CSV</a></button>
         </span>
-        <table>
+        <table  className='all--admin__desktop'>
           <thead>
             <tr>
               <th></th>
@@ -41,6 +42,28 @@ const AllAdmin = () => {
             ))}
           </tbody>
         </table>
+      <main className='all--admin__mobile'>
+        <article className='activity'>
+          <div className="admin--details">
+            <img src={AvatarImg} alt="" />
+            <div>
+              <h5>Praise Dominic</h5>
+              <p>390.00</p>
+            </div>
+          </div>
+          <p className='normal--admin'>Normal</p>
+        </article>
+        <article className='activity'>
+          <div className="admin--details">
+            <img src={AvatarImg} alt="" />
+            <div>
+              <h5>Praise Dominic</h5>
+              <p>169.00</p>
+            </div>
+          </div>
+          <p className='charter--admin'>Charter</p>
+        </article>
+      </main>
       </aside>      
     </section>
   )
