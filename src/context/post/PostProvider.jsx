@@ -65,7 +65,7 @@ const PostProvider = props => {
 						Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 					})
 					.then(res => {
-						navigate(`/posts/post/${res.data.title.toLowerCase().replace(/ /g, "-")}`)
+						navigate(`/${res.data.title.toLowerCase().replace(/ /g, "-")}`)
 					})
 					.catch(err => {
 						setErrorMsg(err.message)
@@ -99,7 +99,7 @@ const PostProvider = props => {
 								Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 							})
 							.then(res => {
-								navigate(`/posts/post/${res.data.title.toLowerCase().replace(/ /g, "-")}`)
+								navigate(`/${res.data.title.toLowerCase().replace(/ /g, "-")}`)
 							})
 							.catch(err => {
 								// console.log(err)
@@ -118,7 +118,7 @@ const PostProvider = props => {
 						Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 					})
 					.then(res => {
-						navigate(`/posts/post/${res.data._id}`)
+						navigate(`/${res.data._id}`)
 					})
 					.catch(err => {
 						// console.log(err)

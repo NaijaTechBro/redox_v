@@ -9,7 +9,7 @@ const PopularBox = ({ post, user }) => {
 		<div className="popular-box">
 			<h4 className="popular-box__info--title title--mobile desktop--hidden text--center">{post.title}</h4>
 			<Link
-				to={user._id !== undefined ? `/posts/post/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
+				to={user._id !== undefined ? `/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
 				className="popular-box__info--top mobile--top desktop--hidden">
 				<div>
 					<img
@@ -32,7 +32,7 @@ const PopularBox = ({ post, user }) => {
 					<h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
 				</div>
 				<Link
-					to={user._id !== undefined ? `/posts/post/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
+					to={user._id !== undefined ? `/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
 					className="popular-box__info--body">
 					<h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
 					<p className="popular-box__info--text">{truncate(post.desc, 200)}</p>
