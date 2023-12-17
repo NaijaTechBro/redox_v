@@ -3,11 +3,12 @@ import { useContext } from "react"
 import empty_post from "../../../assets/empty-post.png"
 import { useTheme } from "../../../context/ThemeContext"
 import { UserContext } from "../../../context/UserContext"
+import { CategoryHeader } from "./components/CategoryHeader"
 import PopularBoxes from "./components/PopularBoxes"
 import Sidebar from "./components/Sidebar"
 import "./popular.scss"
 
-const Popular = ({ posts, type }) => {
+const Popular = ({ posts, type, category }) => {
 	const { user } = useContext(UserContext)
 	const { darkMode } = useTheme()
 
@@ -16,17 +17,25 @@ const Popular = ({ posts, type }) => {
 			<div className="container">
 				{posts.length > 0 ? (
 					<>
-						{user._id === undefined && type !== "search" && (
+						{category !== undefined ? (
 							<>
-								<h3 className="section--title mobile--hidden">Popular this Week</h3>
-								<h3 className="section--title desktop--hidden">Popular Analysis</h3>
+								<CategoryHeader title={category} />
 							</>
+						) : (
+							user._id === undefined &&
+							type !== "search" && (
+								<>
+									<h3 className="section--title mobile--hidden">Popular this Week</h3>
+									<h3 className="section--title desktop--hidden">Popular Analysis</h3>
+								</>
+							)
 						)}
 						<div className="popular--grid">
 							<PopularBoxes
 								user={user}
 								posts={posts}
 								type={type}
+								category={category}
 							/>
 							<Sidebar />
 						</div>
@@ -51,6 +60,7 @@ const Popular = ({ posts, type }) => {
 Popular.propTypes = {
 	posts: PropTypes.array,
 	type: PropTypes.string,
+	category: PropTypes.string,
 }
 
 export default Popular

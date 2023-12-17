@@ -99,11 +99,6 @@ const App = () => {
 								/>
 								<Route
 									exact
-									path="/posts/post/:title"
-									element={<PostDetails />}
-								/>
-								<Route
-									exact
 									path="/edit/:id"
 									element={<EditPost />}
 								/>
@@ -126,6 +121,11 @@ const App = () => {
 									exact
 									path="/trading-tools"
 									element={<Fresources />}
+								/>
+								<Route
+									exact
+									path="/:title"
+									element={<PostDetails />}
 								/>
 								{/* <Route path='/image-upload' element={<Imageupload />} /> */}
 								<Route

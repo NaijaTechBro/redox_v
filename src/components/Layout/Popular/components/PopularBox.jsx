@@ -2,14 +2,14 @@ import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import { Link } from "react-router-dom"
 import postPhoto from "../../../../assets/popular-box.png"
-import { postDate, truncate } from "../../../../helpers"
+import { getBriefStr, postDate } from "../../../../helpers"
 
 const PopularBox = ({ post, user }) => {
 	return (
 		<div className="popular-box">
 			<h4 className="popular-box__info--title title--mobile desktop--hidden text--center">{post.title}</h4>
 			<Link
-				to={user._id !== undefined ? `/posts/post/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
+				to={user._id !== undefined ? `/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
 				className="popular-box__info--top mobile--top desktop--hidden">
 				<div>
 					<img
@@ -32,10 +32,10 @@ const PopularBox = ({ post, user }) => {
 					<h6 className="popular-box__info--heading popular-box__info--heading--dimmed">{postDate(post.createdAt)}</h6>
 				</div>
 				<Link
-					to={user._id !== undefined ? `/posts/post/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
+					to={user._id !== undefined ? `/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
 					className="popular-box__info--body">
 					<h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
-					<p className="popular-box__info--text">{truncate(post.desc, 200)}</p>
+					<p className="popular-box__info--text">{getBriefStr(post.desc, 200)}</p>
 				</Link>
 				<div className="popular-box__info--bottom">
 					<div className="popular-box__info--meta meta">

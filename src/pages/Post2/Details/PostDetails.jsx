@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 import { BiEdit } from "react-icons/bi"
 import { BsBookmarkCheck, BsBookmarkCheckFill, BsThreeDotsVertical } from "react-icons/bs"
 import { MdDelete } from "react-icons/md"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import HeadHelment from "../../../components/HeadHelment"
 import Footer from "../../../components/Layout/Footer/Footer"
 import Navbar from "../../../components/Layout/Navbar/Navbar"
 import Loader from "../../../components/Loading/Loader"
@@ -140,17 +142,23 @@ const PostDetails = () => {
 	}
 
 	return (
-		<div className={darkMode ? "dark_mode" : ""}>
-			<Navbar />
-			{loader ? (
-				<div className="loader-container">
-					<Loader />
-				</div>
-			) : (
-				<div className={darkMode ? "post__details__container dark_mode" : "post__details__container"}>
-					<div className="post-details-header">
-						<h1 className="post-title">{post.title}</h1>
-						{/* {user?._id === post?.userId && (
+		<>
+			<HeadHelment
+				title={post.title}
+				image={post.image}
+				desc={post.desc}
+			/>
+			<div className={darkMode ? "dark_mode" : ""}>
+				<Navbar />
+				{loader ? (
+					<div className="loader-container">
+						<Loader />
+					</div>
+				) : (
+					<div className={darkMode ? "post__details__container dark_mode" : "post__details__container"}>
+						<div className="post-details-header">
+							<h1 className="post-title">{post.title}</h1>
+							{/* {user?._id === post?.userId && (
 							<div className="edit-delete-buttons">
 								<p
 									className="edit-button"
@@ -164,98 +172,99 @@ const PostDetails = () => {
 								</p>
 							</div>
 						)} */}
-					</div>
-					<div className="post__info">
-						<div>
-							<img
-								src={user?.photo}
-								alt=""
-							/>
-							<p>
-								<Link to={`/profile/${post.username}`}>@{post.username}</Link>
-							</p>
 						</div>
-						<div className="post-date">
-							<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
-							<p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
-							<p
-								style={{ cursor: `pointer` }}
-								onClick={handleBookmark}>
-								{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
-							</p>
-							{/* {console.log(user, post)} */}
-							{user?._id === post?.userId && (
-								<span
-									onClick={dispEditMenu}
-									style={{ cursor: "pointer" }}>
-									<BsThreeDotsVertical />
-								</span>
-							)}
-							{editMenu && (
-								<div className="edit-menu">
-									<Link
-										key={post._id}
-										to={user ? `/edit/${post._id}` : "/login"}
-										style={{ textDecoration: "none" }}>
-										<BiEdit /> Edit
-									</Link>
-									<Link
-										key={post._id}
-										// to={user ? `/` : "/login"}
-										onClick={handleDeletePost}
-										style={{ textDecoration: "none" }}>
-										<MdDelete /> Delete
-									</Link>
-								</div>
-							)}
+						<div className="post__info">
+							<div>
+								<img
+									src={user?.photo}
+									alt=""
+								/>
+								<p>
+									<Link to={`/profile/${post.username}`}>@{post.username}</Link>
+								</p>
+							</div>
+							<div className="post-date">
+								<p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
+								<p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
+								<p
+									style={{ cursor: `pointer` }}
+									onClick={handleBookmark}>
+									{bookmarked ? <BsBookmarkCheckFill /> : <BsBookmarkCheck />}
+								</p>
+								{/* {console.log(user, post)} */}
+								{user?._id === post?.userId && (
+									<span
+										onClick={dispEditMenu}
+										style={{ cursor: "pointer" }}>
+										<BsThreeDotsVertical />
+									</span>
+								)}
+								{editMenu && (
+									<div className="edit-menu">
+										<Link
+											key={post._id}
+											to={user ? `/edit/${post._id}` : "/login"}
+											style={{ textDecoration: "none" }}>
+											<BiEdit /> Edit
+										</Link>
+										<Link
+											key={post._id}
+											// to={user ? `/` : "/login"}
+											onClick={handleDeletePost}
+											style={{ textDecoration: "none" }}>
+											<MdDelete /> Delete
+										</Link>
+									</div>
+								)}
+							</div>
 						</div>
-					</div>
-					<img
-						src={post.image}
-						className="post__image"
-						alt=""
-					/>
-					<p className="post__description">{post.desc}</p>
-					<div className="post__categories">
-						<h3>Categories:</h3>
-						<div className="category__list">
-							{post.categories?.map((c, i) => (
-								<div
-									key={i}
-									className="category__item">
-									{c}
-								</div>
+						<img
+							src={post.image}
+							className="post__image"
+							alt=""
+						/>
+						<p className="post__description">{post.desc}</p>
+						<div className="post__categories">
+							<h3>Categories:</h3>
+							<div className="category__list">
+								{post.categories?.map((c, i) => (
+									<div
+										key={i}
+										className="category__item">
+										{c}
+									</div>
+								))}
+							</div>
+						</div>
+						<div className="comments-section">
+							<h3 className="comments-heading">Comments:</h3>
+							{comments?.map(c => (
+								<Comment
+									key={c._id}
+									c={c}
+									post={post}
+								/>
 							))}
 						</div>
-					</div>
-					<div className="comments-section">
-						<h3 className="comments-heading">Comments:</h3>
-						{comments?.map(c => (
-							<Comment
-								key={c._id}
-								c={c}
-								post={post}
+						{/* write a comment */}
+						<div className="comment__input__section">
+							<input
+								onChange={e => setComment(e.target.value)}
+								type="text"
+								placeholder="Add a comment"
+								className="comment__input"
 							/>
-						))}
+							<button
+								onClick={postComment}
+								className="comment__button">
+								Send
+							</button>
+						</div>
 					</div>
-					{/* write a comment */}
-					<div className="comment__input__section">
-						<input
-							onChange={e => setComment(e.target.value)}
-							type="text"
-							placeholder="Add a comment"
-							className="comment__input"
-						/>
-						<button
-							onClick={postComment}
-							className="comment__button">
-							Send
-						</button>
-					</div>
-				</div>
-			)}
-			<Footer />
-		</div>
+				)}
+				<Footer />
+			</div>
+		</>
 	)
 }
 
