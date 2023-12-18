@@ -17,6 +17,11 @@ const Category = () => {
 		setCategoryPosts(filteredPosts)
 	}, [posts, category])
 
+	const nav=(
+		<>
+		<nav></nav>
+		</>
+	)
 	return (
 		<>
 			<Navbar />
@@ -27,6 +32,8 @@ const Category = () => {
 			/>
 		</>
 	)
+		//nav added
+	
 }
 
 export default Category
