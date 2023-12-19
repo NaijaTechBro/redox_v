@@ -15,6 +15,7 @@
   padding: 15px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .admin-posts-list .admin__post__image {
@@ -82,4 +83,108 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+
+
+/******************************************** ADMIN MODAL CONTENT **********************************************/
+.admin--post--modal1 > span{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.admin--post--modal1 > span svg{
+  background: #0C46D30D;
+  color: #0C46D3;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.admin--post--modal1 form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.admin--post--modal1 form div{
+  border: 1px dashed #979797;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.admin--post--modal1 form div svg{
+  width: 40px;
+  height: 40px;
+}
+.admin--post--modal1 form div span{
+  display: flex;
+  flex-direction: column;
+}
+.admin--post--modal1 form div p{
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 0px;
+}
+.admin--post--modal1 input{
+  color: #000;
+  outline: none;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border: 1px solid #F1F1F1;
+  border-radius: 8px;
+}
+.admin--post--modal1 button{
+  background-color: #FF5F00;
+  border-radius: 8px;
+  color: #FFFFFF;
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.admin--post--modal2{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.admin--post--modal2 > p{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000B2;
+}
+.admin--post--modal2 span{
+  display: flex;
+  justify-content: space-between;
+}
+.admin--post--modal2 svg{
+  width: 40px;
+  height: 40px;
+}
+.admin--post--modal2 .button-one{
+  width: 45%;
+  height: auto;
+  color: #979797;
+  background-color: white;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  padding: 10px;
+}
+.admin--post--modal2 .button-two{
+  width: 45%;
+  height: auto;
+  color: #fff;
+  background-color: #FF5F00;
+  border: none;
+  padding: 10px;
 }
