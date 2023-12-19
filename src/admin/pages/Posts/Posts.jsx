@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PostImageSample from '../../assets/PostImageSample.png'
-import { BsPencilSquare, BsTrash3 } from 'react-icons/bs'
+import { BsCloudArrowUp, BsPencilSquare, BsTrash3, BsXCircle } from 'react-icons/bs'
 import './Posts.css'
+import Modal from '../../components/Modal/Modal'
+
 
 const Posts = () => {
   const postsData = [
@@ -31,7 +33,78 @@ const Posts = () => {
     },
   ];
 
-  function Post({ item }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalIdentifier, setModalIdentifier] = useState(null);
+
+  const handleOpen = (identifier) => {
+    setIsOpen(true);
+    setModalIdentifier(identifier);
+  };
+
+  const handleClose = (identifier) => {
+    // if (identifier === modalIdentifier) {
+      setIsOpen(false);
+      setModalIdentifier(null);
+    // }
+  };
+  
+
+
+  const [isOpen1, setIsOpen1] = useState(false);
+
+  // const handleOpen1 = () => setIsOpen1(true);
+  const handleOpen1 = (identifier) => {
+    setIsOpen1(true);
+    setModalIdentifier(identifier);
+  };
+
+  const modalContent1 = () => (
+    <article className='admin--post--modal1'>
+      <span>
+        <h4>Edit Post</h4>
+        <BsXCircle onClick={() => setIsOpen1(false)}/>
+      </span>
+      <form action="">
+        <input type="text" name="title" id="title" placeholder='Post title'/>
+        <input type="text" name="title" id="title" placeholder='Description'/>
+        <div>
+          <BsCloudArrowUp/>
+          <span>
+            <h5>Upload Image</h5>
+            <p>{'Recommended size 400x100 (png, jpg)'}</p>
+          </span>
+        </div>
+        <button type='button'>Next</button>
+      </form>
+    </article>
+  );
+
+
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  // const handleOpen2 = () => setIsOpen2(true);
+  const handleOpen2 = (identifier) => {
+    setIsOpen2(true);
+    setModalIdentifier(identifier);
+  };
+
+
+  const modalContent2 = () => (
+    <article className='admin--post--modal2'>
+      <BsTrash3/>
+      <h4>Delete Post</h4>
+      <p>Are you sure you want to delete this product? Once deleted, it can't be undone.</p>
+      <span>
+        <button type='button' onClick={() => setIsOpen2(false)} className='button-one'>Cancel</button>
+        <button type='button' className='button-two'>Delete</button>
+      </span>
+    </article>
+  );
+
+
+
+
+  function Post({ item, identifier = item.id }) {
     return (
       <article className="admin__post">
         <img className="admin__post__image" src={item.image} alt={item.name} />
@@ -45,10 +118,24 @@ const Posts = () => {
             </span>
           </span>
           <span className="admin__post__edit__span">
-            <BsPencilSquare/>
-            <BsTrash3/>
+            <BsPencilSquare  onClick={() => handleOpen1(identifier)}/>
+            <BsTrash3  onClick={() => handleOpen2(identifier)}/>
           </span>
         </div>
+        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
+        </Modal> */}
+          <Modal
+            isOpen={isOpen1 && identifier === modalIdentifier}
+            onClose={() => setIsOpen1(false)}
+            contentFn={modalContent1}
+          />
+        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
+        </Modal> */}
+        <Modal
+          isOpen={isOpen2 && identifier === modalIdentifier}
+          onClose={() => setIsOpen2(false)}
+          contentFn={modalContent2}
+        />
       </article>
     )
   }
