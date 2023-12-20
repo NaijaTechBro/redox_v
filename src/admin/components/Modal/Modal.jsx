@@ -5,7 +5,7 @@ const Modal = ({ isOpen, onClose, children, identifier, contentFn }) => {
   if (!isOpen) return null;
   
   const handleOutsideClick = (event) => {
-    if (event.target !== document.querySelector('.admin--modal') && !event.composedPath().includes(document.querySelector('.admin--modal'))) {
+    if (!event.target === document.querySelector('.admin--modal') || !event.target.closest('.admin--modal')) {
       onClose();
     }
   };
@@ -22,9 +22,6 @@ const Modal = ({ isOpen, onClose, children, identifier, contentFn }) => {
         {contentFn && contentFn()}
       </div>
     </div>
-    // <div className="admin--modal" onClick={handleOutsideClick}>
-    //   <div className="admin--modal--content">{children}</div>
-    // </div>
   );
 };
 
