@@ -30,6 +30,7 @@ import Search from "./pages/Search/Search"
 import EditProfile from "./pages/User/Profile/EditProfile"
 
 import Admin from "./admin/App"
+import Learn from "./learn"
 
 const App = () => {
 	return (
@@ -42,6 +43,10 @@ const App = () => {
 								<Route
 									path="/admin/*"
 									element={<Admin />}
+								/>
+								<Route
+									path="/learn/*"
+									element={<Learn />}
 								/>
 								<Route
 									path="/"
