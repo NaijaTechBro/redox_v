@@ -1,0 +1,142 @@
+@mixin flex($j: null, $a: null) {
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+}
+
+.learn__layout {
+  position: fixed;
+  @include flex;
+  width: 100%;
+
+  &--sidebar {
+    width: 15rem;
+    padding-block: 1rem;
+    height: calc(100vh - 5rem);
+    @include flex($a: center);
+    flex-direction: column;
+  }
+
+  &--main {
+    width: calc(100% - 15rem);
+    height: calc(100vh - 5rem);
+    background: #fafafa;
+    padding: 2rem;
+    overflow-y: scroll;
+  }
+}
+
+.sidebar {
+  @include flex($a: center);
+  flex-direction: column;
+  width: 100%;
+
+  &--heading,
+  &--link {
+    display: inline-block;
+    padding-block: .5rem;
+    padding-left: 3rem;
+    width: 100%;
+    @include flex($a: center);
+    gap: .5rem;
+    font-weight: 600;
+    color: #000000;
+    transition: .2s ease-in-out;
+    margin-bottom: .5rem;
+  }
+
+  &--link.active,
+  &--link:hover {
+    border-left: 5px solid #FF5F00;
+    padding-left: 4rem;
+    background: linear-gradient(90deg, rgba(255, 95, 0, 0.1) 0%, rgba(12, 70, 211, 0) 99.99%, rgba(217, 217, 217, 0) 100%);
+  }
+
+  &--heading {
+    margin-bottom: .5rem;
+    color: #00000080;
+    font-weight: 600;
+  }
+
+  &__icon--box {
+    background: #FF5F000D;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    border-radius: 50%;
+    @include flex(center, center);
+
+    &__icon {
+      font-size: 1.3rem;
+      color: #FF5F00;
+    }
+  }
+}
+
+.hero {
+  &__home {
+    width: 100%;
+
+    &--top {
+      padding-inline: 1rem;
+
+      &__title {
+        font-weight: 700;
+        font-size: 1.6rem;
+        margin-bottom: .5rem;
+      }
+
+      &__text {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &--ad {
+      position: relative;
+      width: 100%;
+      z-index: 0;
+      padding: 1rem;
+
+      &__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+        z-index: -1;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &__content {
+        position: relative;
+      }
+
+      &__sub {
+        color: #ffffff;
+        font-weight: 400;
+      }
+
+      &__heading {
+        color: #ffffff;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        padding-block: .5rem;
+      }
+    }
+  }
+}
+
+.course__layout {
+  padding-block: 1rem;
+
+  &--heading--1 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
