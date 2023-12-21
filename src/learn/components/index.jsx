@@ -1,3 +1,4 @@
+import { default as CourseLayout } from "./course-layout"
 import { default as Hero } from "./hero"
 
-export { Hero }
+export { CourseLayout, Hero }
