@@ -10,8 +10,8 @@ const settings = {
 	speed: 500,
 	autoplay: true,
 	autoplaySpeed: 5000,
-	slidesToShow: 3,
-	slidesToScroll: 1,
+	slidesToShow: 5,
+	slidesToScroll: 2,
 	initialSlide: 0,
 	responsive: [
 		{
@@ -37,9 +37,13 @@ const ContinueCourseLayout = () => {
 			<h3 className="course__layout--heading--1">Continue watching</h3>
 			<Slider {...settings}>
 				<CourseBox type="continue" />
+				<div></div>
 				<CourseBox type="continue" />
+				<div></div>
 				<CourseBox type="continue" />
+				<div></div>
 				<CourseBox type="continue" />
+				<div></div>
 			</Slider>
 		</div>
 	)
