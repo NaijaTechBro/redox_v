@@ -1,5 +1,17 @@
-const Wishlist = () => {
-	return <div>Wishlist</div>
+import PropTypes from "prop-types"
+import { ContinueCourseBox } from "./components/ContinueCourseBox"
+
+const CourseBox = ({ type }) => {
+	switch (type) {
+		case `continue`:
+			return <ContinueCourseBox />
+		case `recomended`:
+			return <>recomended</>
+	}
 }
 
-export default Wishlist
+CourseBox.propTypes = {
+	type: PropTypes.string,
+}
+
+export { CourseBox }

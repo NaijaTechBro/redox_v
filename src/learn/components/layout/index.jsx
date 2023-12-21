@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import Navbar from "../navbar"
 import Sidebar from "../sidebar"
 
@@ -11,6 +12,10 @@ const Layout = ({ children }) => {
 			</div>
 		</>
 	)
+}
+
+Layout.propTypes = {
+	children: PropTypes.node,
 }
 
 export default Layout
