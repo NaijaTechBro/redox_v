@@ -122,15 +122,11 @@ const Posts = ({sideMenuOpen}) => {
             <BsTrash3  onClick={() => handleOpen2(identifier)}/>
           </span>
         </div>
-        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
-        </Modal> */}
-          <Modal
-            isOpen={isOpen1 && identifier === modalIdentifier}
-            onClose={() => setIsOpen1(false)}
-            contentFn={modalContent1}
-          />
-        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
-        </Modal> */}
+        <Modal
+          isOpen={isOpen1 && identifier === modalIdentifier}
+          onClose={() => setIsOpen1(false)}
+          contentFn={modalContent1}
+        />
         <Modal
           isOpen={isOpen2 && identifier === modalIdentifier}
           onClose={() => setIsOpen2(false)}
