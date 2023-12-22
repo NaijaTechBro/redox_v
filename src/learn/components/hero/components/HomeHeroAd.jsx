@@ -1,3 +1,5 @@
+import { BiPlay } from "react-icons/bi"
+import { Link } from "react-router-dom"
 import adBg from "../../../assets/hero-banner.png"
 
 const HomeHeroAd = () => {
@@ -14,6 +16,14 @@ const HomeHeroAd = () => {
 				<h2 className="hero__home--ad__heading">
 					Sharpen Your Skills With <br /> Professional Online Finance Courses
 				</h2>
+				<Link
+					to="/learn/courses"
+					className="hero__home--ad__btn">
+					Start Now{" "}
+					<span className="hero__home--ad__btn--icon">
+						<BiPlay />
+					</span>
+				</Link>
 			</div>
 		</div>
 	)
