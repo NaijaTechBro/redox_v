@@ -1,0 +1,24 @@
+.admin--post--modal1 span{
+  display: flex;
+  justify-content: space-between;
+}
+.admin--post--modal1 .button-one{
+  width: 45%;
+  height: auto;
+  color: #979797;
+  background-color: white;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+.admin--post--modal1 .button-two{
+  width: 45%;
+  height: auto;
+  color: #fff;
+  background-color: #FF5F00;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
