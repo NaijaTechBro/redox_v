@@ -10,7 +10,7 @@ const CourseList = ({ title }) => {
 
 	return (
 		<div className="course__layout">
-			<h2 className="course__layout--heading--1">{title}</h2>
+			<h2 className="heading--1">{title}</h2>
 			{title.toLowerCase() === `our courses` && (
 				<div className="course__layout--cta">
 					<div className="course__layout--cta__search course__layout--search flex">

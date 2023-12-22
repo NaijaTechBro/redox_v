@@ -159,6 +159,45 @@
   }
 }
 
+.layout__table {
+  width: 100%;
+  border: .1rem solid #E1E2E6;
+  border-collapse: collapse;
+
+  &--row {
+    border-bottom: .1rem solid #E1E2E6;
+
+    td,
+    th {
+      padding-block: 1rem;
+      font-size: .8rem;
+
+      button {
+        border-radius: .3rem;
+        padding: .5rem 1.5rem;
+        background: #FF5F00;
+        color: #FFFFFF;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--body {
+    .layout__table--row {
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.heading--1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #202020;
+}
+
 .course__layout {
   position: relative;
   padding-block: 1rem;
