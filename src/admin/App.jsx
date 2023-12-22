@@ -17,6 +17,10 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import PaymentHistory from './pages/PaymentHistory/PaymentHistory'
 import Settings from './pages/Settings/Settings'
 import NotFound from './components/Error/NotFound'
+import Register from './pages/Auth/RegisterAdmin'
+import Login from './pages/Auth/LoginAdmin'
+import ForgotPassword from './pages/Auth/ForgotPasswordAdmin';
+import ResetPassword from './pages/Auth/ResetPasswordAdmin';
 import './App.css'
 
 const App = () => {
@@ -39,6 +43,10 @@ const App = () => {
             <Route path='/courses' element={<Courses sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/paymenthistory' element={<PaymentHistory sideMenuOpen={sideMenuOpen} />}/>
             <Route path='/settings' element={<Settings sideMenuOpen={sideMenuOpen} />}/>
+            <Route path='/login' element={<Login />}/>
+            <Route path='/cyprus' element={<Register />} />
+            <Route path='/forgotpassword' element={<ForgotPassword />}/>
+            <Route path='/resetpassword' element={<ResetPassword/>}/>
             <Route path='/*' element={<NotFound />}/>
           </Routes>
       </div>
