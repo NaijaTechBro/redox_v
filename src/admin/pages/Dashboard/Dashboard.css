@@ -13,6 +13,21 @@
   display: flex;
   justify-content: space-between;
 }
+.dashboard__section > aside > span > button{
+  border: 2px solid #000000;
+  background-color: #FFFFFF;
+  color: #000;
+  border-radius: 10px;
+  padding: 15px 20px;
+  width: max-content;
+  height: auto;
+  cursor: pointer;
+}
+.dashboard__section > aside > span > button:hover{
+  color: #FFFFFF;
+  background-color: #000;
+  transition: ease 0.5s;
+}
 .admin--details .btn {
   cursor: pointer;
   padding: 0.8rem 1rem;
@@ -122,6 +137,9 @@ td span{
   display: flex;
   gap: 20px;
 }
+td span svg{
+  cursor: pointer;
+}
 td p{
   padding-bottom: 0px;
 }
@@ -134,6 +152,10 @@ td p{
   font-size: 12px;
   width: 30px;
   height: 33px;
+}
+.dashboard__section table .admin--modal{
+  top: auto;
+  width: max-content;
 }
 .dashboard__section .mobile__only{
   display: none;

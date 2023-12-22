@@ -6,7 +6,7 @@ import './Categories.css'
 import Modal from '../../components/Modal/Modal'
 
 
-const Posts = () => {
+const Posts = ({sideMenuOpen}) => {
   const postsData = [
     {
       id: 1,
@@ -151,7 +151,7 @@ const Posts = () => {
   }
 
   return (
-    <section className="admin-posts-list">
+    <section className={sideMenuOpen ? 'admin-posts-list mobile--hidden' : 'admin-posts-list'}>
       <aside className='admin-category-aside'>
         <h3>Category</h3>
         <div>

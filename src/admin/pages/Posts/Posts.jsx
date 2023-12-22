@@ -5,7 +5,7 @@ import './Posts.css'
 import Modal from '../../components/Modal/Modal'
 
 
-const Posts = () => {
+const Posts = ({sideMenuOpen}) => {
   const postsData = [
     {
       id: 1,
@@ -141,7 +141,11 @@ const Posts = () => {
   }
 
   return (
-    <section className="admin-posts-list">
+    <section className={sideMenuOpen ? 'admin-posts-list mobile--hidden' : 'admin-posts-list'}>
+      <aside className='admin-post-aside'>
+        <h3>All Posts</h3>
+        <button type='button'>Create Analysis</button>
+      </aside>
       {postsData.map((item) => (
         <Post key={item.id} item={item} />
       ))}
