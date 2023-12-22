@@ -26,7 +26,7 @@ const Sidebar = () => {
 			<div className="sidebar">
 				<h3 className="sidebar--heading">Account</h3>
 				<NavLink
-					to="/learn/courses"
+					to="/learn/my-courses"
 					exact
 					end
 					className="sidebar--link"

@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom"
 import Layout from "./components/layout"
-import { Coupons, Course, Courses, History, Home, Wishlist } from "./pages"
+import { Coupons, Course, History, Home, MyCourses, Wishlist } from "./pages"
 import "./styles/styles.scss"
 
 const Learn = () => {
 	const routeComponents = [
 		{ path: `/`, element: <Home /> },
-		{ path: `/courses`, element: <Courses /> },
+		{ path: `/my-courses`, element: <MyCourses /> },
 		{ path: `/course/:title`, element: <Course /> },
 		{ path: `/wishlist`, element: <Wishlist /> },
 		{ path: `/coupons`, element: <Coupons /> },
