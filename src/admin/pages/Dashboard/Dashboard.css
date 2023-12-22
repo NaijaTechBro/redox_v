@@ -155,7 +155,7 @@ td p{
 }
 .dashboard__section table .admin--modal{
   top: auto;
-  width: max-content;
+  /* width: max-content; */
 }
 .dashboard__section .mobile__only{
   display: none;
