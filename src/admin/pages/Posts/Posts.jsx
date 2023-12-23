@@ -5,7 +5,7 @@ import './Posts.css'
 import Modal from '../../components/Modal/Modal'
 
 
-const Posts = () => {
+const Posts = ({sideMenuOpen}) => {
   const postsData = [
     {
       id: 1,
@@ -122,15 +122,11 @@ const Posts = () => {
             <BsTrash3  onClick={() => handleOpen2(identifier)}/>
           </span>
         </div>
-        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
-        </Modal> */}
-          <Modal
-            isOpen={isOpen1 && identifier === modalIdentifier}
-            onClose={() => setIsOpen1(false)}
-            contentFn={modalContent1}
-          />
-        {/* <Modal isOpen={isOpen && identifier === modalIdentifier} onClose={() => handleClose(identifier)}>
-        </Modal> */}
+        <Modal
+          isOpen={isOpen1 && identifier === modalIdentifier}
+          onClose={() => setIsOpen1(false)}
+          contentFn={modalContent1}
+        />
         <Modal
           isOpen={isOpen2 && identifier === modalIdentifier}
           onClose={() => setIsOpen2(false)}
@@ -141,7 +137,11 @@ const Posts = () => {
   }
 
   return (
-    <section className="admin-posts-list">
+    <section className={sideMenuOpen ? 'admin-posts-list mobile--hidden' : 'admin-posts-list'}>
+      <aside className='admin-post-aside'>
+        <h3>All Posts</h3>
+        <button type='button'>Create Analysis</button>
+      </aside>
       {postsData.map((item) => (
         <Post key={item.id} item={item} />
       ))}
