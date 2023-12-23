@@ -80,23 +80,23 @@ const App = () => {
 					/>
 					<Route
 						path="/login"
-						element={<Login />}
+						element={<Login sideMenuOpen={sideMenuOpen} />}
 					/>
 					<Route
 						path="/cyprus"
-						element={<Register />}
+						element={<Register sideMenuOpen={sideMenuOpen} />}
 					/>
 					<Route
 						path="/forgotpassword"
-						element={<ForgotPassword />}
+						element={<ForgotPassword sideMenuOpen={sideMenuOpen} />}
 					/>
 					<Route
 						path="/resetpassword"
-						element={<ResetPassword />}
+						element={<ResetPassword sideMenuOpen={sideMenuOpen} />}
 					/>
 					<Route
 						path="/*"
-						element={<NotFound />}
+						element={<NotFound sideMenuOpen={sideMenuOpen} />}
 					/>
 				</Routes>
 			</div>

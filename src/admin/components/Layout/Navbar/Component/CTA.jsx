@@ -4,12 +4,12 @@ const CTA = () => {
   return (
     <div className="header__ctas">
       <span className="header__ctas--link">
-        <Link to="/login" target="_blank" className="header__ctas--link__item mobile--hidden">
+        <Link to="/admin/login" className="header__ctas--link__item mobile--hidden">
           Sign In
         </Link>
       </span>
       <span className="header__ctas--link header__ctas--link--btn">
-        <Link target="_blank" className="header__ctas--link__item" to="/register">
+        <Link className="header__ctas--link__item" to="/admin/cyprus">
           Get Started
         </Link>
       </span>
