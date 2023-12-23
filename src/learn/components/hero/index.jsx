@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { CourseHero } from "./components/CourseHero"
 import { HomeHero } from "./components/HomeHero"
 
 const Hero = ({ type }) => {
@@ -6,7 +7,7 @@ const Hero = ({ type }) => {
 		case `home`:
 			return <HomeHero />
 		case `course`:
-			return <>Course</>
+			return <CourseHero />
 	}
 }
 

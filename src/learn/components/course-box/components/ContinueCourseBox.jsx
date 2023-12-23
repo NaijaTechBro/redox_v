@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom"
 import courseImg from "../../../assets/course-continue.png"
 import courseProfileImg from "../../../assets/course-profile.png"
 
 const ContinueCourseBox = () => {
 	return (
 		<div className="course__box--space">
-			<div className="course__box--continue">
+			<Link
+				to={`/learn/course/beginner-guide`}
+				className="course__box--continue">
 				<div className="course__box--continue__img">
 					<img
 						src={courseImg}
@@ -32,7 +35,7 @@ const ContinueCourseBox = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 		</div>
 	)
 }
