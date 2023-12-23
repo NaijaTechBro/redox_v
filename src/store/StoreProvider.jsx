@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import { useRef } from "react"
 import { Provider } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
+import { injectStore } from "../service/api"
 import { makeStore } from "./store"
 
 const StoreProvider = ({ children }) => {
@@ -10,6 +11,7 @@ const StoreProvider = ({ children }) => {
 	if (!storeRef.current) {
 		// Create the store instance t he first time this renders
 		storeRef.current = makeStore()
+		injectStore(storeRef.current?.store)
 	}
 
 	return (
@@ -24,4 +26,3 @@ StoreProvider.propTypes = {
 }
 
 export { StoreProvider }
-

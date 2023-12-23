@@ -21,13 +21,12 @@ import Dashboard from "./pages/Dashboard/Dashboard"
 import PaymentHistory from "./pages/PaymentHistory/PaymentHistory"
 import Posts from "./pages/Posts/Posts"
 import Settings from "./pages/Settings/Settings"
-import { StoreProvider } from "./store/StoreProvider"
 
 const App = () => {
 	const [sideMenuOpen, setSideMenuOpen] = useState(false)
 
 	return (
-		<StoreProvider>
+		<>
 			{/* <BrowserRouter> */}
 			<Navbar
 				sideMenuOpen={sideMenuOpen}
@@ -103,7 +102,7 @@ const App = () => {
 			</div>
 			{/* <Footer/> */}
 			{/* </BrowserRouter> */}
-		</StoreProvider>
+		</>
 	)
 }
 
