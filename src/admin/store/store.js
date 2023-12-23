@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
+import { rootSlice } from "./slices/root.slice"
 
+// setup store
 export const makeStore = () => {
 	// persist config
 	const persistConfig = {
@@ -9,11 +11,9 @@ export const makeStore = () => {
 		storage,
 	}
 
-	// TODO => combine reducers
+	// combine reducers
 	const rootReducer = combineReducers({
-		// [apiHandler.reducerPath]: apiHandler.reducer,
-		// [authSlice.name]: authSlice.reducer,
-		// [globalSlice.name]: globalSlice.reducer,
+		[rootSlice.name]: rootSlice.reducer,
 	})
 
 	// persist reducer
