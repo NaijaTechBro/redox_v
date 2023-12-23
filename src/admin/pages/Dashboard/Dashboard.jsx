@@ -1,6 +1,5 @@
 import { BsPencilSquare, BsTrash } from "react-icons/bs"
 import { Link } from "react-router-dom"
-import { usePostsQuery } from "../../../service/apiHandler"
 import AVATARImg from "../../assets/AVATAR.png"
 import Chart from "../../components/Chart/DashboardChart"
 import "./Dashboard.css"
