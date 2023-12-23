@@ -31,10 +31,11 @@ import EditProfile from "./pages/User/Profile/EditProfile"
 
 import Admin from "./admin/App"
 import Learn from "./learn"
+import { StoreProvider } from "./store/StoreProvider"
 
 const App = () => {
 	return (
-		<>
+		<StoreProvider>
 			<ThemeProvider>
 				<UserContextProvider>
 					<BrowserRouter>
@@ -142,7 +143,7 @@ const App = () => {
 					</BrowserRouter>
 				</UserContextProvider>
 			</ThemeProvider>
-		</>
+		</StoreProvider>
 	)
 }
 
