@@ -2,7 +2,7 @@ import { useState } from "react"
 import Logo from "../../assets/logor.png"  
 import "./authAdmin.css" 
 
-const ForgotPassword = () => {
+const ForgotPassword = ({sideMenuOpen}) => {
 	const [email, setEmail] = useState("")
 	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
@@ -10,7 +10,7 @@ const ForgotPassword = () => {
 
 	return (
 		<>
-			<div className="">
+			<div className={sideMenuOpen ? 'login-page mobile--hidden' : 'login-page'}>
 				<img
 					src={Logo}
 					alt=""

@@ -4,12 +4,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Logo from "../../assets/logor.png"
-import Footer from "../../components/Layout/Footer/Footer"
-import Navbar from "../../components/Layout/Navbar/Navbar"
 import PasswordInput from "../../components/PasswordInput/PasswordInput"
 import "./authAdmin.css"
 
-const Login = () => {
+const Login = ({sideMenuOpen}) => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const navigate = useNavigate()
@@ -18,7 +16,7 @@ const Login = () => {
 	return (
 		<>
 			<ToastContainer />
-			<div className="">
+			<div className={sideMenuOpen ? 'login-page mobile--hidden' : 'login-page'}>
 				<img
 					src={Logo}
 					alt="logo"
@@ -40,7 +38,7 @@ const Login = () => {
 					Don't Have an Account?{" "}
 					<Link
 						className="register-page-Link"
-						to="/register">
+						to="/admin/cyprus">
 						Register
 					</Link>
 				</p>
@@ -48,7 +46,7 @@ const Login = () => {
 					Or{" "}
 					<Link
 						className="register-page-Link"
-						to="/forgotPassword">
+						to="/admin/forgotPassword">
 						Forgot Password
 					</Link>
 				</p>

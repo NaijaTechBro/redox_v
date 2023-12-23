@@ -8,7 +8,7 @@ import Footer from "../../components/Layout/Footer/Footer"
 import Navbar from "../../components/Layout/Navbar/Navbar"
 
 
-const Register = () => {
+const Register = ({sideMenuOpen}) => {
 	const [username, setUsername] = useState("")
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
@@ -18,7 +18,7 @@ const Register = () => {
 	return (
 		<>
 			<ToastContainer />
-			<div className=""> 
+			<div className={sideMenuOpen ? 'register-page mobile--hidden' : 'register-page'}> 
 				<img
 					src={Logo}
 					alt="logo"
@@ -54,7 +54,7 @@ const Register = () => {
 					Already Have an Account?{" "}
 					<Link
 						className="register-page-Link"
-						to="/login">
+						to="/admin/login">
 						Login
 					</Link>
 				</p>

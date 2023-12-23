@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './authAdmin.css';
 import PasswordInput from "../../components/PasswordInput/PasswordInput"
 
-const ResetPassword = () => {
+const ResetPassword = ({sideMenuOpen}) => {
   const [password,setPassword]=useState("")
   const [confirmPassword,setConfirmPassword]=useState("")
   const [success,setSuccess]=useState(false)
@@ -13,7 +13,7 @@ const ResetPassword = () => {
 
   return (
     <>
-    <div className={darkMode ? "dark_mode login-page" : "login-page"}>
+    <div className={sideMenuOpen ? "mobile--hidden login-page" : "login-page"}>
       <img src={Logo} alt='' width={150} />
       <h2>Reset Password</h2>
       {success ?
