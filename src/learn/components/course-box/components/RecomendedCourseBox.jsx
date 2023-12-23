@@ -1,5 +1,6 @@
 import { AiOutlineHeart } from "react-icons/ai"
 import { BsFillCartFill } from "react-icons/bs"
+import { Link } from "react-router-dom"
 import courseImg from "../../../assets/course-recomended.png"
 import { useCurrency } from "../../../hooks/useCurrency"
 import { CourseBoxRating } from "./CourseBoxRating"
@@ -8,7 +9,9 @@ const RecomendedCourseBox = () => {
 	const [price] = useCurrency(Number(5000), `en-NG`, `NGN`)
 
 	return (
-		<div className="course__box--recomended">
+		<Link
+			to={`/learn/course/beginner-guide`}
+			className="course__box--recomended">
 			<div className="course__box--recomended__img">
 				<img
 					src={courseImg}
@@ -38,7 +41,7 @@ const RecomendedCourseBox = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	)
 }
 
