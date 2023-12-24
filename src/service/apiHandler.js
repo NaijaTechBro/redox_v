@@ -1,5 +1,6 @@
 // import { getFormData } from "@/utils/general"
 import { createApi } from "@reduxjs/toolkit/query/react"
+import { getFormData } from "../helpers"
 import { URL } from "../url"
 import api from "./api"
 import { API_ROUTES } from "./endpoints"
@@ -89,15 +90,15 @@ export const apiHandler = createApi({
 			query: (name, email, password) => ({
 				url: API_ROUTES.CREATE_ADMIN,
 				method: "POST",
-				data: ({name, email, password})
-			})
+				data: getFormData({ name, email, password }),
+			}),
 		}),
 		//Login
 		login: builder.mutation({
-			query: ({email, password}) => ({
+			query: ({ email, password }) => ({
 				url: API_ROUTES.LOGIN,
 				method: "POST",
-				data: ({email, password}),
+				data: getFormData({ email, password }),
 			}),
 		}),
 		// deleteAdmin: builder.mutation({

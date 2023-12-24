@@ -1,35 +1,34 @@
 import axios from "axios"
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { useLoginMutation } from "../../../service/apiHandler"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { useLoginMutation } from "../../../service/apiHandler"
 import Logo from "../../assets/logor.png"
 import PasswordInput from "../../components/PasswordInput/PasswordInput"
 import "./authAdmin.css"
 
-const Login = ({sideMenuOpen}) => {
+const Login = ({ sideMenuOpen }) => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const navigate = useNavigate()
 
+	const [login] = useLoginMutation()
 
-	const [login] = useLoginMutation();
-
-  const handleLogin = async () => {
-		console.log(email, password)
-    try {
-      const result = await login({email, password})
-      console.log(result)
-    } catch (error) {
-      console.error('Login failed:', error)
-    }
-  }
+	const handleLogin = async () => {
+		try {
+			login({ email, password })
+				.unwrap()
+				.then(data => console.log(data))
+		} catch (error) {
+			console.error("Login failed:", error)
+		}
+	}
 
 	return (
 		<>
 			<ToastContainer />
-			<div className={sideMenuOpen ? 'login-page mobile--hidden' : 'login-page'}>
+			<div className={sideMenuOpen ? "login-page mobile--hidden" : "login-page"}>
 				<img
 					src={Logo}
 					alt="logo"

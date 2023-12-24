@@ -31,3 +31,9 @@ export const formatDate = inputDate => {
 
 	return formattedDate
 }
+
+export const getFormData = values =>
+	Object.keys(values).reduce((formData, key) => {
+		formData.append(key, values[key])
+		return formData
+	}, new FormData())
