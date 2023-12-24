@@ -14,6 +14,7 @@ const QUERY_TAGS = {
 const axiosBaseQuery =
 	({ baseUrl }) =>
 	async ({ url, method, data, headers, params }) => {
+		console.log(data)
 		try {
 			const result = await api({
 				url: baseUrl + url,
@@ -83,13 +84,22 @@ export const apiHandler = createApi({
 			}),
 			providesTags: [QUERY_TAGS.COUPON],
 		}),
-		// login: builder.mutation({
-		// 	query: () => ({
-		// 		url: API_ROUTES.LOGIN,
-		// 		method: "POST",
-		// 		// data: getFormData({ email, password }),
-		// 	}),
-		// }),
+		//Create Admin
+		createAdmin: builder.mutation({
+			query: (name, email, password) => ({
+				url: API_ROUTES.CREATE_ADMIN,
+				method: "POST",
+				data: ({name, email, password})
+			})
+		}),
+		//Login
+		login: builder.mutation({
+			query: ({email, password}) => ({
+				url: API_ROUTES.LOGIN,
+				method: "POST",
+				data: ({email, password}),
+			}),
+		}),
 		// deleteAdmin: builder.mutation({
 		//     query: id => ({
 		//         url: `${ADMIN_API_ROUTES.DELETE_ADMIN}/${id}`,
@@ -99,4 +109,4 @@ export const apiHandler = createApi({
 	}),
 })
 
-export const { useGetUsersQuery, useGetPostsQuery, useGetCategoriesQuery, useGetCouponsQuery } = apiHandler
+export const { useGetUsersQuery, useGetPostsQuery, useGetCategoriesQuery, useGetCouponsQuery, useLoginMutation, useCreateAdminMutation } = apiHandler
