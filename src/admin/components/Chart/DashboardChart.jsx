@@ -44,6 +44,18 @@ const DashboardChart = ({ posts, users }) => {
 	})
 
 	const getDay = () => new Date().getDay()
+	const getDate = () => new Date().getDate()
+
+	const getSingleDay = (day, data) => {
+		// const today = new Date()
+
+		const oneDayAgo = 24 * 60 * 60 * 1000
+		// let ago = 0
+
+		return new Date(new Date().getTime() - oneDayAgo * 2)
+	}
+	console.log(getSingleDay())
+	console.log(getDate())
 	console.log(getDay())
 	console.log(posts)
 	console.log(users)
