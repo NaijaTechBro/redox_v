@@ -7,6 +7,7 @@ const api = Axios.create({
 		"X-Requested-With": "XMLHttpRequest",
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "despotic.gr",
+		Authorization: `Bearer ${JSON.parse(localStorage.getItem(`t`))}`,
 	},
 	withCredentials: true,
 })

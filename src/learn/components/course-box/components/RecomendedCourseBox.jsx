@@ -1,8 +1,8 @@
 import { AiOutlineHeart } from "react-icons/ai"
 import { BsFillCartFill } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { useCurrency } from "../../../../hooks/useCurrency"
 import courseImg from "../../../assets/course-recomended.png"
-import { useCurrency } from "../../../hooks/useCurrency"
 import { CourseBoxRating } from "./CourseBoxRating"
 
 const RecomendedCourseBox = () => {
