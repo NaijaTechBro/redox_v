@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { useCurrency } from "../../../hooks/useCurrency"
+import { useCurrency } from "../../../../hooks/useCurrency"
 
 const TableData = ({ data, last }) => {
 	const [price] = useCurrency(Number(data), `en-NG`, `NGN`)

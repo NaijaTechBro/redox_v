@@ -1,8 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-// import thunkMiddleware from "redux-thunk"
-import logger from "redux-logger"
 import { apiHandler } from "../service/apiHandler"
 import { rootSlice } from "./slices/root.slice"
 
@@ -28,17 +26,8 @@ export const makeStore = () => {
 	const store = configureStore({
 		reducer: persistedReducer,
 		// middleware: [apiHandler.middleware],
-		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware()
-				.prepend(
-					// correctly typed middlewares can just be used
-					apiHandler.middleware,
-				)
-				// prepend and concat calls can be chained
-				.concat(logger),
+		middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiHandler.middleware),
 	})
-
-	// console.log(store.getState())
 
 	// persist store
 	const persistor = persistStore(store)

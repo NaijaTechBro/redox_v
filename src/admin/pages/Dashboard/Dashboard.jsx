@@ -1,10 +1,14 @@
 import { BsPencilSquare, BsTrash } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { useGetPostsQuery, useGetUsersQuery } from "../../../service/apiHandler"
 import AVATARImg from "../../assets/AVATAR.png"
 import Chart from "../../components/Chart/DashboardChart"
 import "./Dashboard.css"
 
 const Dashboard = ({ sideMenuOpen }) => {
+	const { data: posts = [] } = useGetPostsQuery()
+	const { data: users = [] } = useGetUsersQuery()
+
 	const data = [
 		{ name: "Ayo Jahn", email: "john@mail.com", phone: "+234 900 000 0000", amount: "₦39,000.00" },
 		{ name: "Dominic Praise", email: "dom@nestlypay.co", phone: "+234 900 000 0000", amount: "₦90,000.00" },
@@ -33,17 +37,20 @@ const Dashboard = ({ sideMenuOpen }) => {
 					</article>
 					<article className="info--boxes">
 						<h6>Total Users</h6>
-						<h4>301,900</h4>
+						<h4>{users.length}</h4>
 						<p style={{ color: "#FF0000B2" }}>- Decreased 9.4% today</p>
 					</article>
 					<article className="info--boxes">
 						<h6>Total Posts</h6>
-						<h4>31,900</h4>
+						<h4>{posts?.posts ? posts?.posts.length : posts.length}</h4>
 						<p style={{ color: "#27AE60B2" }}>+ Increased 11.7% today</p>
 					</article>
 				</div>
 			</header>
-			<Chart />
+			<Chart
+				posts={posts}
+				users={users}
+			/>
 			<aside className="desktop__only">
 				<span>
 					<h6>Users</h6>
@@ -62,22 +69,23 @@ const Dashboard = ({ sideMenuOpen }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{data.map(row => (
-							<tr key={row.name}>
-								<td>
-									<p className="user-img">{row.name.slice(0, 1)}</p>
-								</td>
-								<td>{row.name}</td>
-								<td>{row.email}</td>
-								<td>{row.phone}</td>
-								<td>
-									<span>
-										<BsPencilSquare />
-										<BsTrash />
-									</span>
-								</td>
-							</tr>
-						))}
+						{users.length > 0 &&
+							[0, 1, 2, 3, 4, 5].map(row => (
+								<tr key={row}>
+									<td>
+										<p className="user-img">{users[row].name.slice(0, 1)}</p>
+									</td>
+									<td>{users[row].name}</td>
+									<td>{users[row].email}</td>
+									<td>{users[row].phone}</td>
+									<td>
+										<span>
+											<BsPencilSquare />
+											<BsTrash />
+										</span>
+									</td>
+								</tr>
+							))}
 					</tbody>
 				</table>
 			</aside>
@@ -86,23 +94,24 @@ const Dashboard = ({ sideMenuOpen }) => {
 					<h5>All Users</h5>
 					<Link to="/admin/allusers">View All</Link>
 				</span>
-				{data.map((user, idx) => (
-					<div
-						className="user"
-						key={idx}>
-						<span>
-							<img
-								src={AVATARImg}
-								alt=""
-							/>
+				{users.length > 0 &&
+					users.map((user, idx) => (
+						<div
+							className="user"
+							key={idx}>
 							<span>
-								<h6>{user.name}</h6>
-								<p>{user.amount}</p>
+								<img
+									src={AVATARImg}
+									alt=""
+								/>
+								<span>
+									<h6>{user.name}</h6>
+									<p>{user.amount}</p>
+								</span>
 							</span>
-						</span>
-						<button>Action</button>
-					</div>
-				))}
+							<button>Action</button>
+						</div>
+					))}
 			</aside>
 		</section>
 	)

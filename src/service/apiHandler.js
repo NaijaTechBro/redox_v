@@ -4,6 +4,13 @@ import { URL } from "../url"
 import api from "./api"
 import { API_ROUTES } from "./endpoints"
 
+const QUERY_TAGS = {
+	USERS: `users`,
+	CATEGORY: `category`,
+	COURSE: `course`,
+	COUPON: `coupon`,
+}
+
 const axiosBaseQuery =
 	({ baseUrl }) =>
 	async ({ url, method, data, headers, params }) => {
@@ -29,25 +36,60 @@ const axiosBaseQuery =
 
 export const apiHandler = createApi({
 	reducerPath: "apiReducer",
+	tagTypes: Object.values(QUERY_TAGS),
 	refetchOnReconnect: true,
 	refetchOnMountOrArgChange: true,
 	baseQuery: axiosBaseQuery({
 		baseUrl: URL,
 	}),
 	endpoints: builder => ({
-		// login: builder.mutation({
-		// 	query: ({ email, password }) => ({
-		// 		url: API_ROUTES.LOGIN,
-		// 		method: "POST",
-		// 		data: getFormData({ email, password }),
-		// 	}),
-		// }),
-		categories: builder.query({
+		// Get Users
+		getUsers: builder.query({
+			query: () => ({
+				url: API_ROUTES.GET_USERS,
+				method: "GET",
+			}),
+			providesTags: [QUERY_TAGS.USERS],
+		}),
+		// Get Posts
+		getPosts: builder.query({
+			query: () => ({
+				url: API_ROUTES.GET_POSTS,
+				method: "GET",
+			}),
+			providesTags: [QUERY_TAGS.CATEGORY],
+		}),
+		// Get Categories
+		getCategories: builder.query({
 			query: () => ({
 				url: API_ROUTES.GET_CATEGORIES,
 				method: "GET",
 			}),
+			providesTags: [QUERY_TAGS.CATEGORY],
 		}),
+		// Get Category
+		getCategory: builder.query({
+			query: name => ({
+				url: `${API_ROUTES.GET_CATEGORY}/${name}`,
+				method: "GET",
+			}),
+			providesTags: [QUERY_TAGS.CATEGORY],
+		}),
+		// Get Coupons
+		getCoupons: builder.query({
+			query: () => ({
+				url: API_ROUTES.GET_COUPONS,
+				method: "GET",
+			}),
+			providesTags: [QUERY_TAGS.COUPON],
+		}),
+		// login: builder.mutation({
+		// 	query: () => ({
+		// 		url: API_ROUTES.LOGIN,
+		// 		method: "POST",
+		// 		// data: getFormData({ email, password }),
+		// 	}),
+		// }),
 		// deleteAdmin: builder.mutation({
 		//     query: id => ({
 		//         url: `${ADMIN_API_ROUTES.DELETE_ADMIN}/${id}`,
@@ -57,4 +99,4 @@ export const apiHandler = createApi({
 	}),
 })
 
-export const { useCategoriesQuery } = apiHandler
+export const { useGetUsersQuery, useGetPostsQuery, useGetCategoriesQuery, useGetCouponsQuery } = apiHandler

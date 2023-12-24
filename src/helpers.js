@@ -15,3 +15,19 @@ export const postDate = time => {
 }
 
 export const getBriefStr = (str, n) => (str.length > n ? str.substr(0, n - 1) + `...` : str)
+
+export const formatDate = inputDate => {
+	const dateObject = new Date(inputDate)
+
+	if (isNaN(dateObject.getTime())) {
+		return "Invalid Date"
+	}
+
+	const day = dateObject.getDate().toString().padStart(2, "0")
+	const month = (dateObject.getMonth() + 1).toString().padStart(2, "0") // Month is zero-based
+	const year = dateObject.getFullYear()
+
+	const formattedDate = `${day}/${month}/${year}`
+
+	return formattedDate
+}
