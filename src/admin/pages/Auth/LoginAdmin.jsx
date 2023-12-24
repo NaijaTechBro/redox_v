@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { useLoginMutation } from "../../../service/apiHandler"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Logo from "../../assets/logor.png"
@@ -12,6 +13,18 @@ const Login = ({sideMenuOpen}) => {
 	const [password, setPassword] = useState("")
 	const navigate = useNavigate()
 
+
+	const [login] = useLoginMutation();
+
+  const handleLogin = async () => {
+		console.log(email, password)
+    try {
+      const result = await login({email, password})
+      console.log(result)
+    } catch (error) {
+      console.error('Login failed:', error)
+    }
+  }
 
 	return (
 		<>
@@ -27,13 +40,14 @@ const Login = ({sideMenuOpen}) => {
 					onChange={e => setEmail(e.target.value)}
 					type="text"
 					placeholder="Enter your email"
+					autoComplete="on"
 				/>
 				<PasswordInput
 					onChange={e => setPassword(e.target.value)}
 					type="password"
 					placeholder="Enter your password"
 				/>
-				<button onClick="">Log in</button>
+				<button onClick={() => handleLogin()}>Log in</button>
 				<p>
 					Don't Have an Account?{" "}
 					<Link

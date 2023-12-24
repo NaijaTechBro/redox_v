@@ -4,8 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Logo from "../../assets/logor.png"
-import Footer from "../../components/Layout/Footer/Footer"
-import Navbar from "../../components/Layout/Navbar/Navbar"
+import { useCreateAdminMutation } from "../../../service/apiHandler"
 
 
 const Register = ({sideMenuOpen}) => {
@@ -14,6 +13,19 @@ const Register = ({sideMenuOpen}) => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const navigate = useNavigate()
+
+	
+	const [createAdmin] = useCreateAdminMutation();
+
+  const handleSignup = async () => {
+    try {
+      const result = await createAdmin({ name, email, password })
+      console.log(result)
+    } catch (error) {
+      console.error('Sign up failed:', error)
+    }
+  }
+
 
 	return (
 		<>
@@ -31,12 +43,12 @@ const Register = ({sideMenuOpen}) => {
 					type="text"
 					placeholder="Enter your name"
 				/>
-				<input
+				{/* <input
 					onChange={e => setUsername(e.target.value)}
 					value={username}
 					type="text"
 					placeholder="Enter your username"
-				/>
+				/> */}
 				<input
 					onChange={e => setEmail(e.target.value)}
 					value={email}
@@ -49,7 +61,7 @@ const Register = ({sideMenuOpen}) => {
 					type="password"
 					placeholder="Enter your password"
 				/>
-				<button onClick="">Register</button>
+				<button onClick={() => handleSignup()}>Register</button>
 				<p>
 					Already Have an Account?{" "}
 					<Link
