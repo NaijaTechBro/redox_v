@@ -24,4 +24,7 @@ export const API_ROUTES = {
 	CREATE_PAYMENT: "",
 	UPDATE_PAYMENT: "",
 	DELETE_PAYMENT: "",
+	//AUTH
+	LOGIN: "/api/admins/login",
+	CREATE_ADMIN: "/api/admins/create",
 }
