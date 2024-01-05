@@ -1,0 +1,221 @@
+/* Overview */
+.course--specific--overview h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.course--specific--overview p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000;
+}
+
+
+/* Curriculum */
+.course--specific--curriculum h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.course--specific--curriculum > ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.course--specific--curriculum > ul > li{
+  list-style-type: none;
+}
+.course--specific--curriculum > ul > li > span{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 20px;
+  border: 1px solid #00000033;
+  border-radius: 10px 10px 0px 0px;
+}
+.course--specific--curriculum > ul li > span > p{
+  padding-bottom: 0px;
+}
+.course--specific--curriculum .expanded--list{
+  border: 1px solid #00000033;
+  border-radius: 0px 0px 10px 10px;
+  padding: 30px 35px;
+}
+.course--specific--curriculum .expanded--list > li{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.course--specific--curriculum .expanded--list > li > p{
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+.course--specific--curriculum .expanded--list > li > button{
+  background-color: #FF5F00;
+  color: #FFF;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+/* Instructor */
+.course--specific--instructor > h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;  
+}
+.course--specific--instructor > section{
+  display: flex;
+  column-gap: 40px;
+  margin-bottom: 20px;
+}
+.course--specific--instructor > section > img{
+  width: 193px;
+  height: 193px;
+}
+.course--specific--instructor > section > div > h4{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.course--specific--instructor > section > div > p{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-bottom: 0px;
+}
+.course--specific--instructor > section > div > span{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.course--specific--instructor > section > div > span > p{
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.course--specific--instructor > p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-bottom: 0px;
+}
+
+
+
+
+/* Q/A */
+.course--specific--qa p{
+  padding-bottom: 0px;
+}
+.course--specific--qa .comment--list > article{
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #0000001A;
+}
+.course--specific--qa .comment--list > article > img{
+  width: 36px;
+  height: 36px;
+}
+.course--specific--qa .comment--list > article > div{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.course--specific--qa .comment--list > article > div > span > h4{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.course--specific--qa .comment--list > article > div > span >p{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #00000099;
+}
+.course--specific--qa .comment--list > article > div > p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;  
+}
+.course--specific--qa .comment--list > article > span{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
+  color: #00000080;  
+}
+.course--specific--qa .new--comment > textarea{
+  width: 100%;
+  padding: 15px 20px;
+  margin: 15px 0px;
+  border: 1px solid #0000001A;
+  border-radius: 10px;
+}
+.course--specific--qa .new--comment > button{
+  border: 2px solid #FF5F00;
+  border-radius: 10px;
+  background-color: #FF5F00;
+  color: #FFF;
+  cursor: pointer;
+  padding: 15px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;  
+}
+.course--specific--qa .new--comment > button:hover{
+  background-color: #FFF;
+  color: #FF5F00;
+}
