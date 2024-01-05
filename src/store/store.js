@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { apiHandler } from "../service/apiHandler"
+import { authSlice } from "./slices/auth.slice"
 import { rootSlice } from "./slices/root.slice"
 
 // setup store
@@ -17,6 +18,7 @@ export const makeStore = () => {
 	const rootReducer = combineReducers({
 		[apiHandler.reducerPath]: apiHandler.reducer,
 		[rootSlice.name]: rootSlice.reducer,
+		[authSlice.name]: authSlice.reducer,
 	})
 
 	// persist reducer
@@ -25,7 +27,6 @@ export const makeStore = () => {
 	// configure store
 	const store = configureStore({
 		reducer: persistedReducer,
-		// middleware: [apiHandler.middleware],
 		middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiHandler.middleware),
 	})
 

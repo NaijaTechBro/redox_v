@@ -17,9 +17,11 @@ const Login = ({ sideMenuOpen }) => {
 
 	const handleLogin = async () => {
 		try {
-			login({ email, password })
+			const params = { email, password }
+			login(params)
 				.unwrap()
 				.then(data => console.log(data))
+				.catch(error => console.log(error))
 		} catch (error) {
 			console.error("Login failed:", error)
 		}
