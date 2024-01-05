@@ -1,0 +1,79 @@
+.course--specific--overview h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.course--specific--overview p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000;
+}
+
+
+/* Curriculum */
+.course--specific--curriculum h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.course--specific--curriculum > ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.course--specific--curriculum > ul > li{
+  list-style-type: none;
+}
+.course--specific--curriculum > ul > li > span{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 20px;
+  border: 1px solid #00000033;
+  border-radius: 10px 10px 0px 0px;
+}
+.course--specific--curriculum > ul li > span > p{
+  padding-bottom: 0px;
+}
+.course--specific--curriculum .expanded--list{
+  border: 1px solid #00000033;
+  border-radius: 0px 0px 10px 10px;
+  padding: 30px 35px;
+}
+.course--specific--curriculum .expanded--list > li{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.course--specific--curriculum .expanded--list > li > p{
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+.course--specific--curriculum .expanded--list > li > button{
+  background-color: #FF5F00;
+  color: #FFF;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  cursor: pointer;
+}

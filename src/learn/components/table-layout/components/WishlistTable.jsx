@@ -1,12 +1,16 @@
 import Table from "./Table"
+import ProductImg from '../../../assets/product-analysis.png'
+import ProductImg2 from '../../../assets/product-analysis2.png'
 
 const WishlistTable = () => {
 	const data = {
-		thead: ["", "", "Product", "Price", "Availability", ""],
+		thead: ["", "Product", "Price", "Availability", ""],
 		tbody: [
-			[`The Unbundled University`, `January14, 2020`, 5000, `Offline Payment`, `Jacob Fisher`, `Download`],
-			[`The Unbundled University`, `January14, 2020`, 5000, `Offline Payment`, `Jacob Fisher`, `Download`],
-			[`The Unbundled University`, `January14, 2020`, 5000, `Offline Payment`, `Jacob Fisher`, `Download`],
+			[<img src={ProductImg} alt="" />, `Learn to Trade Forex through the News`, 5000, `Out of Stock`, `View Product`], 
+			[<img src={ProductImg2} alt="" />, `Build a Blockchain and a Cryptocurrency from Scratch`, 5000, `In Stock`, `View Product`],
+			[<img src={ProductImg} alt="" />, `Learn to Trade Forex through the News`, 5000, `Out of Stock`, `View Product`],
+			[<img src={ProductImg2} alt="" />, `Build a Blockchain and a Cryptocurrency from Scratch`, 5000, `In Stock`, `View Product`],
+			[<img src={ProductImg} alt="" />, `Learn to Trade Forex through the News`, 5000, `Out of Stock`, `View Product`],
 		],
 	}
 
