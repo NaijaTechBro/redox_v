@@ -1,4 +1,10 @@
 import React, { useState } from 'react'
+import { IoMdAlarm } from "react-icons/io"
+import { PiLinkSimple } from "react-icons/pi"
+import { IoPersonCircleOutline } from "react-icons/io5"
+import { BiBookBookmark } from "react-icons/bi"
+import { MdOutlineImportantDevices } from "react-icons/md";
+import { PiMedal } from "react-icons/pi";
 import InstructorDP from '../../assets/instructordp.png'
 import Overview from './components/overview'
 import Curriculum from './components/curriculum'
@@ -50,7 +56,18 @@ const CourseDetails = () => {
           </div>
         </main>
         <aside>
-          ASIDE CONTENT
+          <h3>₦5,000</h3>
+          <button>Add To Cart</button>
+          <button>Buy Now</button>
+          <div>
+            <h5>This course includes:</h5> 
+            <span><IoMdAlarm /><p>Duration 5H</p></span>
+            <span><PiLinkSimple /><p>Skill Level Intermediate</p></span>
+            <span><BiBookBookmark/><p>Lectures 7 lessons</p></span>
+            <span><IoPersonCircleOutline /><p>Enrolled 3 students</p></span>
+            <span><MdOutlineImportantDevices /><p>Certificate of completion</p></span>
+            <span><PiMedal /><p>Lifetime access</p></span>
+          </div>
         </aside>
       </div>
     </section>
