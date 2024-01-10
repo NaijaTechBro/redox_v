@@ -1,6 +1,6 @@
 import axios from "axios"
 import { convert } from "html-to-text"
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ImCross } from "react-icons/im"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
@@ -51,7 +51,7 @@ const CreatePost = () => {
 		const post = {
 			title,
 			// tradViewLink,
-			desc: editorText,
+			desc: JSON.stringify(editorHtml),
 			username: user.username,
 			userId: user._id,
 			categories: cats,
@@ -121,10 +121,13 @@ const CreatePost = () => {
 	//modules for text formatting options
 	const modules = {
 		toolbar: [
-			[{ align: "left" }, { align: "right" }, { align: "center" }, { align: "justify" }],
+			[{ header: [1, 2, 3, 4, 5, 6, false] }],
+			[{ font: [] }],
+			[{ size: [] }],
+			[{ align: "left" }, { align: "center" }, { align: "right" }, { align: "justify" }],
 			["bold", "italic", "underline", "strike", "blockquote"],
 			[{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
-			["link"],
+			["link", "image"],
 			["clean"],
 		],
 	}

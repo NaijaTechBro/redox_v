@@ -1,246 +1,244 @@
 .create {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+	max-width: 1140px;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .create .form-group {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
 }
 
 .create .label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: bold;
 }
 
 .create input,
 .create textarea,
 .create select {
-  display: block;
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  line-height: 1.5;
+	display: block;
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
 .create--button {
-  margin: 30px 30%;
-  width: 40%;
-  padding: 1.5rem 1rem;
-  border: none;
-  border-radius: 15px;
-  background-color: #ff5f00;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
+	margin: 30px 30%;
+	width: 40%;
+	padding: 1.5rem 1rem;
+	border: none;
+	border-radius: 15px;
+	background-color: #ff5f00;
+	color: #fff;
+	font-size: 1rem;
+	line-height: 1.5;
+	cursor: pointer;
 }
 .update--button {
-  margin-left: 5%;
-  width: 40%;
-  padding: 1.5rem 1rem;
-  border: none;
-  border-radius: 15px;
-  background-color: #ff5f00;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
+	margin-left: 5%;
+	width: 40%;
+	padding: 1.5rem 1rem;
+	border: none;
+	border-radius: 15px;
+	background-color: #ff5f00;
+	color: #fff;
+	font-size: 1rem;
+	line-height: 1.5;
+	cursor: pointer;
 }
 .delete--button {
-  margin-left: 5%;
-  width: 40%;
-  padding: 1.5rem 1rem;
-  border-radius: 15px;
-  background-color: #fff;
-  color: #ff5f00;
-  border: 1px solid #ff5f00;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
+	margin-left: 5%;
+	width: 40%;
+	padding: 1.5rem 1rem;
+	border-radius: 15px;
+	background-color: #fff;
+	color: #ff5f00;
+	border: 1px solid #ff5f00;
+	font-size: 1rem;
+	line-height: 1.5;
+	cursor: pointer;
 }
 
 .create button:hover {
-  background-color: #f39d6b;
+	background-color: #f39d6b;
 }
-.delete--button:hover{
-  background-color: #ff5f00;
-  color: #fff;
-  border: none;
+.delete--button:hover {
+	background-color: #ff5f00;
+	color: #fff;
+	border: none;
 }
 
 .add-category {
-  width: 120px;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1.5;
-  background: #FF5F00;
-  color: white;
-  margin: 10px 0px 50px 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 120px;
+	padding: 0.5rem;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1.5;
+	background: #ff5f00;
+	color: white;
+	margin: 10px 0px 50px 0px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .color {
-  color: orange;
+	color: orange;
 }
 
 .error-msg {
-  padding: 0.8rem 2rem;
-  background: #a00;
-  margin-block: 1rem;
+	padding: 0.8rem 2rem;
+	background: #a00;
+	margin-block: 1rem;
 }
-
 
 /****************************************************************/
-.create__h1{
-  margin-left: 65px;
+.create__h1 {
+	margin-left: 65px;
 }
-.create__form{
-  border: 4px solid #FFAF80;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 924px;
-  margin: 0 auto 100px auto;
+.create__form {
+	border: 4px solid #ffaf80;
+	padding: 35px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 924px;
+	margin: 0 auto 100px auto;
 }
-.create__form--image{
-  width: 852px;
-  height: 400px;
-  background-color: #f3f3f3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.create__form--image {
+	width: 852px;
+	height: 400px;
+	background-color: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
-.create__form--image > img{
-  width: 192px;
-  height: 126px;
+.create__form--image > img {
+	width: 192px;
+	height: 126px;
 }
-.create__form--image > p{
-  color: #cccccc;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 22px;
+.create__form--image > p {
+	color: #cccccc;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 22px;
 }
-.create__form--section{
-  /* border: 1px solid blue; */
-  width: 572px;
-  margin: 130px auto;
-  margin-bottom: 30px;
+.create__form--section {
+	/* border: 1px solid blue; */
+	width: 572px;
+	margin: 130px auto;
+	margin-bottom: 30px;
 }
-.create__form--section label{
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 22px;
-  letter-spacing: -0.40799999237060547px;
-  text-align: left;
+.create__form--section label {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: -0.40799999237060547px;
+	text-align: left;
 }
-.create__form--section input{
-  background: #D9D9D94F;
-  width: 540px;
-  margin: 10px 0px 50px 0px;
-  border: 0px;
-  padding: 15px 10px 15px 40px;
-  outline: none;
-  border-radius: 15px;
+.create__form--section input {
+	background: #d9d9d94f;
+	width: 540px;
+	margin: 10px 0px 50px 0px;
+	border: 0px;
+	padding: 15px 10px 15px 40px;
+	outline: none;
+	border-radius: 15px;
 }
-.create__form--section input::placeholder{
-  color: #C8C8C8;
+.create__form--section input::placeholder {
+	color: #c8c8c8;
 }
-.create__form--section span{
-  display: flex;
-  justify-content: space-between;
+.create__form--section span {
+	display: flex;
+	justify-content: space-between;
 }
 
 /* React-quill style */
-.quill{
-  margin: 10px 0px 100px 0px;
+.quill {
+	margin: 10px 0px 100px 0px;
 }
-.ql-container.ql-snow{
-  border-radius: 15px;
+.ql-container.ql-snow {
+	border-radius: 15px;
 }
 .ql-toolbar {
-  background-color: #fafafa;
-  height: 80px;
-  overflow-y: auto;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+	background-color: #fafafa;
+	/* height: 80px; */
+	/* overflow-y: auto; */
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 }
 
 .ql-editor {
-  background-color: #f3f3f3;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+	background-color: #f3f3f3;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
-.quill > .ql-container > .ql-editor.ql-blank::before{
-  content: attr(placeholder);
-  font-size: 20px;
-  color: red;
+.quill > .ql-container > .ql-editor.ql-blank::before {
+	content: attr(placeholder);
+	font-size: 20px;
+	color: red;
 }
 
 .create__form__section--categories {
-  display: flex;
-  gap: 20px;
-  position: relative;
-  top: -40px;
+	display: flex;
+	gap: 20px;
+	position: relative;
+	top: -40px;
 }
-.create__form__section--categories p{
-  background-color: #f2f2f2;
-  color: #292929;
-  font-weight: 300;
-  font-size: 13px;
-  padding: 5px 7px;
-  border-radius: 25%;
+.create__form__section--categories p {
+	background-color: #f2f2f2;
+	color: #292929;
+	font-weight: 300;
+	font-size: 13px;
+	padding: 5px 7px;
+	border-radius: 25%;
 }
-.create__form__section--categories i{
-  color: #ff5f00;
-  font-weight: 300;
-  cursor: pointer;
+.create__form__section--categories i {
+	color: #ff5f00;
+	font-weight: 300;
+	cursor: pointer;
 }
-.create__form__section--categories > div{
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.create__form__section--categories > div {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
-.cat-input{
-  width: 357px!important;
+.cat-input {
+	width: 357px !important;
 }
-
 
 /****************************************************************************/
 @media screen and (max-width: 675px) {
-  .create__form{
-    border: none;
-    width: 360px;
-    overflow: hidden;
-    padding: 0px;
-    margin-bottom: 0px;
-  }
-  .create__form--section{
-    width: 100%;
-    margin-top: 40px;
-  }
-  .create__form--section input{
-    width: 310px;
-  }
-  .cat-input{
-    width: 60%!important;
-  }
-  .add-category{
-    width: 15%;
-  }
+	.create__form {
+		border: none;
+		width: 360px;
+		overflow: hidden;
+		padding: 0px;
+		margin-bottom: 0px;
+	}
+	.create__form--section {
+		width: 100%;
+		margin-top: 40px;
+	}
+	.create__form--section input {
+		width: 310px;
+	}
+	.cat-input {
+		width: 60% !important;
+	}
+	.add-category {
+		width: 15%;
+	}
 }

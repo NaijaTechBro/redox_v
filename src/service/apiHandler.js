@@ -1,5 +1,4 @@
-// import { getFormData } from "@/utils/general"
-import { createApi } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { getFormData } from "../helpers"
 import { URL } from "../url"
 import api from "./api"
@@ -41,7 +40,10 @@ export const apiHandler = createApi({
 	tagTypes: Object.values(QUERY_TAGS),
 	refetchOnReconnect: true,
 	refetchOnMountOrArgChange: true,
-	baseQuery: axiosBaseQuery({
+	// baseQuery: axiosBaseQuery({
+	// 	baseUrl: URL,
+	// }),
+	baseQuery: fetchBaseQuery({
 		baseUrl: URL,
 	}),
 	endpoints: builder => ({
@@ -90,16 +92,24 @@ export const apiHandler = createApi({
 			query: (name, email, password) => ({
 				url: API_ROUTES.CREATE_ADMIN,
 				method: "POST",
-				data: getFormData({ name, email, password }),
+				body: getFormData({ name, email, password }),
 			}),
 		}),
 		//Login
 		login: builder.mutation({
-			query: ({ email, password }) => ({
-				url: API_ROUTES.LOGIN,
-				method: "POST",
-				data: getFormData({ email, password }),
-			}),
+			query: data => {
+				const request = {
+					url: API_ROUTES.LOGIN,
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						// Add any other headers if needed
+					},
+					data,
+				}
+				console.log("Login Request:", request)
+				return request
+			},
 		}),
 		// deleteAdmin: builder.mutation({
 		//     query: id => ({

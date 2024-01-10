@@ -6,8 +6,6 @@ const api = Axios.create({
 	headers: {
 		"X-Requested-With": "XMLHttpRequest",
 		"Content-Type": "application/json",
-		"Access-Control-Allow-Origin": "despotic.gr",
-		Authorization: `Bearer ${localStorage.getItem(`t`)}`,
 	},
 	withCredentials: true,
 })
@@ -22,7 +20,7 @@ api.interceptors.request.use(
 	async request => {
 		const state = store?.getState()
 		if (state?.auth?.token) {
-			request.headers.Authorization = state?.auth?.token
+			request.headers.Authorization = `Bearer ${state?.auth?.token}`
 		}
 		return request
 	},

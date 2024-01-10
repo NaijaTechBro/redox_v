@@ -1,5 +1,5 @@
 import { CategoryScale, Chart as ChartJS, Legend, LineElement, LinearScale, PointElement, Title, Tooltip } from "chart.js"
-import React, { useState } from "react"
+import { useEffect, useState } from "react"
 import { Line } from "react-chartjs-2"
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
@@ -43,22 +43,29 @@ const DashboardChart = ({ posts, users }) => {
 		],
 	})
 
-	const getDay = () => new Date().getDay()
-	const getDate = () => new Date().getDate()
+	useEffect(() => {
+		posts.length > 0 &&
+			posts.forEach(post => {
+				console.log(post)
+			})
+	}, [posts, users])
 
-	const getSingleDay = (day, data) => {
-		// const today = new Date()
+	// const getDay = () => new Date().getDay()
+	// const getDate = () => new Date().getDate()
 
-		const oneDayAgo = 24 * 60 * 60 * 1000
-		// let ago = 0
+	// const getSingleDay = (day, data) => {
+	// 	// const today = new Date()
 
-		return new Date(new Date().getTime() - oneDayAgo * 2)
-	}
-	console.log(getSingleDay())
-	console.log(getDate())
-	console.log(getDay())
-	console.log(posts)
-	console.log(users)
+	// 	const oneDayAgo = 24 * 60 * 60 * 1000
+	// 	// let ago = 0
+
+	// 	return new Date(new Date().getTime() - oneDayAgo * 2)
+	// }
+	// console.log(getSingleDay())
+	// console.log(getDate())
+	// console.log(getDay())
+	// console.log(posts)
+	// console.log(users)
 
 	return (
 		<Line

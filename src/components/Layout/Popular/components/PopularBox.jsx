@@ -1,3 +1,4 @@
+import { convert } from "html-to-text"
 import { BiDotsHorizontalRounded } from "react-icons/bi"
 import { MdOutlineBookmarkAdd } from "react-icons/md"
 import { Link } from "react-router-dom"
@@ -35,7 +36,12 @@ const PopularBox = ({ post, user }) => {
 					to={user._id !== undefined ? `/${post.title.toLowerCase().replace(/ /g, "-")}` : `/login`}
 					className="popular-box__info--body">
 					<h4 className="popular-box__info--title mobile--hidden">{post.title}</h4>
-					<p className="popular-box__info--text">{getBriefStr(post.desc, 200)}</p>
+					<p
+						className="popular-box__info--text"
+						dangerouslySetInnerHTML={{
+							__html: getBriefStr(convert(post.desc.substring(1, post.desc.length - 1)), 200),
+						}}
+					/>
 				</Link>
 				<div className="popular-box__info--bottom">
 					<div className="popular-box__info--meta meta">
