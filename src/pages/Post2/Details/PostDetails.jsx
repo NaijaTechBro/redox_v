@@ -1,4 +1,5 @@
 import axios from "axios"
+import { convert } from "html-to-text"
 import { useContext, useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
 import { BiEdit } from "react-icons/bi"
@@ -53,6 +54,7 @@ const PostDetails = () => {
 
 			if (data) {
 				data = data[0]
+				console.log(data)
 				setPostId(data._id)
 				setPost(data)
 				setUserID(data.userId)
@@ -223,7 +225,12 @@ const PostDetails = () => {
 							className="post__image"
 							alt=""
 						/>
-						<p className="post__description">{post.desc}</p>
+						<div
+							className="post__description"
+							dangerouslySetInnerHTML={{
+								__html: post.desc === undefined ? "" : convert(post.desc.substring(1, post.desc.length - 1)),
+							}}
+						/>
 						<div className="post__categories">
 							<h3>Categories:</h3>
 							<div className="category__list">
