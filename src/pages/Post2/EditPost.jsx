@@ -1,3 +1,4 @@
+import { convert } from "html-to-text"
 import { useContext, useEffect, useState } from "react"
 import { ImCross } from "react-icons/im"
 import ReactQuill from "react-quill"
@@ -32,10 +33,9 @@ const EditPost = () => {
 	const fetchPost = async () => {
 		await handleFetchPost(postId)
 			.then(post => {
-				console.log(post)
 				setDisplayTitle(post.title)
 				setTitle(post.title)
-				setEditorHtml(post.desc.substring(1, post.desc.length - 1))
+				setEditorHtml(convert(post.desc.substring(1, post.desc.length - 1)))
 				setCats(post.categories)
 				setTradViewLink(post.tradViewLink)
 				setEditorText(post.editorText)
