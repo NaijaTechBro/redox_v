@@ -1,8 +1,11 @@
+.admin--layout--div .admin-posts-list{
+  width: 80%;
+}
+
 .admin-posts-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
   padding: 35px 60px;
   background-color: #fafafa;
 }
@@ -210,4 +213,13 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1028px) {
+  .admin--layout--div .admin-posts-list{
+    width: 100%;
+  }  
+  .mobile--hidden{
+    display: none!important;
+  }
 }
