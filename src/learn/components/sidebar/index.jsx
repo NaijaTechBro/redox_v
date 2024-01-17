@@ -1,6 +1,7 @@
 import { AiFillHome } from "react-icons/ai"
 import { BiUserCircle } from "react-icons/bi"
 import { BsBriefcaseFill, BsPencilSquare, BsReceipt } from "react-icons/bs"
+import { CiClock2 } from "react-icons/ci";
 import { TbUsers } from "react-icons/tb"
 import { NavLink } from "react-router-dom"
 import { useTheme } from "../../../context/ThemeContext"
@@ -57,6 +58,28 @@ const Sidebar = () => {
 						<BsBriefcaseFill className="sidebar__icon--box__icon" />
 					</span>
 					Activities
+				</NavLink>
+				<NavLink
+					to="/learn/posts"
+					exact
+					end
+					className="sidebar--link"
+					activeClassName="active">
+					<span className="sidebar__icon--box">
+						<CiClock2 className="sidebar__icon--box__icon" />
+					</span>
+					Posts
+				</NavLink>
+				<NavLink
+					to="/learn/categories"
+					exact
+					end
+					className="sidebar--link"
+					activeClassName="active">
+					<span className="sidebar__icon--box">
+						<BsBriefcaseFill className="sidebar__icon--box__icon" />
+					</span>
+					Categories
 				</NavLink>
 			</div>
 			<div className="sidebar">
