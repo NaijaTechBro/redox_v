@@ -3,7 +3,7 @@ import { BsPencilSquare, BsSearch, BsTrash3, BsXCircle } from "react-icons/bs"
 import { useGetCategoriesQuery, useGetPostsQuery } from "../../../service/apiHandler"
 import PostImageSample from '../../../admin/assets/PostImageSample.png'
 import Modal from "../../components/Modal/Modal"
-import "../Posts/index.css"
+// import "../Posts/index.css"
 import "./index.css"
 
 const Categories = ({ sideMenuOpen }) => {
