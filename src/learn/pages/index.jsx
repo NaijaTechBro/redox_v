@@ -6,5 +6,7 @@ import { default as History } from "./history"
 import { default as Home } from "./home"
 import { default as MyCourses } from "./my-courses"
 import { default as Wishlist } from "./wishlist"
+import { default as Posts } from "./posts"
+import { default as Categories } from "./categories"
 
-export { Activities, Coupons, Course, Courses, History, Home, MyCourses, Wishlist }
+export { Activities, Coupons, Course, Courses, History, Home, MyCourses, Wishlist, Posts, Categories }

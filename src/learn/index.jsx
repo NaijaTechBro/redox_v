@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Layout from "./components/layout"
-import { Coupons, Course, Courses, History, Home, MyCourses, Wishlist } from "./pages"
+import { Coupons, Course, Courses, History, Home, MyCourses, Wishlist, Posts, Categories } from "./pages"
 import "./styles/styles.scss"
 
 const Learn = () => {
@@ -12,6 +12,8 @@ const Learn = () => {
 		{ path: `/wishlist`, element: <Wishlist /> },
 		{ path: `/coupons`, element: <Coupons /> },
 		{ path: `/history`, element: <History /> },
+		{ path: `/posts`, element: <Posts /> },
+		{ path: `/categories`, element: <Categories /> },
 	]
 
 	return (

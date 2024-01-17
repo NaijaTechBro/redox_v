@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { BsPencilSquare, BsSearch, BsTrash3, BsXCircle } from "react-icons/bs"
 import { useGetCategoriesQuery, useGetPostsQuery } from "../../../service/apiHandler"
-import PostImageSample from "../../assets/PostImageSample.png"
+import PostImageSample from '../../../admin/assets/PostImageSample.png'
 import Modal from "../../components/Modal/Modal"
-import "../Posts/Posts.css"
-import "./Categories.css"
+import "../Posts/index.css"
+import "./index.css"
 
 const Categories = ({ sideMenuOpen }) => {
 	const { data: posts = [] } = useGetPostsQuery()

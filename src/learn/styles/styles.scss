@@ -30,6 +30,7 @@
     height: calc(100vh - 5rem);
     @include flex($a: center);
     flex-direction: column;
+    overflow-y: scroll;
   }
 
   &--main {
