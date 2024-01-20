@@ -7,10 +7,10 @@ import { NavLink } from "react-router-dom"
 import { useTheme } from "../../../context/ThemeContext"
 
 const Sidebar = () => {
-	const { darkMode } = useTheme()
+	const { darkMode, dispMenu } = useTheme()
 
 	return (
-		<aside className={`learn__layout--sidebar ${darkMode ? `dark_mode` : ``}`}>
+		<aside className={`learn__layout--sidebar ${darkMode ? `dark_mode` : ``}`} style={{ display: dispMenu ? 'flex' : 'none' }}>
 			<div className="sidebar">
 				<NavLink
 					to="/learn"

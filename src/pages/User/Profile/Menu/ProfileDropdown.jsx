@@ -14,13 +14,14 @@ import SettingsLinks from "./SettingsLinks"
 import MembershipLinks from "./MembershipLinks"
 import CTALinks from "./CTALinks"
 import { useTheme } from "../../../../context/ThemeContext"
+import { BsList } from "react-icons/bs"
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
   const { user } = useContext(UserContext)
   const { setUser } = useContext(UserContext)
-  const { darkMode, toggleTheme } = useTheme()
+  const { darkMode, toggleTheme, toggleMenu } = useTheme()
 
   useEffect(() => {
     isOpen ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
@@ -62,11 +63,12 @@ const ProfileDropdown = () => {
   }
 
   return (
-    <div className="profile-dropdown">
+    <div className="profile-dropdown" style={{ display: 'flex', alignItems: 'center', overflowY: 'visible', gap: '10px'}}>
       <div className="profile-dropdown__image" onClick={toggleDropdown}>
         {/* <FaRegUserCircle src={user.photo} style={{ height: "60px", width: "30px" }} /> */}
         <img src={user.photo} alt="Profile" />
       </div>
+      <BsList className="togglesidebar" onClick={toggleMenu} style={{ display: 'none'}}/>
       {isOpen && (
         <div className="profile-dropdown__content">
           <div className="profile-dropdown__content--blur" onClick={toggleDropdown}></div>
