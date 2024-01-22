@@ -10,7 +10,7 @@ const Sidebar = () => {
 	const { darkMode, dispMenu } = useTheme()
 
 	return (
-		<aside className={`learn__layout--sidebar ${darkMode ? `dark_mode` : ``}`} style={{ display: dispMenu ? 'flex' : 'none' }}>
+		<aside className={`learn__layout--sidebar ${darkMode ? `dark_mode` : ``} ${dispMenu ? `learn__layout--sidebar--hidden` : ``}`}>
 			<div className="sidebar">
 				<NavLink
 					to="/learn"

@@ -539,8 +539,16 @@
   .learn__layout--sidebar{
     width: 100%;
   }
+  .learn__layout--sidebar--hidden{
+    display: none!important;
+  }
   .learn__layout--main{
     width: 100%;
+    padding: 1.5rem;
+
+    .admin-posts-list{
+      padding: 0px;
+    }
   }
   .hero__home{
 

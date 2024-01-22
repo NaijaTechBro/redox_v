@@ -100,8 +100,6 @@ const App = () => {
 					/>
 				</Routes>
 			</div>
-			{/* <Footer/> */}
-			{/* </BrowserRouter> */}
 		</>
 	)
 }
