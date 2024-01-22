@@ -18,8 +18,11 @@ const Login = () => {
 	const { setUser } = useContext(UserContext)
 	const navigate = useNavigate()
 	const { darkMode } = useTheme()
+	const [loading, setLoading] = useState(false)
 
 	const handleLogin = async () => {
+		setLoading(true)
+
 		try {
 			await axios.post(`${URL}/api/auth/login`, { email, password }, { withCredentials: true }).then(res => {
 				localStorage.setItem(`t`, JSON.stringify(res.data.token))
@@ -29,6 +32,7 @@ const Login = () => {
 		} catch (err) {
 			console.log(err)
 			toast.error(err.response.data.message)
+			setLoading(false)
 		}
 	}
 
@@ -53,7 +57,7 @@ const Login = () => {
 					type="password"
 					placeholder="Enter your password"
 				/>
-				<button onClick={handleLogin}>Log in</button>
+				<button onClick={handleLogin}>{loading ? 'Logging in' : 'Log in'}</button>
 				<p>
 					Don't Have an Account?{" "}
 					<Link

@@ -16,14 +16,18 @@ const Register = () => {
 	const [password, setPassword] = useState("")
 	const navigate = useNavigate()
 	const { darkMode } = useTheme()
+	const [loading, setLoading] = useState(false)
 
 	const handleRegister = async () => {
+		setLoading(true)
+
 		try {
 			await axios.post(`${URL}/api/auth/register`, { name, username, email, password })
 			navigate("/login")
 		} catch (err) {
 			console.log(err)
 			toast.error(err.response.data.message)
+			setLoading(false)
 		}
 	}
 
@@ -62,7 +66,7 @@ const Register = () => {
 					type="password"
 					placeholder="Enter your password"
 				/>
-				<button onClick={handleRegister}>Register</button>
+				<button onClick={handleRegister}>{loading ? 'Registering details' : 'Register'}</button>
 				<p>
 					Already Have an Account?{" "}
 					<Link
