@@ -139,3 +139,12 @@
   text-align: left;
   padding: 0px;
 }
+
+@media screen and (max-width: 768px) {
+  .course--details .top--details{
+    flex-direction: column;
+  }
+  .course--details .top--details > div:last-of-type > span > p {
+    font-size: 12px;
+  }
+}
