@@ -139,3 +139,52 @@
   text-align: left;
   padding: 0px;
 }
+
+@media screen and (max-width: 768px) {
+  .course--details .top--details{
+    flex-direction: column;
+  }
+  .course--details .top--details > div:last-of-type > span > p {
+    font-size: 12px;
+  }
+  .course--details .bottom--details{
+    flex-direction: column;
+  }
+  .course--details .bottom--details main{
+    width: 100%;
+    position: relative;
+  }
+  .course--details .bottom--details main .course--specifics{
+    position: absolute;
+    top: 950px;
+    padding: 0px 1.5rem 60px 1.5rem;
+    width: 100%;
+  }
+  .course--details .bottom--details aside{
+    width: 80%;
+    margin: 40px auto 0px auto;
+    padding: 15px 30px;
+  }
+  .course--details .bottom--details > aside > h3 {
+    font-size: 28px;
+  }
+  .course--details .bottom--details > aside > button {
+    font-size: 12px;
+    width: 90%;
+  }
+  .course--details .bottom--details aside > div > h5{
+    font-size: 14px;
+  }
+  .course--details .bottom--details aside > div > span > p{
+    font-size: 12px;
+  }
+  .course--details .course--specifics > ul{
+    flex-wrap: wrap;
+  }
+  .course--specific--overview h3, .course--specific--curriculum h3, .course--specific--instructor h3{
+    font-size: 18px;
+  }
+  .course--specific--overview p{
+    font-size: 12px;
+  }
+}
