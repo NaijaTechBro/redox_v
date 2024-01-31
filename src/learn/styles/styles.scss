@@ -547,7 +547,7 @@
     padding: 0rem;
 
     .admin-posts-list{
-      padding: 0px;
+      padding: 1.5rem;
     }
   }
   .hero{
@@ -652,5 +652,8 @@
     &--space{
       padding-right: 0px;
     }
+  }
+  .history__layout{
+    padding: 1.5rem;
   }
 }

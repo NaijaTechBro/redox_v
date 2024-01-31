@@ -144,6 +144,10 @@
   .course--details .top--details{
     flex-direction: column;
   }
+  .course--details .top--details > div{
+    border: none;
+    margin: 15px 0px;
+  }
   .course--details .top--details > div:last-of-type > span > p {
     font-size: 12px;
   }
@@ -186,5 +190,40 @@
   }
   .course--specific--overview p{
     font-size: 12px;
+  }
+  .course--specific--curriculum > ul > li > span{
+    font-size: 12px;
+  }
+  .course--specific--curriculum .expanded--list > li > p{
+    font-size: 12px;
+  }
+  .course--specific--instructor > section > div > h4{
+    font-size: 18px;
+  }
+  .course--specific--instructor > section > div > p{
+    font-size: 12px;
+  }
+  .course--specific--instructor > section > div > span {
+    gap: 8px;
+  }
+  .course--specific--instructor > section > div > span > p{
+    font-size: 12px;
+  }
+  .course--specific--instructor > p{
+    font-size: 12px;
+  }
+  .course--specific--qa .comment--list > article > div > span > h4{
+    font-size: 14px;
+  }
+  .course--specific--qa .comment--list > article > div > p{
+    font-size: 12px;
+  }
+  .course--specific--qa .new--comment > h3{
+    font-size: 16px;
+  }
+  .course--specific--qa .new--comment > button{
+    padding: 10px 25px;
+    font-size: 12px;
+    letter-spacing: 0.05rem;
   }
 }
