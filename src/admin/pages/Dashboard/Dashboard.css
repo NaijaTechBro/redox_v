@@ -267,7 +267,7 @@ td p{
     padding: 0px;
   }
   .dashboard__section .mobile__only button{
-    width: 59px;
+    width: auto;
     height: 29px;
     padding: 8px 14px 8px 14px;
     border: none;
